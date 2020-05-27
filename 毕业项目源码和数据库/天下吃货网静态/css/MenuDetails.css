@@ -1,0 +1,330 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4,
+ h5, h6, pre, form, fieldset, input, textarea, p,
+  blockquote, th, td{
+  	margin: 0px;
+  	padding: 0px;
+  	font-size: 12px;
+  }
+body{
+background: #fae8c8;
+position:relative;
+overflow-x: hidden;
+font-family:Arial,Helvetica,sans-serif;
+word-wrap:break-word;
+line-height:1;
+}
+.header{
+	height:129px;
+	background:#c90000 url(../images/header_bg.png) center repeat-y;
+	width:100%;
+	position:relative;
+	z-index:3000;
+}
+.header_c{
+	width:990px;
+	height:129px;
+	margin:0px auto;
+	position:relative;
+	z-index:3000;
+}
+/*Logo*/
+.header a.logo img{
+	display:block;
+	height: 129px;
+	width: 184px;
+	float: left;
+	background:-15px 9px no-repeat;
+}
+.loginitem_h a{
+	display:block;
+	height:28px;
+	line-height:28px;
+	float:right;
+	margin-right:0px;
+	color:#fff;
+	font-size:16px;
+	margin-top:50px;
+	padding:0px 10px;
+	border-radius:4px;
+}
+.loginitem_h a:hover{
+	background:rgba(0,0,0,0.3);
+	text-decoration:underline;
+}
+.header .sorry{
+	position:absolute;
+	line-height:18px;
+	color:#fff;
+	left:20px;
+	top:47px;
+	display:block;
+	z-index:100;
+	height:18px;
+}
+.header .sorry a{
+	color:#fff;
+	text-decoration:underline;
+}
+.header .sorry a:hover{
+	color:#333;
+} 
+.loginitem_h{
+	height:129px;
+	float:right;
+	display:inline-block;
+	vertical-align:top;
+	*display:inline;
+	*zoom:1;
+}
+.loginitem_h a.link{
+	display:block;
+	height:28px;
+	line-height:28px;
+	float:right;
+	margin-right:0px;
+	color:#fff;
+	font-size:12px;
+	margin-top:50px;
+	padding:0px 10px;
+	border-radius:4px;
+}
+.loginitem_h a.link:hover{
+	background:rgba(0,0,0,0.3);
+	text-decoration:underline;
+}
+.loginitem_h a.header_wblogin{
+	padding-left:34px;
+	background:url(../images/topdsflogin_icon.gif) 3px 0px no-repeat;
+}
+.loginitem_h a.header_qqlogin{
+	padding-left:34px;
+	background:url(../images/topdsflogin_icon.gif) 3px -28px no-repeat;
+}
+.loginitem_h a.header_wblogin:hover{
+	background:rgba(0,0,0,0.3) url(../images/topdsflogin_icon.gif) 3px 0px no-repeat;
+}
+.loginitem_h a.header_qqlogin:hover{
+	background:rgba(0,0,0,0.3) url(../images/topdsflogin_icon.gif) 3px -28px no-repeat;
+}
+.main_search_top_w{
+	height:129px;
+	width:430px;
+	float:left;
+	margin-left:68px;
+	_display:inline;
+	position:relative;
+	z-index:1000;
+}
+.main_search_top_w input.text{
+	height:16px;
+	width:326px;
+	padding:8px;
+	position:absolute;
+	top:46px;
+	border:0px;
+	line-height:16px;
+	overflow:hidden;
+	color:#999;
+	border:2px solid #fff;
+	-webkit-border-top-left-radius:4px;
+	-webkit-border-bottom-left-radius:4px;
+	-moz-border-radius-topleft:4px;
+	-moz-border-radius-bottomleft:4px;
+	border-top-left-radius:4px;
+	border-bottom-left-radius:4px;
+}
+.main_search_top_w input.submit{
+	height:36px;
+	width:80px;
+	position:absolute;
+	top:46px;
+	border:none;
+	line-height:32px;
+	left:344px;
+	border:2px solid #fff;
+	border-left:0px;
+	color:#fff;
+	background:#a8000f;
+	font-size:14px;
+	-webkit-border-top-right-radius:4px;
+	-webkit-border-bottom-right-radius:4px;
+	-moz-border-radius-topright:4px;
+	-moz-border-radius-bottomright:4px;
+	border-top-right-radius:4px;
+	border-bottom-right-radius:4px;
+}
+.main_search_top_w input.submit:hover{
+	background:#890511;
+}
+.nav{
+	height:76px;
+	width:100%;
+	background:#fff;
+	box-shadow:10px 0px 10px rgba(0,0,0,0.3);
+	position:relative;z-index:2000;
+}
+.nav ul{
+	height:76px;
+	width:990px;
+	margin:0px auto;
+}
+.nav ul li{
+	display:inline-block;
+	vertical-align:top;
+	*display:inline;
+	*zoom:1;
+	height:76px;
+}
+.nav ul li.hasmore{
+	background:url(../images/msj_menuarrow.gif?v=3) right center no-repeat;
+}
+.nav ul li a.link{
+	display:inline-block;
+	vertical-align:top;
+	*display:inline;
+	*zoom:1;
+	padding: 0px 24px;
+	height:76px;
+	line-height:76px;
+	font-size: 18px;
+	color:#444;
+	font-family:Microsoft Yahei,黑体;
+	font-weight:bold;
+	position:relative;
+}
+.nav ul li a.link .newicon_nav{
+	position:absolute;
+	right:-30px;
+	top:3px;
+	height:27px;
+	width:58px;
+}
+.nav ul li a.link .newicon_nav img{
+	display:block;
+	height:27px;
+	width:58px;
+}
+.nav ul li a.link strong{
+	font-weight:bold;
+	display:inline-block;
+	vertical-align:top;
+	*display:inline;
+	*zoom:1;
+	height:76px;
+}
+/*.nav ul li a.link:hover{background:#fafafa;}*/
+.nav ul li a.link:hover strong{
+	cursor:pointer;
+}
+.nav ul li span.no{
+	display:inline-block;
+	vertical-align:top;
+	*display:inline;
+	*zoom:1;
+	padding:0px 30px;
+	height:76px;
+	line-height:76px;
+	font-size:19px;
+	color:#444;
+	font-family:Microsoft Yahei,黑体;font-weight:bold;
+}
+.nav ul li span.no strong{
+	font-weight:bold;
+	display:inline-block;
+	vertical-align:top;
+	*display:inline;
+	*zoom:1;
+	height:76px;
+	color:#999;
+}
+.nav ul li.current a strong{
+	border-bottom:4px solid #ff3232;
+	height:72px;
+	overflow:hidden;
+}
+.nav ul li.current span strong{
+	border-bottom:4px solid #ff3232;
+	height:72px;
+	overflow:hidden;
+	color:#999;
+}
+.nav ul li.on a.link{
+	background:#fafafa;
+}
+.nav ul li.on a.link strong{}
+.nav ul li .dw{
+	width:100%;
+	position:absolute;
+	left:0px;
+	top:76px;
+	display:none;
+	*zoom:1;
+	_width:auto;
+}
+.nav ul li .dw .dww{
+	width:930px;
+	margin:0px auto;
+	background:#fafafa;
+	position:relative;
+	box-shadow:3px 3px 5px rgba(0,0,0,0.1);
+	padding:18px 30px 24px;
+}
+.nav ul li .dw .dww_cpdq .bgitem{
+	background:url(../images/jccp_navbgg.png) right bottom no-repeat;
+	position:absolute;
+	right:-60px;
+	bottom:-30px;
+	height:226px;
+	width:406px;
+}
+.nav ul li .dw .dww_ysjk .bgitem{
+	background:url(../images/ysjk_navbg.png) right bottom no-repeat;
+	position:absolute;
+	right:-60px;
+	bottom:-30px;
+	height:208px;
+	width:325px;
+}
+.nav ul li.on .dw{
+	display:block;
+}
+.nav ul li .dw .dwitem{
+	display:inline-block;
+	vertical-align:top;
+	*zoom:1;
+	*display:inline;
+	overflow:hidden;
+	white-space:nowrap;
+	padding:0px 10px 12px 0px;
+}
+.nav ul li .dw .dwitem_half{
+	width:330px;
+}
+.nav ul li .dw .dwitem dl{}
+.nav ul li .dw .dwitem dl dt{
+	display:block;
+	height:24px;
+	line-height:24px;
+}
+.nav ul li .dw .dwitem dl dt a{
+	color:#ff3232;
+	font-size:17px;
+	font-family:Microsoft Yahei,黑体;
+}
+.nav ul li .dw .dwitem dl dd{
+	display:inline-block;
+	vertical-align:top;
+	*display:inline;
+	*zoom:1;
+	height:24px;
+	line-height:24px;
+	padding-right:14px;
+}
+.nav ul li .dw .dwitem dl dd a{
+	color:#999;
+	font-size:12px;
+}
+.nav ul li .dw .dwitem dl a:hover{
+	background:#ff3232;
+	color:#fff;
+}
