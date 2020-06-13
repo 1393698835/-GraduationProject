@@ -1,4 +1,72 @@
-* {
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -6,6 +74,10 @@
 	font-size: 100%;
 	vertical-align: baseline;
 	background: transparent;
+}
+
+body {
+	line-height: 1;
 }
 
  :focus {
@@ -293,7 +365,7 @@ ins {
 
 .newsearch_logo2 {
 	height: 48px;
-	width: 40px;
+	width: 80px;
 	position: absolute;
 	left: 20px;
 	top: 50%;
@@ -312,16 +384,12 @@ ins {
 }
 
 .search_header_con .logo img {
-	padding-right:350px;
 	display: block;
-	width: 80px;
-	height: 60px;
 }
 
 .headernav {
-	padding-right: 120px;
-	height: 65px;
-	line-height: 65px;
+	height: 48px;
+	line-height: 48px;
 	font-size: 14px;
 	color: #333;
 }
@@ -342,6 +410,7 @@ ins {
 	color: #ddd;
 	font-size: 14px;
 	padding: 0px 12px;
+	background: #444;
 	transition: all ease .1s;
 	-webkit-transition: all ease .1s;
 }
@@ -2056,10 +2125,9 @@ html {
 #windown-table .tr2 .td3 {
 	width: 8px;
 }
-.xuanchuan{
-	height: 80px;
-	line-height: 80px;
-	text-align: center;
-	color: orangered;
-	font-size: 40px;
+.search_header_con .logo img {
+	padding-right:350px;
+	display: block;
+	width: 80px;
+	height: 60px;
 }
