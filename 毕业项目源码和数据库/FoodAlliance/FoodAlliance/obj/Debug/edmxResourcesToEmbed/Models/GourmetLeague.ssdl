@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GourmetLeagueModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RecipeID" Type="int" />
+    <Property Name="CommentUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="CommentContent" Type="nvarchar" MaxLength="50" />
+    <Property Name="CommentonTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Food">
+    <Key>
+      <PropertyRef Name="FoodID" />
+    </Key>
+    <Property Name="FoodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypessID" Type="int" />
+    <Property Name="FoodName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FoodPicture" Type="nvarchar" MaxLength="50" />
+    <Property Name="FoodRecommend" Type="nvarchar" MaxLength="50" />
+    <Property Name="FoodPractce" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Recipe">
+    <Key>
+      <PropertyRef Name="RecipeID" />
+    </Key>
+    <Property Name="RecipeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RecipeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="TypessID" Type="int" />
+    <Property Name="RecipePicture" Type="nvarchar" MaxLength="50" />
+    <Property Name="RecipeDifficulty" Type="nvarchar" MaxLength="10" />
+    <Property Name="RecipeTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="RecipeStory" Type="nvarchar" MaxLength="70" />
+    <Property Name="Ingredient" Type="nvarchar" MaxLength="50" />
+    <Property Name="RecipeDosage" Type="nvarchar" MaxLength="50" />
+    <Property Name="FlowChart" Type="nvarchar" MaxLength="50" />
+    <Property Name="Particular" Type="nvarchar" MaxLength="50" />
+    <Property Name="ThumbNumber" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Typess">
+    <Key>
+      <PropertyRef Name="TypessID" />
+    </Key>
+    <Property Name="TypessID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypessMode" Type="nvarchar" MaxLength="50" />
+    <Property Name="TypessName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PID" Type="int" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UsersID" />
+    </Key>
+    <Property Name="UsersID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UsersPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="UsersName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UsersPassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="UsersAvatar" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__Comment__RecipeI__1B0907CE">
+    <End Role="Recipe" Type="Self.Recipe" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recipe">
+        <PropertyRef Name="RecipeID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="RecipeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Food__TypessID__15502E78">
+    <End Role="Typess" Type="Self.Typess" Multiplicity="0..1" />
+    <End Role="Food" Type="Self.Food" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Typess">
+        <PropertyRef Name="TypessID" />
+      </Principal>
+      <Dependent Role="Food">
+        <PropertyRef Name="TypessID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Recipe__TypessID__182C9B23">
+    <End Role="Typess" Type="Self.Typess" Multiplicity="0..1" />
+    <End Role="Recipe" Type="Self.Recipe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Typess">
+        <PropertyRef Name="TypessID" />
+      </Principal>
+      <Dependent Role="Recipe">
+        <PropertyRef Name="TypessID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Typess__PID__1273C1CD">
+    <End Role="Typess" Type="Self.Typess" Multiplicity="0..1" />
+    <End Role="Typess1" Type="Self.Typess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Typess">
+        <PropertyRef Name="TypessID" />
+      </Principal>
+      <Dependent Role="Typess1">
+        <PropertyRef Name="PID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GourmetLeagueModelStoreContainer">
+    <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recipe" EntityType="Self.Recipe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Typess" EntityType="Self.Typess" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Comment__RecipeI__1B0907CE" Association="Self.FK__Comment__RecipeI__1B0907CE">
+      <End Role="Recipe" EntitySet="Recipe" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Food__TypessID__15502E78" Association="Self.FK__Food__TypessID__15502E78">
+      <End Role="Typess" EntitySet="Typess" />
+      <End Role="Food" EntitySet="Food" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Recipe__TypessID__182C9B23" Association="Self.FK__Recipe__TypessID__182C9B23">
+      <End Role="Typess" EntitySet="Typess" />
+      <End Role="Recipe" EntitySet="Recipe" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Typess__PID__1273C1CD" Association="Self.FK__Typess__PID__1273C1CD">
+      <End Role="Typess" EntitySet="Typess" />
+      <End Role="Typess1" EntitySet="Typess" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
