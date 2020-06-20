@@ -131,6 +131,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ReleaseMenuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -175,6 +176,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Home2.css" />
+    <Content Include="Content\Imges\add.png" />
+    <Content Include="Content\Imges\favicon.ico" />
+    <Content Include="Content\Imges\loading.gif" />
     <Content Include="Content\Imges\logo.png" />
     <Content Include="Content\Imges\下拉箭头.png" />
     <Content Include="Content\Imges\丝瓜.jpg" />
@@ -233,6 +237,9 @@
     <Content Include="Content\Imges\香肠飞饼卷.jpg" />
     <Content Include="Content\Imges\驴打滚.jpg" />
     <Content Include="Content\Login.css" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\ReleaseMenu.css" />
+    <Content Include="Content\upfood.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -247,6 +254,8 @@
       <DependentUpon>GourmetLeague.edmx</DependentUpon>
       <LastGenOutput>GourmetLeague.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\adsbygoogle.js" />
+    <Content Include="Scripts\ajaxfileupload.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\GourmetLeague.edmx">
@@ -257,18 +266,26 @@
       <DependentUpon>GourmetLeague.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\gt.js" />
     <Content Include="Scripts\Home.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.form.min.js" />
+    <Content Include="Scripts\Jquery.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\Login.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\ReleaseMenu.js" />
+    <Content Include="Scripts\search.js" />
+    <Content Include="Scripts\Sortable.min.js" />
+    <Content Include="Scripts\tip.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -285,6 +302,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\HomePage\Index.cshtml" />
+    <Content Include="Views\ReleaseMenu\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
