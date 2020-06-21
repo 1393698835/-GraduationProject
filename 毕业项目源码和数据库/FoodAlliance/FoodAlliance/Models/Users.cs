@@ -14,10 +14,19 @@ namespace FoodAlliance.Models
     
     public partial class Users
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Users()
+        {
+            this.Recipe = new HashSet<Recipe>();
+        }
+    
         public int UsersID { get; set; }
         public string UsersPhone { get; set; }
         public string UsersName { get; set; }
         public string UsersPassword { get; set; }
         public string UsersAvatar { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Recipe> Recipe { get; set; }
     }
 }

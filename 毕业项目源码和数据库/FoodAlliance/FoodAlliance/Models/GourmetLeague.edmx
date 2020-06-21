@@ -4,7 +4,17 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="GourmetLeagueModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="GourmetLeagueModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admini">
+          <Key>
+            <PropertyRef Name="AdminiID" />
+          </Key>
+          <Property Name="AdminiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminiPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdminiName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdminiPassword" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdminiAvatar" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Comment">
           <Key>
             <PropertyRef Name="CommentID" />
@@ -37,11 +47,13 @@
           <Property Name="RecipeDifficulty" Type="nvarchar" MaxLength="10" />
           <Property Name="RecipeTime" Type="nvarchar" MaxLength="50" />
           <Property Name="RecipeStory" Type="nvarchar" MaxLength="70" />
-          <Property Name="Ingredient" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ingredient" Type="nvarchar" MaxLength="300" />
           <Property Name="RecipeDosage" Type="nvarchar" MaxLength="50" />
           <Property Name="FlowChart" Type="nvarchar" MaxLength="50" />
-          <Property Name="Particular" Type="nvarchar" MaxLength="50" />
+          <Property Name="Particular" Type="nvarchar" MaxLength="400" />
           <Property Name="ThumbNumber" Type="int" />
+          <Property Name="UsersID" Type="int" />
+          <Property Name="Audit" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -72,18 +84,6 @@
           <Property Name="UsersPassword" Type="nvarchar" MaxLength="50" />
           <Property Name="UsersAvatar" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__Comment__RecipeI__1B0907CE">
-          <End Role="Recipe" Type="Self.Recipe" Multiplicity="0..1" />
-          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Recipe">
-              <PropertyRef Name="RecipeID" />
-            </Principal>
-            <Dependent Role="Comment">
-              <PropertyRef Name="RecipeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Food__TypessID__15502E78">
           <End Role="Typess" Type="Self.Typess" Multiplicity="0..1" />
           <End Role="Food" Type="Self.Food" Multiplicity="*" />
@@ -92,18 +92,6 @@
               <PropertyRef Name="TypessID" />
             </Principal>
             <Dependent Role="Food">
-              <PropertyRef Name="TypessID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Recipe__TypessID__182C9B23">
-          <End Role="Typess" Type="Self.Typess" Multiplicity="0..1" />
-          <End Role="Recipe" Type="Self.Recipe" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Typess">
-              <PropertyRef Name="TypessID" />
-            </Principal>
-            <Dependent Role="Recipe">
               <PropertyRef Name="TypessID" />
             </Dependent>
           </ReferentialConstraint>
@@ -120,32 +108,40 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Recipe_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Recipe" Type="Self.Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UsersID" />
+            </Principal>
+            <Dependent Role="Recipe">
+              <PropertyRef Name="UsersID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="GourmetLeagueModelStoreContainer">
+          <EntitySet Name="Admini" EntityType="Self.Admini" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Recipe" EntityType="Self.Recipe" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Typess" EntityType="Self.Typess" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Comment__RecipeI__1B0907CE" Association="Self.FK__Comment__RecipeI__1B0907CE">
-            <End Role="Recipe" EntitySet="Recipe" />
-            <End Role="Comment" EntitySet="Comment" />
-          </AssociationSet>
           <AssociationSet Name="FK__Food__TypessID__15502E78" Association="Self.FK__Food__TypessID__15502E78">
             <End Role="Typess" EntitySet="Typess" />
             <End Role="Food" EntitySet="Food" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Recipe__TypessID__182C9B23" Association="Self.FK__Recipe__TypessID__182C9B23">
-            <End Role="Typess" EntitySet="Typess" />
-            <End Role="Recipe" EntitySet="Recipe" />
           </AssociationSet>
           <AssociationSet Name="FK__Typess__PID__1273C1CD" Association="Self.FK__Typess__PID__1273C1CD">
             <End Role="Typess" EntitySet="Typess" />
             <End Role="Typess1" EntitySet="Typess" />
           </AssociationSet>
+          <AssociationSet Name="FK_Recipe_Users" Association="Self.FK_Recipe_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Recipe" EntitySet="Recipe" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="GourmetLeagueModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -183,13 +179,16 @@
           <Property Name="RecipeDifficulty" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="RecipeTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="RecipeStory" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
-          <Property Name="Ingredient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ingredient" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <Property Name="RecipeDosage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FlowChart" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Particular" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Particular" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
           <Property Name="ThumbNumber" Type="Int32" />
           <NavigationProperty Name="Comment" Relationship="Self.FK__Comment__RecipeI__1B0907CE" FromRole="Recipe" ToRole="Comment" />
           <NavigationProperty Name="Typess" Relationship="Self.FK__Recipe__TypessID__182C9B23" FromRole="Recipe" ToRole="Typess" />
+          <Property Name="UsersID" Type="Int32" />
+          <Property Name="Audit" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="GourmetLeagueModel.FK_Recipe_Users" FromRole="Recipe" ToRole="Users" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -223,6 +222,7 @@
           <Property Name="UsersName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UsersPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UsersAvatar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Recipe" Relationship="GourmetLeagueModel.FK_Recipe_Users" FromRole="Users" ToRole="Recipe" />
         </EntityType>
         <Association Name="FK__Comment__RecipeI__1B0907CE">
           <End Role="Recipe" Type="Self.Recipe" Multiplicity="0..1" />
@@ -295,7 +295,34 @@
             <End Role="Typess" EntitySet="Typess" />
             <End Role="Typess1" EntitySet="Typess" />
           </AssociationSet>
+          <AssociationSet Name="FK_Recipe_Users" Association="GourmetLeagueModel.FK_Recipe_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Recipe" EntitySet="Recipe" />
+          </AssociationSet>
+          <EntitySet Name="Admini" EntityType="GourmetLeagueModel.Admini" />
         </EntityContainer>
+        <Association Name="FK_Recipe_Users">
+          <End Type="GourmetLeagueModel.Users" Role="Users" Multiplicity="0..1" />
+          <End Type="GourmetLeagueModel.Recipe" Role="Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UsersID" />
+            </Principal>
+            <Dependent Role="Recipe">
+              <PropertyRef Name="UsersID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Admini">
+          <Key>
+            <PropertyRef Name="AdminiID" />
+          </Key>
+          <Property Name="AdminiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminiPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdminiName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdminiPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdminiAvatar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -328,6 +355,8 @@
           <EntitySetMapping Name="Recipe">
             <EntityTypeMapping TypeName="GourmetLeagueModel.Recipe">
               <MappingFragment StoreEntitySet="Recipe">
+                <ScalarProperty Name="Audit" ColumnName="Audit" />
+                <ScalarProperty Name="UsersID" ColumnName="UsersID" />
                 <ScalarProperty Name="RecipeID" ColumnName="RecipeID" />
                 <ScalarProperty Name="RecipeName" ColumnName="RecipeName" />
                 <ScalarProperty Name="TypessID" ColumnName="TypessID" />
@@ -372,6 +401,17 @@
                 <ScalarProperty Name="UsersName" ColumnName="UsersName" />
                 <ScalarProperty Name="UsersPassword" ColumnName="UsersPassword" />
                 <ScalarProperty Name="UsersAvatar" ColumnName="UsersAvatar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admini">
+            <EntityTypeMapping TypeName="GourmetLeagueModel.Admini">
+              <MappingFragment StoreEntitySet="Admini">
+                <ScalarProperty Name="AdminiAvatar" ColumnName="AdminiAvatar" />
+                <ScalarProperty Name="AdminiPassword" ColumnName="AdminiPassword" />
+                <ScalarProperty Name="AdminiName" ColumnName="AdminiName" />
+                <ScalarProperty Name="AdminiPhone" ColumnName="AdminiPhone" />
+                <ScalarProperty Name="AdminiID" ColumnName="AdminiID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

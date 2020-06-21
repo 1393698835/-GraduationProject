@@ -150,7 +150,7 @@ input, textarea, select, button {
     left: 0;
     width: 100%;
     z-index: 99;
-    background: #fff;
+    background: #c90000 center repeat-y;
 }
 
     #header .header {
@@ -165,7 +165,8 @@ input, textarea, select, button {
     }
 
         #header .logo > img {
-            height: 30px;
+            margin-top:-10px;
+            height: 45px;
         }
     /*导航栏*/
     #header .nav {
@@ -188,7 +189,7 @@ input, textarea, select, button {
                 width: auto;
                 height: 30px;
                 line-height: 30px;
-                color: #000;
+                color: white;
                 letter-spacing: 1px;
             }
 
@@ -329,7 +330,6 @@ input, textarea, select, button {
         display: block;
         left: 0;
         top: -15px;
-        background: transform;
     }
 /*登录注册*/
 #header .perinfo {
@@ -436,7 +436,6 @@ input, textarea, select, button {
         display: block;
         left: 0;
         top: -15px;
-        background: transform;
     }
 
     .nav .ctip img {

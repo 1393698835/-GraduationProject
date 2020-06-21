@@ -16,8 +16,18 @@ namespace FoodAlliance.Controllers
         //添加食谱
         public ActionResult Index()
         {
-            List<Recipe> list = db.Recipe.ToList();
-            return View(list);
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Index(Recipe rec)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Recipe.Add(rec);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
         }
 
         public ActionResult SavePic(List<HttpPostedFileBase> file)

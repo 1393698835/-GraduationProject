@@ -130,10 +130,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
+    <Compile Include="Controllers\HouTaiController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ReleaseMenuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Admini.cs">
+      <DependentUpon>GourmetLeague.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Comment.cs">
       <DependentUpon>GourmetLeague.tt</DependentUpon>
@@ -176,9 +180,11 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Home2.css" />
+    <Content Include="Content\HouTaiLogin.css" />
     <Content Include="Content\Imges\add.png" />
     <Content Include="Content\Imges\favicon.ico" />
     <Content Include="Content\Imges\loading.gif" />
+    <Content Include="Content\Imges\login_home_background.jpg" />
     <Content Include="Content\Imges\logo.png" />
     <Content Include="Content\Imges\下拉箭头.png" />
     <Content Include="Content\Imges\丝瓜.jpg" />
@@ -186,6 +192,7 @@
     <Content Include="Content\Imges\二维码.png" />
     <Content Include="Content\Imges\公安标志.png" />
     <Content Include="Content\Imges\南瓜.jpg" />
+    <Content Include="Content\Imges\后台用户头像.jpg" />
     <Content Include="Content\Imges\哈密瓜.jpg" />
     <Content Include="Content\Imges\土豆.jpg" />
     <Content Include="Content\Imges\大蒜.jpg" />
@@ -236,6 +243,7 @@
     <Content Include="Content\Imges\饭勺子.jpg" />
     <Content Include="Content\Imges\香肠飞饼卷.jpg" />
     <Content Include="Content\Imges\驴打滚.jpg" />
+    <Content Include="Content\layui.css" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\ReleaseMenu.css" />
@@ -268,6 +276,7 @@
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\gt.js" />
     <Content Include="Scripts\Home.js" />
+    <Content Include="Scripts\Index.houtai.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -279,8 +288,10 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Layui.houtai.js" />
     <Content Include="Scripts\Login.js" />
     <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\min.houtai.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\ReleaseMenu.js" />
     <Content Include="Scripts\search.js" />
@@ -303,6 +314,8 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\HomePage\Index.cshtml" />
     <Content Include="Views\ReleaseMenu\Index.cshtml" />
+    <Content Include="Views\HouTai\Login.cshtml" />
+    <Content Include="Views\HouTai\HouTaiHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

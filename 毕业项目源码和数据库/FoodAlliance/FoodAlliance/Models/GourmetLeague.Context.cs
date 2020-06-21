@@ -31,5 +31,6 @@ namespace FoodAlliance.Models
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Typess> Typess { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Admini> Admini { get; set; }
     }
 }

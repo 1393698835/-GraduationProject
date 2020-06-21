@@ -12,12 +12,10 @@
     <title>上传您的美食菜谱 </title>
     <meta name="keywords" content="上传您的美食菜谱美食,菜谱,家常菜谱,美食菜谱,豆果美食菜谱,最新菜谱,美食分享,菜谱分享,减肥食谱,特色小吃,西餐美食,最全的菜谱网站,美食文化,豆果美食,douguo.com">
     <meta name="description" content="豆果美食为华人美食菜谱社区，提供各种美食、菜谱、食谱的做法，丰富的菜谱大全可以让您轻松地学会怎么做美食，展现自己的高超厨艺，与千万会员一同分享美味的人生！">
-    <meta name="author" content="豆果美食 www.douguo.com">
-
     <link rel="icon" href="~/Content/Imges/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="~/Content/main.css">
+    <link rel="stylesheet" href="~/Content/main.css"  />
     <link rel="stylesheet" href="~/Content/upfood.css">
-    <script src='~/Scripts/Jquery.js'></script>
+    <script src="~/Scripts/Jquery.js"></script>
     <script data-ad-client="ca-pub-6608973961595981" async src="~/Scripts/adsbygoogle.js"></script>
     <script>
         var _hmt = _hmt || [];
@@ -30,7 +28,7 @@
     </script>
 </head>
 <body>
-    <div id="header" class="">
+    <div id="header" class="" style="background:#c90000 center repeat-y;">
         <div class="header clearfix">
             <a class="logo left" href="/"><img src="~/Content/Imges/logo.png" alt=""></a>
             <ul class="nav">
@@ -166,16 +164,21 @@
                 font-weight: bold;
                 font-size: 15px;
             }
+            .step textarea {
+    margin-left:110px;
+    display: inline-block;
+    position: absolute;
+    padding: 12px 10px;
+    right: 44px;
+    width: 436px;
+    height: 200px;
+    resize: none;
+    border-radius: 4px;
+    border: 1px solid #E5E3DF;
+    font-size: 15px;
+    color: #333;
+}
     </style>
-    <!--[if lte IE 9]>
-        <style type="text/css">
-            .cover .upsucc:hover .reset-upcover {display: none;}
-            .upimgsucc:hover button {display: none;}
-            .name select, .restory select {height: auto;border: 1px solid #D9D9D9;border-radius: 4px;font-size: 15px;color: #000;background: none;padding:5px;}
-            .name option, .restory option {color: #333;}
-            .restory select {width: auto;margin-right: 14px;padding-left: 0;text-align: center;}
-        </style>
-    <![endif]-->
     <div id="content" class="clearfix">
         <div id="left">
             <div class="draft-tip mt20"><span>已保存到云端</span></div>
@@ -190,21 +193,14 @@
 
                </div>
                 <div class="name">
-                    <input class="upname " id="cook_name" name="cook_name" type="text" maxlength="30"
+                    <input class="upname " id="RecipeName" name="RecipeName" type="text" maxlength="30"
                            value="菜谱名称"
                            onfocus="if(this.value=='菜谱名称') {this.value=''; $(this).addClass('fcbm'); }"
                            onblur="if(!this.value) {this.value='菜谱名称';$(this).removeClass('fcbm');} draft();" />
 
-
-
-
-
-
-
-
                 </div>
                 <div class="restory pbm" style="margin-top: 20px;">
-                    <select id="cook_difficulty" name="cook_difficulty" class="seleco" onchange="draft();">
+                    <select id="RecipeDifficulty" name="RecipeDifficulty" class="seleco" onchange="draft();">
                         <option value="">烹饪难度</option>
                         <option value="1">
                             切墩(初级)
@@ -217,7 +213,7 @@
                         </option>
                     </select>
 
-                    <select id="costtime" name="costtime" class="seleco" onchange="draft();">
+                    <select id="RecipeTime" name="RecipeTime" class="seleco" onchange="draft();">
                         <option value="">烹饪时间</option>
                         <option value="10分钟左右">
                             10分钟左右
@@ -234,94 +230,34 @@
                     </select>
                 </div>
                 <div class="rory">
-                    <textarea class="strtext " name="cookStory"
+                    <textarea class="strtext " name="RecipeStory"
                               onfocus="if(this.value=='这道菜背后的故事～(选填)') {this.value=''; $(this).addClass('fcbm'); }"
-                              onblur="if(!this.value) {this.value='这道菜背后的故事～(选填)';$(this).removeClass('fcbm');} draft();">这道菜背后的故事～(选填)</textarea>
+                              onblur="if(!this.value) {this.value='这道菜背后的故事～(选填)';$(this).removeClass('fcbm');} draft();">这道菜背后的故事～(选填)
+                    </textarea>
                 </div>
                 <div class="material clearfix">
                     <h2>食材清单</h2>
                     <div class="zl-list mlist">
-                        <div>
-                            <span class="liaotit"> 食材</span><span class="liangtit"> 用量</span>
-                        </div>
                         <div class="mct clearfix">
-                            <input type="text" class="liaoext zhuliao" name="zhuliao[]" value="如:五花肉"
-                                   onfocus="if(this.value=='如:五花肉') {this.value=''; $(this).addClass('fcbm'); }"
-                                   onblur="if(!this.value) {this.value='如:五花肉';$(this).removeClass('fcbm');}" />
-                            <input type="text" class="liangext" name="zhuliaoValue[]" value="如:250g"
-                                   onfocus="if(this.value=='如:250g') {this.value=''; $(this).addClass('fcbm'); }"
-                                   onblur="if(!this.value) {this.value='如:250g';$(this).removeClass('fcbm');}" />
-                            <a href="javascript:void(0);" class="add" onclick="addZhuLiao($(this).parent())"></a>
-                            <a href="javascript:void(0);" class="up" onclick="moveUp(this,'mct')"></a>
-                            <a href="javascript:void(0);" class="down" onclick="moveDown(this,'mct')"></a>
-                            <a href="javascript:void(0);" class="wrng" onclick="deleteThisEle(this)"></a>
-                        </div>
-                        <div class="mct clearfix">
-                            <input type="text" class="liaoext zhuliao fcbm" name="zhuliao[]" value="" />
-                            <input type="text" class="liangext fcbm" name="zhuliaoValue[]" value="" />
-                            <a href="javascript:void(0);" class="add" onclick="addZhuLiao($(this).parent())"></a>
-                            <a href="javascript:void(0);" class="up" onclick="moveUp(this,'mct')"></a>
-                            <a href="javascript:void(0);" class="down" onclick="moveDown(this,'mct')"></a>
-                            <a href="javascript:void(0);" class="wrng" onclick="deleteThisEle(this)"></a>
-                        </div>
-                        <div class="mct clearfix">
-                            <input type="text" class="liaoext zhuliao fcbm" name="zhuliao[]" value="" />
-                            <input type="text" class="liangext fcbm" name="zhuliaoValue[]" value="" />
-                            <a href="javascript:void(0);" class="add" onclick="addZhuLiao($(this).parent())"></a>
-                            <a href="javascript:void(0);" class="up" onclick="moveUp(this,'mct')"></a>
-                            <a href="javascript:void(0);" class="down" onclick="moveDown(this,'mct')"></a>
-                            <a href="javascript:void(0);" class="wrng" onclick="deleteThisEle(this)"></a>
-                        </div>
-                        <div class="mct clearfix">
-                            <input type="text" class="liaoext zhuliao fcbm" name="zhuliao[]" value="" />
-                            <input type="text" class="liangext fcbm" name="zhuliaoValue[]" value="" />
-                            <a href="javascript:void(0);" class="add" onclick="addZhuLiao($(this).parent())"></a>
-                            <a href="javascript:void(0);" class="up" onclick="moveUp(this,'mct')"></a>
-                            <a href="javascript:void(0);" class="down" onclick="moveDown(this,'mct')"></a>
-                            <a href="javascript:void(0);" class="wrng" onclick="deleteThisEle(this)"></a>
+                            <div class="form-group">
+                                <div class="bzmw mrs">
+                                    <textarea name="Ingredient" id="Ingredient" cols="108" rows="8"></textarea>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <a class="adlan" href="javascript:void(0);" id="zhuliao" onclick="addZhuLiao('')">增加一栏</a>
                 </div>
-                <div class="step">
-                    <h2>步骤 <span style="font-size:12px;font-weight:normal;">（支持上传图片格式有jpg、jpeg、png、gif、webp）</span></h2>
-                    <a href="javascript:void(0)" onclick="$('#moreImg').click()" class="piliang piliang-btn">批量上传</a>
-                    <input type="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/webp" id="moreImg" name="image[]" multiple hidden style="display: none" onchange="upMoreImg(event)">
-                    <span class="piliang">按住Ctrl键可多选，为保证您的使用体验，请单次上传图片不要超过6张 </span>
-                    <ul class="step-list" id="step">
-                        <li class="nsetp clearfix">
-                            <a href="javascript:void(0);" class="up" onclick="moveUp(this,'nsetp')"></a>
-                            <a href="javascript:void(0);" class="down" onclick="moveDown(this,'nsetp')"></a>
-                            <a href="javascript:void(0);" class="add" onclick="addBuZhou(null,null,$(this).parent())"></a>
-                            <a href="javascript:void(0);" class="wrng" onclick="deleteThisEle(this)"></a>
-                            <div class="icross" onmousemove="moveStepFile(event,'buzhou-file',this)">
-                                添加步骤图
+                <div class="material clearfix">
+                    <h2>步骤详情</h2>
+                    <div class="zl-list mlist">
+                        <div class="mct clearfix">
+                            <div class="form-group">
+                                <div class="bzmw mrs">
+                                    <textarea name="Particular" id="Particular" cols="108" rows="8"></textarea>
+                                </div>
                             </div>
-                            <div class="loading">
-                                正在上传…
-                            </div>
-                            <div class="upimgsucc">
-                                <img src="" alt="" /><!--步骤图-->
-                                <input type="text" name="setpImages[]" class="buzhou">
-                                <button type="button" onclick="resetBuzhou(this)"></button>
-                            </div>
-                            <div class="bzmw mrs">
-                                <textarea name="setpInfos[]" class="steptext"></textarea>
-                            </div>
-                        </li>
-                    </ul>
-                    <a class="addstep" href="javascript:void(0);" onclick="addBuZhou()">增加一栏</a>
-                </div>
-                <div class="tips">
-                    <h2>小贴士</h2>
-                    <textarea name="cooktips" class="fcbm" onfocus="if(this.value=='(选填)') {this.value=''; $(this).addClass('fcbm'); }"
-                              onblur="if(!this.value) {this.value='(选填)';$(this).removeClass('fcbm');} draft();"> </textarea>
-                    <label for="exclusive">
-                        <input type="checkbox" name="cook_level" value="2" id="exclusive" onchange="draft();" hidden>
-                        <span class="check-icon"></span>
-                        <span>独家菜谱 <span>(此菜谱仅在豆果美食发布)</span></span>
-                    </label>
-                    <input type="hidden" name="_token" id="_token" value="fIu7En3gWpSUuURsWHkyrOAFupUnzHRgYNMZ6k1H" />
+                        </div>
+                    </div>
                 </div>
                 <input type="hidden" id="draft_id" name="draft_id" value="">
                 <input type="hidden" name="video" id="video" value="">
@@ -331,28 +267,11 @@
 
                 <input name="token" type="hidden" value="PQPz49YjVeJ-uOdyqIwxyOn6aodL8dBI0ePyhHXX:s7-P2GFZL4eN1bqioi3oyh7uS_M=:eyJjYWxsYmFja1VybCI6Imh0dHA6XC9cL2FwaS5kb3VndW8ubmV0XC91cGxvYWRcL3Fpbml1Y2FsbGJhY2siLCJjYWxsYmFja0JvZHkiOiJ7XCJrZXlcIjpcIiQoa2V5KVwiLFwiaGFzaFwiOlwiJChldGFnKVwiLFwiZnNpemVcIjokKGZzaXplKSxcImJ1Y2tldFwiOlwiJChidWNrZXQpXCIsXCJ1aWRcIjoyNTQ3Njk2NyxcInR5cGVcIjoxfSIsImNhbGxiYWNrQm9keVR5cGUiOiJhcHBsaWNhdGlvblwvanNvbiIsInNjb3BlIjoiZG91Z3VvLWxpdmUiLCJkZWFkbGluZSI6MTU5MjY0NDM5M30=">
 
-                <a href="javascript:void(0)" onclick="$('#vidoeFile').click();console.log('上传视频点了');" class="upload-video"
-                   id="pickv">上传视频</a>
+                
                 <input type="hidden" name="cvideo_id" id="cvideo_id" value="">
-                <input type="hidden" name="src_url" id="src_url" value="">
-
-                <div class="video-more ">
-                    <p>视频已上传成功，可以发布啦</p>
-                    <a href="javascript:void(0)" id="reup"
-                       style="display:inline-block;background: #FFB31A; padding: 12px;font-size: 16px;color: #ffffff;border-radius: 4px">重新选择视频</a>
-                    <a href="javascript:void(0)" id="delup"
-                       style="display:inline-block;background: #FFB31A; padding: 12px;font-size: 16px;color: #ffffff;border-radius: 4px">删除视频</a>
-                </div>
-
-                <div class="signupcode">
-                    <input type="hidden" name="check" value="1">
-                    <span>验证码：</span>
-                    <input type="text" name="signupcode" id="signupcode">
-                    <img src="/captcha" onclick="refreshcode()" class="codeImg">
-                </div>
+                <input type="hidden" name="src_url" id="src_url" value="">              
                 <div class="complete">
-                    <a class="submit" href="javascript:void(0)" onclick="checkArtinfo(release,)">发布</a>
-                    <a class="savedraft" href="javascript:void(0)" onclick="draft2()">存草稿</a>
+                    <input type="submit" value=" 保存 " class="btn btn-default" />
                 </div>
             </form>
            

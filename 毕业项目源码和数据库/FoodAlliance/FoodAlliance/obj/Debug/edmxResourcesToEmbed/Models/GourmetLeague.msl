@@ -27,6 +27,8 @@
     <EntitySetMapping Name="Recipe">
       <EntityTypeMapping TypeName="GourmetLeagueModel.Recipe">
         <MappingFragment StoreEntitySet="Recipe">
+          <ScalarProperty Name="Audit" ColumnName="Audit" />
+          <ScalarProperty Name="UsersID" ColumnName="UsersID" />
           <ScalarProperty Name="RecipeID" ColumnName="RecipeID" />
           <ScalarProperty Name="RecipeName" ColumnName="RecipeName" />
           <ScalarProperty Name="TypessID" ColumnName="TypessID" />
@@ -71,6 +73,17 @@
           <ScalarProperty Name="UsersName" ColumnName="UsersName" />
           <ScalarProperty Name="UsersPassword" ColumnName="UsersPassword" />
           <ScalarProperty Name="UsersAvatar" ColumnName="UsersAvatar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admini">
+      <EntityTypeMapping TypeName="GourmetLeagueModel.Admini">
+        <MappingFragment StoreEntitySet="Admini">
+          <ScalarProperty Name="AdminiAvatar" ColumnName="AdminiAvatar" />
+          <ScalarProperty Name="AdminiPassword" ColumnName="AdminiPassword" />
+          <ScalarProperty Name="AdminiName" ColumnName="AdminiName" />
+          <ScalarProperty Name="AdminiPhone" ColumnName="AdminiPhone" />
+          <ScalarProperty Name="AdminiID" ColumnName="AdminiID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

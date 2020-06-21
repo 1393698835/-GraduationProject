@@ -191,7 +191,7 @@
     }
 
     .material input {
-        height: 42px;
+        height: 90px;
         line-height: 42px;
         border: 1px solid #E5E3DF;
         border-radius: 4px;
@@ -199,7 +199,7 @@
         padding: 0 10px;
         color: #999;
         display: inline-block;
-        width: 305px;
+        width: 605px;
     }
 
     .material .fcbm {
@@ -395,19 +395,7 @@
     height: 100%
 }
 
-.step textarea {
-    display: inline-block;
-    position: absolute;
-    padding: 12px 10px;
-    right: 44px;
-    width: 436px;
-    height: 200px;
-    resize: none;
-    border-radius: 4px;
-    border: 1px solid #E5E3DF;
-    font-size: 15px;
-    color: #333;
-}
+
 
 .step .fcbm {
     color: #333;
