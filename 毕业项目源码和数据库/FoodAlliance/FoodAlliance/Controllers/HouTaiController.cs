@@ -27,7 +27,7 @@ namespace FoodAlliance.Controllers
             {
                 Session["ID"] = list.AdminiID;
                 Session["Name"] = list.AdminiName;
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("HouTaiHome", "HouTai");
             }
             else
             {
@@ -35,10 +35,33 @@ namespace FoodAlliance.Controllers
             }
         }
         //后台首页
+        //后台用户查询
         public ActionResult HouTaiHome()
         {
             List<Users> list = db.Users.ToList();
             return View(list);
         }
+        
+        public ActionResult Delete(int userID)
+        {
+            Users user = db.Users.Find(userID);
+            db.Users.Remove(user);
+            db.SaveChanges();
+            return RedirectToAction("HouTaiHome");
+        }
+        //后台审核
+        public ActionResult HouTaiAudit()
+        {
+            List<Recipe> list = db.Recipe.ToList();
+            return View(list);
+        }
+        public ActionResult HouTaiAuditzd(int audit)
+        {
+            Recipe list = db.Recipe.Find(audit);
+            list.Audit = 1;
+            db.SaveChanges();
+            return RedirectToAction("HouTaiAudit");
+        }
+
     }
 }

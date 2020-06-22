@@ -20,8 +20,8 @@
             <div class="layui-logo">美食同盟会后台管理系统</div>
             <!-- 头部区域（可配合layui已有的水平导航） -->
             <ul class="layui-nav layui-layout-left">
-                <li class="layui-nav-item"><a href="#">用户列表</a></li>
-                <li class="layui-nav-item"><a href="#">审核列表</a></li>
+                <li class="layui-nav-item"><a href="/HouTai/HouTaiHome">用户列表</a></li>
+                <li class="layui-nav-item"><a href="/HouTai/HouTaiAudit">审核列表</a></li>
             </ul>
             <ul class="layui-nav layui-layout-right">
                 <li class="layui-nav-item">
@@ -39,10 +39,10 @@
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                 <ul class="layui-nav layui-nav-tree" lay-filter="test">
                     <li class="layui-nav-item">
-                        <a href="#">用户管理</a>
+                        <a href="/HouTai/HouTaiHome">用户管理</a>
                     </li>
                     <li class="layui-nav-item">
-                        <a href="#">审核管理</a>
+                        <a href="/HouTai/HouTaiAudit">审核管理</a>
                     </li>
                 </ul>
             </div>
@@ -78,14 +78,11 @@
                                     <td>@item.UsersPhone</td>
                                     <td>@item.UsersAvatar</td>
                                     <td>
-                                        <a href="/Teacher/Edit/@item.UsersID" class="btn btn-primary">编辑</a> 
-                                        <a href="/Teacher/Details/@item.UsersID" class="btn btn-success">详情</a> 
-                                        <a href="/Teacher/Delete/@item.UsersID" class="btn btn-info">删除</a>
+                                        <a href="/HouTai/Delete/?userID=@item.UsersID" class="btn btn-danger">删除</a>
                                     </td>
                                 </tr>
 
                             }
-
                         </table>
                     </div>
             </div>

@@ -316,6 +316,7 @@
     <Content Include="Views\ReleaseMenu\Index.cshtml" />
     <Content Include="Views\HouTai\Login.cshtml" />
     <Content Include="Views\HouTai\HouTaiHome.cshtml" />
+    <Content Include="Views\HouTai\HouTaiAudit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
