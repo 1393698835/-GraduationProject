@@ -182,7 +182,7 @@
     <div id="content" class="clearfix">
         <div id="left">
             <div class="draft-tip mt20"><span>已保存到云端</span></div>
-           <form action="" class="mt20" id="upfood" method="post">
+           <form action="" class="mt20" id="upfood" method="post" enctype="multipart/form-data">
                <div class="cover">
                    <input type="file" name="file" id="file" onchange="funChange()" accept="image/gif,image/jpeg,image/jpg,image/png,image/webp" />
                   
@@ -202,13 +202,13 @@
                 <div class="restory pbm" style="margin-top: 20px;">
                     <select id="RecipeDifficulty" name="RecipeDifficulty" class="seleco" onchange="draft();">
                         <option value="">烹饪难度</option>
-                        <option value="1">
+                        <option value="切墩(初级)">
                             切墩(初级)
                         </option>
-                        <option value="2">
+                        <option value="配菜(中级)">
                             配菜(中级)
                         </option>
-                        <option value="3">
+                        <option value="掌勺(高级)">
                             掌勺(高级)
                         </option>
                     </select>

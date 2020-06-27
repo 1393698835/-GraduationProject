@@ -128,6 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DetailController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\HouTaiController.cs" />
@@ -163,9 +164,6 @@
     <Compile Include="Models\Recipe.cs">
       <DependentUpon>GourmetLeague.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>GourmetLeague.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Typess.cs">
       <DependentUpon>GourmetLeague.tt</DependentUpon>
     </Compile>
@@ -186,6 +184,7 @@
     <Content Include="Content\Imges\loading.gif" />
     <Content Include="Content\Imges\login_home_background.jpg" />
     <Content Include="Content\Imges\logo.png" />
+    <Content Include="Content\Imges\下一个图标.png" />
     <Content Include="Content\Imges\下拉箭头.png" />
     <Content Include="Content\Imges\丝瓜.jpg" />
     <Content Include="Content\Imges\丝瓜炖豆腐.jpg" />
@@ -200,6 +199,10 @@
     <Content Include="Content\Imges\尖辣椒.jpg" />
     <Content Include="Content\Imges\干瘪四季豆.jpg" />
     <Content Include="Content\Imges\底部背景.png" />
+    <Content Include="Content\Imges\手机.png" />
+    <Content Include="Content\Imges\手机1.jpg" />
+    <Content Include="Content\Imges\手机2.jpg" />
+    <Content Include="Content\Imges\手机3.jpg" />
     <Content Include="Content\Imges\放大镜.png" />
     <Content Include="Content\Imges\新鲜四季豆.jpg" />
     <Content Include="Content\Imges\杨梅.jpg" />
@@ -243,9 +246,11 @@
     <Content Include="Content\Imges\饭勺子.jpg" />
     <Content Include="Content\Imges\香肠飞饼卷.jpg" />
     <Content Include="Content\Imges\驴打滚.jpg" />
+    <Content Include="Content\Imges\鲫鱼汤.jpg" />
     <Content Include="Content\layui.css" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\main.css" />
+    <Content Include="Content\MenuDetails.css" />
     <Content Include="Content\ReleaseMenu.css" />
     <Content Include="Content\upfood.css" />
     <Content Include="favicon.ico" />
@@ -254,8 +259,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\GourmetLeague.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>GourmetLeague.Context.cs</LastGenOutput>
       <DependentUpon>GourmetLeague.edmx</DependentUpon>
+      <LastGenOutput>GourmetLeague.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\GourmetLeague.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -284,6 +289,7 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.form.min.js" />
     <Content Include="Scripts\Jquery.js" />
+    <Content Include="Scripts\jquery.metadata.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -291,6 +297,7 @@
     <Content Include="Scripts\Layui.houtai.js" />
     <Content Include="Scripts\Login.js" />
     <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\MenuDetails.js" />
     <Content Include="Scripts\min.houtai.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\ReleaseMenu.js" />
@@ -317,6 +324,8 @@
     <Content Include="Views\HouTai\Login.cshtml" />
     <Content Include="Views\HouTai\HouTaiHome.cshtml" />
     <Content Include="Views\HouTai\HouTaiAudit.cshtml" />
+    <Content Include="Views\HouTai\HouTaiAuditcg.cshtml" />
+    <Content Include="Views\Detail\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

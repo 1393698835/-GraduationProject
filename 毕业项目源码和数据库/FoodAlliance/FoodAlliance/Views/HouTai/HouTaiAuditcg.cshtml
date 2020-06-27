@@ -2,7 +2,7 @@
     Layout = null;
 }
 @using FoodAlliance.Models;
-@model List<Users>
+@model List<Recipe>
 
 <!DOCTYPE html>
 <html>
@@ -54,41 +54,58 @@
 
         <div class="layui-body">
             <!-- 内容主体区域 -->
-            <div style="padding: 15px; margin-top:60px;">                  
-                    <div class="layui-field-box">
-                        <table class="table table-hover table-striped">
+            <div style="padding: 15px; margin-top:60px;">
+                <div class="layui-field-box">
+                    <table class="table table-hover table-striped">
+                        <tr>
+                            <th>
+                                用户名
+                            </th>
+                            <th>
+                                食谱名
+                            </th>
+                            <th>
+                                成品图
+                            </th>
+                            <th>
+                                烹饪难度
+                            </th>
+                            <th>
+                                烹饪时间
+                            </th>
+                            <th>
+                                食谱故事
+                            </th>
+                            <th>
+                                食材清单
+                            </th>
+                            <th>
+                                步骤详解
+                            </th>
+                            <th>操作</th>
+                        </tr>
+                        @foreach (var item in Model.Where(a => a.Audit == 1))
+                        {
                             <tr>
-                                <th>
-                                    用户名
-                                </th>
-                                <th>
-                                    密码
-                                </th>
-                                <th>
-                                    电话
-                                </th>
-                                <th>
-                                    用户头像
-                                </th>
-                                <th>操作</th>
+                                <td>@item.Users.UsersName</td>
+                                <td>@item.RecipeName</td>
+                                <td>
+                                    <img src="~/Content/Imges/@item.RecipePicture" style="height:30px; width:40px;" />
+
+                                </td>
+                                <td>@item.RecipeDifficulty</td>
+                                <td>@item.RecipeTime</td>
+                                <td>@item.RecipeStory</td>
+                                <td>@item.Ingredient</td>
+                                <td>@item.Particular</td>
+                                <td>
+                                    <a href="#" class="btn btn-danger" onclick="return confirm('确定要通过审核吗？')">已审核</a>
+                                </td>
                             </tr>
 
-
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td>@item.UsersName</td>
-                                    <td>@item.UsersPassword</td>
-                                    <td>@item.UsersPhone</td>
-                                    <td>@item.UsersAvatar</td>
-                                    <td>
-                                        <a href="/HouTai/Delete/?userID=@item.UsersID" class="btn btn-danger">删除</a>
-                                    </td>
-                                </tr>
-
-                            }
-                        </table>
-                    </div>
+                        }
+                    </table>
+                </div>
             </div>
         </div>
 

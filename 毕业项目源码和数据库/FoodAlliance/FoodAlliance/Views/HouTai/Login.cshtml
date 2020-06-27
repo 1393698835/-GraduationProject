@@ -10,6 +10,9 @@
     <title>美食同盟会后台管理系统-登录</title>
     <link rel="stylesheet" type="text/css" href="~/Content/layui.css" media="all" />
     <link rel="stylesheet" type="text/css" href="~/Content/HouTaiLogin.css" />
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.metadata.js"></script>
 </head>
 <body class="beg-login-bg">
     <div class="beg-login-box">
@@ -17,7 +20,7 @@
             <h1>美食同盟会后台管理系统</h1>
         </header>
         <div class="beg-login-main">
-            <form action="/HouTai/Login" class="layui-form" method="post">
+            <form action="/HouTai/Login" id="layuiform" class="layui-form" method="post">
                 <div class="layui-form-item">
                     <label class="beg-login-icon">
                         <i class="layui-icon">&#xe612;</i>
@@ -45,3 +48,17 @@
     </div>
 </body>
 </html>
+<script type="text/javascript">
+    $(function () {
+        $("layuiform").validate({
+            rules: {
+                AdminiName: { required: true },
+                AdminiPassword: { required: true }
+            },
+            messages:{
+            AdminiName: { required: "请输入用户名" },
+            AdminiPassword: { required: "请输入密码" }
+            },
+        })
+    })
+</script>

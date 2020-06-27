@@ -25,12 +25,11 @@ namespace FoodAlliance.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Admini> Admini { get; set; }
         public virtual DbSet<Comment> Comment { get; set; }
         public virtual DbSet<Food> Food { get; set; }
         public virtual DbSet<Recipe> Recipe { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Typess> Typess { get; set; }
         public virtual DbSet<Users> Users { get; set; }
-        public virtual DbSet<Admini> Admini { get; set; }
     }
 }

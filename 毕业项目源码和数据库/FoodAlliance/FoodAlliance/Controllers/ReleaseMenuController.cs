@@ -19,11 +19,26 @@ namespace FoodAlliance.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Index(Recipe rec)
+        public ActionResult Index(Recipe rec,HttpPostedFileBase file)
         {
+            //Users user= Session["Users"] as Users;
             if (ModelState.IsValid)
             {
-                db.Recipe.Add(rec);
+                Recipe recipe = new Recipe()
+                {
+                    RecipeName = rec.RecipeName,
+                    RecipePicture = Path.GetFileName(file.FileName),
+                    RecipeDifficulty = rec.RecipeDifficulty,
+                    RecipeTime = rec.RecipeTime,
+                    RecipeStory = rec.RecipeStory,
+                    Ingredient = rec.Ingredient,
+                    RecipeDosage = rec.RecipeDosage,
+                    Particular = rec.Particular,
+                    UsersID = int.Parse(Session["ID"].ToString()),
+                    Audit = rec.Audit
+
+                };
+                db.Recipe.Add(recipe);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

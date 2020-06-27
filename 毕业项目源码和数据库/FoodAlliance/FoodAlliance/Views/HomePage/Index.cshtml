@@ -2,6 +2,8 @@
 @{
     Layout = null;
 }
+@using FoodAlliance.Models
+@model List<Recipe>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +42,7 @@
                 </form>
             </div>
             <div class="loginitem_h">
-                <a href="~/Views/ReleaseMenu/Index.cshtml">发布菜谱</a>
+                <a href="~/HomePage/Index">发布菜谱</a>
                 <a href="#"><img src="~/Content/Imges/用户头像.png"></a>
             </div>
         </div>
@@ -379,14 +381,14 @@
                         <a href="####" class="link">五谷</a>
                         <div class="index_sc_con">
                             <div class="c">
-                                <a target="_blank" href="#"><img src="https://s1.ig.meishij.net/p/20110715/58b3095b7efe444f302b8d0a5adc870d_150x150.jpg" /><span class="name pngFix"><em class="notz"></em><strong>绿豆</strong></span></a>
-                                <a target="_blank" href="#"><img src="https://s1.ig.meishij.net/p/20111125/3eb346efc8d0a9fca2d26ae0a6715d8d_150x150.jpg" /><span class="name pngFix"><em class="notz"></em><strong>玉米(鲜)</strong></span></a>
-                                <a target="_blank" href="#"><img src="https://s1.ig.meishij.net/p/20150228/5bb1dda5bfa20c2772d81781c4a23f31_150x150.jpg" /><span class="name pngFix"><em class="notz"></em><strong>燕麦</strong></span></a>
-                                <a target="_blank" href="#"><img src="https://s1.ig.meishij.net/p/20110715/8f690769e15fd26ad5184dbfd0140052_150x150.jpg" /><span class="name pngFix"><em class="notz"></em><strong>赤小豆</strong></span></a>
-                                <a target="_blank" href="#"><img src="https://s1.ig.meishij.net/p/20110718/989b823c7089812d3d6e468bfc8d8cc3_150x150.jpg" /><span class="name pngFix"><em class="notz"></em><strong>大米</strong></span></a>
-                                <a target="_blank" href="#"><img src="https://s1.ig.meishij.net/p/20110829/f66209c3a00f3847fbe35dca25458e30_150x150.jpg" /><span class="name pngFix"><em class="notz"></em><strong>松子</strong></span></a>
-                                <a target="_blank" href="#"><img src="https://s1.ig.meishij.net/p/20111205/bcb208d4616ac2fc7ff70f7db18391c2_150x150.jpg" /><span class="name pngFix"><em class="notz"></em><strong>糯米</strong></span></a>
-                                <a target="_blank" href="#"><img src="https://s1.ig.meishij.net/p/20110826/657a17b4201f8a8c81f7ccaf11718543_150x150.jpg" /><span class="name pngFix"><em class="notz"></em><strong>榛子</strong></span></a>
+                                <a target="_blank" href="#"><img src="~/Content/Imges/荔枝.jpg" /><span class="name pngFix"><em class="notz"></em><strong>荔枝</strong></span></a>
+                                <a target="_blank" href="#"><img src="~/Content/Imges/荔枝.jpg" /><span class="name pngFix"><em class="notz"></em><strong>樱桃</strong></span></a>
+                                <a target="_blank" href="#"><img src="~/Content/Imges/甜瓜.jpg" /><span class="name pngFix"><em class="notz"></em><strong>甜瓜</strong></span></a>
+                                <a target="_blank" href="#"><img src="~/Content/Imges/西瓜.jpg" /><span class="name pngFix"><em class="notz"></em><strong>西瓜</strong></span></a>
+                                <a target="_blank" href="#"><img src="~/Content/Imges/桃.jpg" /><span class="name pngFix"><em class="notz"></em><strong>桃</strong></span></a>
+                                <a target="_blank" href="#"><img src="~/Content/Imges/哈密瓜.jpg" /><span class="name pngFix"><em class="notz"></em><strong>哈密瓜</strong></span></a>
+                                <a target="_blank" href="#"><img src="~/Content/Imges/芒果.jpg" /><span class="name pngFix"><em class="notz"></em><strong>芒果</strong></span></a>
+                                <a target="_blank" href="#"><img src="~/Content/Imges/杨梅.jpg" /><span class="name pngFix"><em class="notz"></em><strong>杨梅</strong></span></a>
                             </div>
                         </div>
                     </dd>
@@ -394,14 +396,14 @@
                         <a href="####" class="link">生鲜</a>
                         <div class="index_sc_con">
                             <div class="c">
-                                <a target="_blank" href="#"><img src="https://s1.ig.meishij.net/p/20111208/a33af27d0cb180dfb0762fc1f5386819_150x150.jpg" /><span class="name pngFix"><em class="notz"></em><strong>皮皮虾</strong></span></a>
-                                <a target="_blank" href="#"><img src="https://s1.ig.meishij.net/p/20140331/4da435c5b7b482e337a31ee75de02060_150x150.jpg" /><span class="name pngFix"><em class="notz"></em><strong>鲫鱼</strong></span></a>
-                                <a target="_blank" href="#"><img src="https://s1.ig.meishij.net/p/20170330/96da0e84e46ee56abbedb73a5457a716_150x150.jpg" /><span class="name pngFix"><em class="notz"></em><strong>草鱼</strong></span></a>
-                                <a target="_blank" href="#"><img src="https://s1.ig.meishij.net/p/20140704/0b5100453f24b68ff6ea3b5f3a39ad6a_150x150.jpg" /><span class="name pngFix"><em class="notz"></em><strong>小龙虾</strong></span></a>
-                                <a target="_blank" href="#"><img src="https://s1.ig.meishij.net/p/20120703/1af59099f56158ef054e6ee5888acedf_150x150.jpg" /><span class="name pngFix"><em class="notz"></em><strong>鸭</strong></span></a>
-                                <a target="_blank" href="#"><img src="https://s1.ig.meishij.net/p/20140704/d6b288ab3db707acaa04b211035c49a6_150x150.jpg" /><span class="name pngFix"><em class="notz"></em><strong>蛏子</strong></span></a>
-                                <a target="_blank" href="#"><img src="https://s1.ig.meishij.net/p/20110930/7a10c9da814c97476b50533fb55a7540_150x150.jpg" /><span class="name pngFix"><em class="notz"></em><strong>蛤蜊</strong></span></a>
-                                <a target="_blank" href="#"><img src="https://s1.ig.meishij.net/p/20110914/f8e9734997cee28795a756df6fc8e526_150x150.jpg" /><span class="name pngFix"><em class="notz"></em><strong>鸡腿</strong></span></a>
+                                <a target="_blank" href="#"><img src="~/Content/Imges/丝瓜.jpg" /><span class="name pngFix"><em class="notz"></em><strong>丝瓜</strong></span></a>
+                                <a target="_blank" href="#"><img src="~/Content/Imges/茄子.jpg" /><span class="name pngFix"><em class="notz"></em><strong>茄子</strong></span></a>
+                                <a target="_blank" href="#"><img src="~/Content/Imges/柿子椒.jpg" /><span class="name pngFix"><em class="notz"></em><strong>柿子椒</strong></span></a>
+                                <a target="_blank" href="#"><img src="~/Content/Imges/豇豆.jpg" /><span class="name pngFix"><em class="notz"></em><strong>豇豆</strong></span></a>
+                                <a target="_blank" href="#"><img src="~/Content/Imges/西红柿.jpg" /><span class="name pngFix"><em class="notz"></em><strong>西红柿</strong></span></a>
+                                <a target="_blank" href="#"><img src="~/Content/Imges/莴笋.jpg" /><span class="name pngFix"><em class="notz"></em><strong>莴笋</strong></span></a>
+                                <a target="_blank" href="#"><img src="~/Content/Imges/土豆.jpg" /><span class="name pngFix"><em class="notz"></em><strong>土豆</strong></span></a>
+                                <a target="_blank" href="#"><img src="~/Content/Imges/南瓜.jpg" /><span class="name pngFix"><em class="notz"></em><strong>南瓜</strong></span></a>
                             </div>
                         </div>
                     </dd>
@@ -415,128 +417,93 @@
                 <div class="index_pxw_w" id="index_pxw_w">
                     <div class="index_pxw clearfix" id="index_pxw">
                         <div class="index_pxi">
-                            <h3 class="bbtitles">每小时最热菜谱</h3>
+                            <h3 class="bbtitles">每日最热菜谱</h3>
                             <div class="listtyle2_w clearfix" id="listtyle1_w">
                                 <div class="listtyle1_list clearfix" id="listtyle1_list">
-                                    <div class="listtyle1 ml0">
-                                        <a target="_blank" href="#" title="蜜汁鸡翅" class="big">
-                                            <img class="img" alt="蜜汁鸡翅" src="~/Content/Imges/蜜汁鸡翅.jpg">
-                                            <div class="i_w">
-                                                <div class="i" style="margin-top: 0px;">
-                                                    <div class="c1"><strong>蜜汁鸡翅</strong><span>83 评论  490 人气</span><em>风意画</em></div>
-                                                    <div class="c2">
-                                                        <ul>
-                                                            <li class="li1">10步 / 大概30分钟</li>
-                                                            <li class="li2">煮 / 咸鲜味</li>
-                                                        </ul>
-                                                    </div>
+                                    @{
+                                        int a = 1;
+                                        GourmetLeagueEntities db = new GourmetLeagueEntities();
+                                        List<Users> us = db.Users.ToList();
+                                    }
+
+
+                                    @foreach (var item in Model)
+                                    {
+                                        
+                                            if (a == 1 || a == 5)
+                                            {
+                                               
+                                                <div class="listtyle1 ml0">
+                                                    <a target="_blank" href="/Detail/Index/?id=@item.RecipeID" title="@item.RecipeName" class="big">
+                                                        <img class="img" alt="@item.RecipeName" src="~/Content/Imges/@item.RecipePicture">
+                                                        <div class="i_w">
+                                                            <div class="i" style="margin-top: 0px;">
+                                                                <div class="c1">
+                                                                    <strong>@item.RecipeName</strong><span>您的餐桌由我们来丰富</span>
+                                                                    @foreach (var item1 in us)
+                                                                    {
+                                                                        if (item.UsersID == item1.UsersID)
+                                                                        {
+                                                                            <em>发布人：@item1.UsersName</em>
+                                                                        }
+
+                                                                    }
+
+                                                                </div>
+                                                                <div class="c2">
+                                                                    <ul>
+                                                                        <li class="li1">热门食谱</li>
+                                                                        <li class="li2">美食同盟会</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <strong class="gx"><span>热门</span></strong>
+                                                    </a>
                                                 </div>
-                                            </div>
-                                            <strong class="gx"><span>热门</span></strong>
-                                        </a>
-                                    </div>
-                                    <div class="listtyle1">
-                                        <a target="_blank" href="#" title="我爱你" class="big">
-                                            <img class="img" alt="小猪曲奇" src="~/Content/Imges/小猪曲奇.jpg">
-                                            <div class="i_w">
-                                                <div class="i" style="margin-top: 0px;">
-                                                    <div class="c1"><strong>小猪曲奇</strong><span>40 评论  283 人气</span><em>风意画</em></div>
-                                                    <div class="c2">
-                                                        <ul>
-                                                            <li class="li1">14步 / 大概15分钟</li>
-                                                            <li class="li2">烤 / 甜味</li>
-                                                        </ul>
-                                                    </div>
+                                                a++;
+                                            }
+                                            else if (a == 8)
+                                            {
+                                                break;
+                                            }
+                                            else
+                                            {
+                                                <div class="listtyle1">
+                                                    <a target="_blank" href="/Detail/Index/?id=@item.RecipeID" title="@item.RecipeName" class="big">
+                                                        <img class="img" alt="@item.RecipeName" src="~/Content/Imges/@item.RecipePicture">
+                                                        <div class="i_w">
+                                                            <div class="i" style="margin-top: 0px;">
+                                                                <div class="c1">
+                                                                    <strong>@item.RecipeName</strong><span>您的餐桌由我们来丰富</span>
+                                                                    @foreach (var item1 in us)
+                                                                    {
+                                                                        if (item.UsersID == item1.UsersID)
+                                                                        {
+                                                                            <em>发布人：@item1.UsersName</em>
+                                                                        }
+
+                                                                    }
+                                                                </div>
+                                                                <div class="c2">
+                                                                    <ul>
+                                                                        <li class="li1">热门食谱</li>
+                                                                        <li class="li2">美食同盟会</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <strong class="gx"><span>热门</span></strong>
+                                                    </a>
                                                 </div>
-                                            </div>
-                                            <strong class="gx"><span>热门</span></strong>
-                                        </a>
-                                    </div>
-                                    <div class="listtyle1">
-                                        <a target="_blank" href="#" title="牛油果香蕉思慕雪" class="big">
-                                            <img class="img" alt="牛油果香蕉思慕雪" src="~/Content/Imges/牛油果香蕉思慕雪.jpg">
-                                            <div class="i_w">
-                                                <div class="i" style="margin-top: 0px;">
-                                                    <div class="c1"><strong>牛油果香蕉思慕雪</strong><span>14 评论  242 人气</span><em>风意画</em></div>
-                                                    <div class="c2">
-                                                        <ul>
-                                                            <li class="li1">8步 / 大概10分钟</li>
-                                                            <li class="li2">其它工艺 / 甜味</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <strong class="gx"><span>热门</span></strong>
-                                        </a>
-                                    </div>
-                                    <div class="listtyle1">
-                                        <a target="_blank" href="#" title="香肠飞饼卷" class="big">
-                                            <img class="img" alt="香肠飞饼卷" src="~/Content/Imges/香肠飞饼卷.jpg">
-                                            <div class="i_w">
-                                                <div class="i" style="margin-top: 0px;">
-                                                    <div class="c1"><strong>香肠飞饼卷</strong><span>26 评论  339 人气</span><em>风意画</em></div>
-                                                    <div class="c2">
-                                                        <ul>
-                                                            <li class="li1">9步 / 大概30分钟</li>
-                                                            <li class="li2">烤 / 咸鲜味</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <strong class="gx"><span>热门</span></strong>
-                                        </a>
-                                    </div>
-                                    <div class="listtyle1 ml0">
-                                        <a target="_blank" href="#" title="玫瑰花馒头" class="big">
-                                            <img class="img" alt="玫瑰花馒头" src="~/Content/Imges/玫瑰花馒头.jpg">
-                                            <div class="i_w">
-                                                <div class="i" style="margin-top: 0px;">
-                                                    <div class="c1"><strong>玫瑰花馒头</strong><span>30 评论  292 人气</span><em>黄豆豆的一家</em></div>
-                                                    <div class="c2">
-                                                        <ul>
-                                                            <li class="li1">16步 / 大概30分钟</li>
-                                                            <li class="li2">蒸 / 家常味</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <strong class="gx"><span>热门</span></strong>
-                                        </a>
-                                    </div>
-                                    <div class="listtyle1">
-                                        <a target="_blank" href="#" title="驴打滚" class="big">
-                                            <img class="img" alt="驴打滚" src="~/Content/Imges/驴打滚.jpg">
-                                            <div class="i_w">
-                                                <div class="i" style="margin-top: 0px;">
-                                                    <div class="c1"><strong>驴打滚</strong><span>31 评论  304 人气</span><em>小马美食厨房</em></div>
-                                                    <div class="c2">
-                                                        <ul>
-                                                            <li class="li1">5步 / 大概30分钟</li>
-                                                            <li class="li2">蒸 / 家常味</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <strong class="gx"><span>热门</span></strong>
-                                        </a>
-                                    </div>
-                                    <div class="listtyle1">
-                                        <a target="_blank" href="#" title="花开富贵香肠菇" class="big">
-                                            <img class="img" alt="花开富贵香肠菇" src="~/Content/Imges/花开富贵香肠菇.jpg">
-                                            <div class="i_w">
-                                                <div class="i" style="margin-top: 0px;">
-                                                    <div class="c1"><strong>花开富贵香肠菇</strong><span>53 评论  239 人气</span><em>Smile湘雨</em></div>
-                                                    <div class="c2">
-                                                        <ul>
-                                                            <li class="li1">16步 / 大概15分钟</li>
-                                                            <li class="li2">蒸 / 咸鲜味</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <strong class="gx"><span>热门</span></strong>
-                                        </a>
-                                    </div>
+                                                a++;
+                                            }
+                                        
+
+
+                                    }
+
+
                                     <div class="listtyle1 ">
                                         <div class="index_cplist_more">
                                             <h3>热门栏目推荐</h3>

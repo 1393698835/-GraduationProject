@@ -22,12 +22,13 @@ namespace FoodAlliance.Controllers
         [HttpPost]
         public ActionResult Login(Users user)
         {
-            Users list = db.Users.Where(p => p.UsersName == user.UsersName && p.UsersPassword == user.UsersPassword).SingleOrDefault();
-            if (list != null)
-            {
-                Session["ID"] = list.UsersID;
-                Session["Name"] = list.UsersName;
-                return RedirectToAction("Index", "Home");
+            Users users = db.Users.SingleOrDefault(p => p.UsersPhone == user.UsersPhone && p.UsersPassword == user.UsersPassword);
+            if (users != null)
+            {                           
+                Session["ID"] = users.UsersID;
+                Session["UserName"] = users.UsersName;
+                Session["Users"] = users;
+                return RedirectToAction("Index", "HomePage");
             }
             else
             {
@@ -41,9 +42,18 @@ namespace FoodAlliance.Controllers
         [HttpPost]
         public ActionResult Register(Users user)
         {
-            db.Users.Add(user);
-            db.SaveChanges();
-            return RedirectToAction("Index","Home");
+            List<Users> list = db.Users.Where(p => p.UsersPhone == user.UsersPhone).ToList();
+            if (list.Count==1)
+            {
+                return Content("<script>alert('改手机号已注册，请重新注册一个新的手机号码！');history.go(-1);</script>");
+            }
+            else
+            {
+                db.Users.Add(user);
+                db.SaveChanges();
+                return RedirectToAction("Login", "Login");
+            }
+            
         }
     }
 }

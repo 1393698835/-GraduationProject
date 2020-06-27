@@ -49,7 +49,7 @@ namespace FoodAlliance.Controllers
             db.SaveChanges();
             return RedirectToAction("HouTaiHome");
         }
-        //后台审核
+        //后台未审核列表
         public ActionResult HouTaiAudit()
         {
             List<Recipe> list = db.Recipe.ToList();
@@ -62,6 +62,18 @@ namespace FoodAlliance.Controllers
             db.SaveChanges();
             return RedirectToAction("HouTaiAudit");
         }
-
+        //后台审核列表
+        public ActionResult HouTaiAuditcg()
+        {
+            List<Recipe> list = db.Recipe.ToList();
+            return View(list);
+        }
+        public ActionResult HouTaiAuditzdcg(int audit)
+        {
+            Recipe list = db.Recipe.Find(audit);
+            list.Audit = 0;
+            db.SaveChanges();
+            return RedirectToAction("HouTaiAudit");
+        }
     }
 }

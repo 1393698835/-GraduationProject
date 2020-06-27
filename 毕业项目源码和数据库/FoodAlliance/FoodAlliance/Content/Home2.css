@@ -2386,18 +2386,18 @@ body .mb1 {
 	padding: 10px 0px;
 }
 
-.friend_link dt {
-	font-size: 14px;
-	color: #fff;
-	display: block;
-	height: 40px;
-	border-bottom: 1px solid #444;
-	line-height: 40px;
-	float: left;
-	display: block;
-	width: 990px;
-	margin-bottom: 8px;
-}
+	.friend_link dt {
+		font-size: 14px;
+		color: #444;
+		display: block;
+		height: 40px;
+		border-bottom: 1px solid #444;
+		line-height: 40px;
+		float: left;
+		display: block;
+		width: 990px;
+		margin-bottom: 8px;
+	}
 
 .friend_link dd {
 	float: left;
