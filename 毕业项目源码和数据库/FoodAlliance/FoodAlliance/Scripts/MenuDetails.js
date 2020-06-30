@@ -4227,7 +4227,7 @@ function bind_re() {
 	$(".re_slideUp").click(function() {
 		var _this = $(this);
 		_this.parents(".info").next().slideUp(function() {
-			_this.html("灞曞紑鍥炲");
+			_this.html("展开回复");
 			_this.removeClass("re_slideUp").addClass("re_slideDown");
 			bind_re();
 		});
@@ -4236,7 +4236,7 @@ function bind_re() {
 	$(".re_slideDown").click(function() {
 		var _this = $(this);
 		_this.parents(".info").next().slideDown(function() {
-			_this.html("鏀惰捣鍥炲");
+			_this.html("回复");
 			_this.removeClass("re_slideDown").addClass("re_slideUp");
 			_this.parents(".info").next().find("textarea").focus();
 			bind_re();
@@ -4248,7 +4248,7 @@ function bind_re() {
 		_this.parents(".info").next().find("form").css("paddingTop", "20px");
 		_this.parents(".info").next().find("form").show();
 		_this.parents(".info").next().slideDown(function() {
-			_this.html("鏀惰捣");
+			_this.html("收起回复");
 			_this.removeClass("re_start").addClass("re_slideUp1");
 			_this.parents(".info").next().find("textarea").focus();
 			bind_re();
@@ -4258,14 +4258,14 @@ function bind_re() {
 	$(".re_slideUp1").click(function() {
 		var _this = $(this);
 		_this.parents(".info").next().slideUp(function() {
-			_this.html("鍥炲");
+			_this.html("回复");
 			_this.removeClass("re_slideUp1").addClass("re_start");
 			bind_re();
 		});
 	});
 	$(".saybtn").toggle(function() {
 		var _this = $(this);
-		_this.html("鏀惰捣");
+		_this.html("收起回复");
 		_this.addClass("saybtn_ed");
 		_this.next().slideDown(function() {
 
@@ -4273,7 +4273,7 @@ function bind_re() {
 		});
 	}, function() {
 		var _this = $(this);
-		_this.html("鎴戜篃璇翠竴鍙�");
+			_this.html("展开回复");
 		_this.removeClass("saybtn_ed");
 		$(this).next().slideUp(function() {
 
@@ -10422,7 +10422,7 @@ function submit_reply(r_id) {
 	if(saytext) {
 		$('#text_' + r_id).val('');
         $.getScript('https://reply.meishij.net/pl/news.php?c=' + encodeURIComponent(saytext) + '&nid=' + news_id + '&rid=' + reply_id + '&_' +(new Date()).getTime(),function() {})	} else {
-		alert('璇疯緭鍏ュ唴瀹箏');
+		alert('请输入评论的内容！');
 	}
 }
 function submit_comment() {
@@ -10435,7 +10435,7 @@ function submit_comment() {
 		$('#cp_com_type').val(0);
 		$.getScript('https://reply.meishij.net/pl/news.php?c=' + encodeURIComponent(saytext) + '&nid=' + news_id + '&pt=' + cp_com_type + '&_' +(new Date()).getTime(),function() {})
 	} else {
-		alert('璇疯緭鍏ュ唴瀹箏');
+		alert('请输入评论的内容！');
 	}
 }
 function get_more_pl(id,page){

@@ -11,10 +11,18 @@ namespace FoodAlliance.Controllers
     {
         GourmetLeagueEntities db = new GourmetLeagueEntities();
         // GET: HomePage
+        //首页查询
         public ActionResult Index()
         {
             List<Recipe> list = db.Recipe.ToList();
             return View(list);
+        }
+        //搜索模糊查询
+        public ActionResult QueryMenu(string sreach_text)
+        {
+            List<Recipe> recipes= db.Recipe.Where(p => p.RecipeName.Contains(sreach_text)).ToList();
+            ViewBag.text = sreach_text;
+            return View(recipes);
         }
     }
 }

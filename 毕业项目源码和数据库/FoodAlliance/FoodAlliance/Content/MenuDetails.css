@@ -2041,7 +2041,7 @@ body .mb1 {
 
 .friend_link dt {
 	font-size: 14px;
-	color: #fff;
+	color: #444;
 	display: block;
 	height: 40px;
 	border-bottom: 1px solid #444;
@@ -2061,7 +2061,7 @@ body .mb1 {
 }
 
 .friend_link dd a {
-	color: white;
+	color: #444;
 }
 
 .friend_link dd a:hover {
@@ -2102,7 +2102,7 @@ body .mb1 {
 	vertical-align: top;
 	*display: inline;
 	*zoom: 1;
-	color: white;
+	color: #444;
 	padding: 0px 10px;
 	line-height: 24px;
 	height: 24px;
@@ -8016,7 +8016,6 @@ span.new {
 	float: left;
 	display: block;
 	height: 40px;
-	width: 528px;
 	white-space: nowrap;
 	overflow: hidden;
 }

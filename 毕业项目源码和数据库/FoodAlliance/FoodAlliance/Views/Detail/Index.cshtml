@@ -51,8 +51,8 @@
                 <a href="#" class="logo pngFix"><img src="~/Content/Imges/logo.png"></a>
                 <div class="main_search_top_w">
                     <div class="suggestionsBox" id="suggestions" style="display:none;"><ul class="suggestionList" id="autoSuggestionsList"></ul></div>
-                    <form class="search" action="">
-                        <input type="text" class="text" name="q" defaultval="请输入菜谱/食材/菜单/作者" x-webkit-speech="" value="请输入菜谱/食材/菜单/作者" autocomplete="off" onfocus="if(this.value=='请输入菜谱/食材/菜单/作者'){this.value='';}$(this).css('color','#333');" onblur="if(this.value==''){this.value='请输入菜谱/食材/菜单/作者';$(this).css('color','#999');}" id="inputString">
+                    <form action="/HomePage/QueryMenu" target="_blank">
+                        <input type="text" class="text" name="sreach_text" x-webkit-speech="" autocomplete="off" id="inputString" placeholder="输入菜谱、食材、作者">
                         <input type="submit" class="submit" value="搜 索">
                     </form>
                 </div>
@@ -287,96 +287,55 @@
                                     <a target="_blank" href="#" class="useravatar"><img src="~/Content/Imges/用户头像.png" /></a>
                                     <div class="form_w">
                                         <div class="cp_pl_tag" id="cp_com_mask">
-                                            <em>给内容一个标签：</em><span class="current" type="3">随意吐槽</span><span type="1">提问求解</span>
+                                            <em>给内容一个标签：</em><span class="current" type="3">随意吐槽</span>
                                         </div>
-                                        <form>
+                                        <form action="/Detail/Comment" method="post">
                                             <input name="id" type="hidden" id="news_id" value="576011">
                                             <input name="news_title" type="hidden" id="news_title" value="鲫鱼汤">
                                             <input name="from_search" type="hidden" id="from_search" value="0">
-                                            <textarea id="cp_com_textarea" placeholder="想说点什么..."></textarea>
-                                            <input type="submit" id="cp_com_submit" value="提交" onclick="submit_comment()" class="submit" />
+                                            <input type="hidden" name="RecipeID" value="@item.RecipeID" />
+                                            <textarea id="CommentContent" placeholder="想说点什么..." name="CommentContent"></textarea>
+                                            <input type="submit" id="cp_com_submit" value="提交" class="submit" />
                                             <input type="hidden" id="cp_com_type" />
                                         </form>
                                     </div>
                                 </div>
-                                <div id="newspls">
-                                    <div class="cp_comlist_w">
+                                @foreach (var item1 in item.Comment)
+                                {
+                                    <div id="newspls">
+                                        <div class="cp_comlist_w">
+                                            <ul class="clearfix">
+                                                <li class="clearfix commentslist_li">
+                                                    <a target="_blank" href="#" class="avatar">
+                                                        <img src="~/Content/Imges/用户头像.png" />
+                                                        <h5>@item1.CommentUser</h5>
+                                                    </a>
+                                                    <div class="c">
+                                                        <p class="p1">
+                                                            <strong>[随意吐槽]</strong>
+                                                            @item1.CommentContent
+                                                        </p>
+                                                        <div class="info">
+                                                            <a href="javascript:;" class="re re_start">回复</a>
+                                                            <span class="zzzzan" id="zzzzan4126569" plid='4126569'>
+                                                                <em class="con_comlist_zanbtn"></em>
+                                                            </span>
+                                                        </div>
 
-                                        <ul class="clearfix">
-                                            <li class="clearfix commentslist_li">
-                                                <a target="_blank" href="#" class="avatar">
-                                                    <img src="~/Content/Imges/用户头像.png" />
-                                                    <h5>晨曦曦的</h5>
-                                                </a>
-                                                <div class="c">
-                                                    <p class="p1">
-                                                        <strong>[随意吐槽]</strong>
-                                                        材料里就鲫鱼跟盐，下边的图片里，案板上却出现了那么多东西……
-                                                    </p>
-                                                    <div class="info">
-                                                        <a href="javascript:;" class="re re_start">回复</a>
-                                                        <span class="zzzzan" id="zzzzan4126569" plid='4126569'>
-                                                            <em class="con_comlist_zanbtn"></em>
-                                                            <strong>2</strong>
-                                                        </span>
+                                                        <div class="comscoms clearfix" style="display:none;">
+                                                            <form class="re_form" action="#" id="pl_3163710">
+                                                                <input type="hidden" id="reply_id_3163710" value="3163710" />
+                                                                <textarea class="re_textarea" placeholder="我也说一句" id="text_3163710"></textarea>
+                                                                <input type="button" onclick="submit_reply('3163710')" class="re_submit" value="回复" />
+                                                            </form>
+                                                        </div>
                                                     </div>
-
-                                                    <div class="comscoms clearfix" style="display:none;">
-                                                        <form class="re_form" action="https://reply.meishij.net/pl/news.php" id="pl_3163710">
-                                                            <input type="hidden" id="reply_id_3163710" value="3163710" />
-                                                            <textarea class="re_textarea" placeholder="我也说一句" id="text_3163710"></textarea>
-                                                            <input type="button" onclick="submit_reply('3163710')" class="re_submit" value="回复" />
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix commentslist_li">
-                                                <a href="javascript:;" class="avatar">
-                                                    <img src="~/Content/Imges/用户头像.png" />
-                                                    <h5></h5>
-                                                </a>
-                                                <div class="c">
-                                                    <p class="p1">
-                                                        <strong>[随意吐槽]</strong>为什么要放入瘦肉？？难道是为了更好的出味道嘛？？？
-                                                    </p>
-                                                    <div class="info">
-                                                        <span>
-                                                            2012-11-29 10:32:38来自                                                <a target="_blank" href="http://www.meishij.net/">
-                                                                美食同盟会
-                                                            </a>
-                                                        </span>
-                                                        <a href="javascript:;" class="re re_slideUp">收起回复</a>
-                                                        <span class="zzzzan" id="zzzzan286281" plid='286281'>
-                                                            <em class="con_comlist_zanbtn"></em>
-                                                            <strong>1</strong>
-                                                        </span>
-                                                    </div>
-
-                                                    <div class="comscoms clearfix">
-                                                        <ul>
-                                                            <li class="clearfix">
-                                                                <a target="_blank" href="https://i.meishi.cc/cook.php?id=5601973" class="avatar1"><img src="https://s1.c.meishij.net/images/default/tx2_4.png" /></a>
-                                                                <div class="c1">
-                                                                    <p class="p2">
-                                                                        <a target="_blank" href="https://i.meishi.cc/cook.php?id=5601973">粮票！就是我</a>
-                                                                        :我家又放瘦肉汤的味道会更鲜美
-                                                                    </p>
-                                                                    <div class="info1"><span>2017-01-05 15:40:47 来自<a target="_blank" href="http://sj.meishi.cc/app.php?to=meishij">美食杰Android客户端</a></span></div>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                        <a href="javascript:;" class="saybtn">我也说一句</a>
-                                                        <form class="re_form" action="https://reply.meishij.net/pl/news.php" id="pl_236309">
-                                                            <input type="hidden" id="reply_id_236309" value="236309" />
-                                                            <textarea class="re_textarea" placeholder="我也说一句" id="text_236309"></textarea>
-                                                            <input type="button" onclick="submit_reply('236309')" class="re_submit" value="回复" />
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
+                                }
+
                             </div>
                         </div>
                     </div>
@@ -410,7 +369,7 @@
                                     position: absolute;
                                     left: 0px;
                                     top: 0px;
-                                    background: url(~/Content/Imges/手机.png) center no-repeat;
+                                    background: url('../../Content/Imges/手机.png') center no-repeat;
                                     z-index: 10;
                                 }
 
@@ -453,6 +412,7 @@
                             <div class="imgsetw">
                                 <div class="imgw imgw1">
                                     <div class="imgs">
+
                                         <img src="~/Content/Imges/手机1.jpg" class="img" />
                                         <img src="~/Content/Imges/手机2.jpg" class="img" />
                                         <img src="~/Content/Imges/手机3.jpg" class="img" />
@@ -608,3 +568,32 @@
 </body>
 
 </html>
+
+@section scripts{
+      <script type="text/javascript" >
+
+          $(function kk() {
+               $("#news_title").val();
+              $("#from_search").val();
+              $("#from_search").val();
+              $("#cp_com_textarea").val();
+
+          })
+
+
+
+         
+
+
+          //$.ajax({
+          //    url: "/Dteail/Comment",
+          //    type: Text,
+          //    Date: {}
+
+
+
+          //})
+      </script>
+      
+    
+    }

@@ -16,5 +16,14 @@ namespace FoodAlliance.Controllers
             List<Recipe> list = db.Recipe.Where(p => p.RecipeID == id).ToList();
             return View(list);
         }
+        [HttpPost]
+        public ActionResult Comment(Comment comment)
+        {
+            comment.CommentUser = Session["UserName"].ToString();
+            comment.CommentonTime = DateTime.Now;
+            db.Comment.Add(comment);
+            db.SaveChanges();
+            return Content("<script>window.location.href='/Detail/Index/"+comment.RecipeID+"'</script>");
+        }
     }
 }

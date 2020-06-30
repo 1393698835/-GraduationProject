@@ -251,6 +251,7 @@
     <Content Include="Content\Login.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\MenuDetails.css" />
+    <Content Include="Content\QueryMenu.css" />
     <Content Include="Content\ReleaseMenu.css" />
     <Content Include="Content\upfood.css" />
     <Content Include="favicon.ico" />
@@ -300,6 +301,7 @@
     <Content Include="Scripts\MenuDetails.js" />
     <Content Include="Scripts\min.houtai.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\QueryMenu.js" />
     <Content Include="Scripts\ReleaseMenu.js" />
     <Content Include="Scripts\search.js" />
     <Content Include="Scripts\Sortable.min.js" />
@@ -326,6 +328,7 @@
     <Content Include="Views\HouTai\HouTaiAudit.cshtml" />
     <Content Include="Views\HouTai\HouTaiAuditcg.cshtml" />
     <Content Include="Views\Detail\Index.cshtml" />
+    <Content Include="Views\HomePage\QueryMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
