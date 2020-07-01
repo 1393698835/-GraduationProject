@@ -20,7 +20,7 @@ namespace FoodAlliance.Controllers
         //搜索模糊查询
         public ActionResult QueryMenu(string sreach_text)
         {
-            List<Recipe> recipes= db.Recipe.Where(p => p.RecipeName.Contains(sreach_text)).ToList();
+            List<Recipe> recipes= db.Recipe.Where(p => p.RecipeName.Contains(sreach_text)&&p.Audit==1).ToList();
             ViewBag.text = sreach_text;
             return View(recipes);
         }

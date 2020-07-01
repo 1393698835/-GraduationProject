@@ -23,6 +23,7 @@ namespace FoodAlliance.Controllers
             comment.CommentonTime = DateTime.Now;
             db.Comment.Add(comment);
             db.SaveChanges();
+            //当页面刷新时跳转
             return Content("<script>window.location.href='/Detail/Index/"+comment.RecipeID+"'</script>");
         }
     }

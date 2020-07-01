@@ -268,3 +268,4 @@ C:\Users\86182\Desktop\FoodAlliance\FoodAlliance\obj\Debug\FoodAlliance.csprojAs
 C:\Users\86182\Desktop\FoodAlliance\FoodAlliance\obj\Debug\FoodAlliance.csproj.CopyComplete
 C:\Users\86182\Desktop\FoodAlliance\FoodAlliance\obj\Debug\FoodAlliance.dll
 C:\Users\86182\Desktop\FoodAlliance\FoodAlliance\obj\Debug\FoodAlliance.pdb
+F:\天下吃货网\FoodAlliance\FoodAlliance\obj\Debug\FoodAlliance.csprojAssemblyReference.cache

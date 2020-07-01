@@ -9,6 +9,7 @@
 <html>
 
 <head>
+    <title>您所需菜谱的详细做法</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script>
         var _hmt = _hmt || [];
@@ -52,20 +53,20 @@
                 <div class="main_search_top_w">
                     <div class="suggestionsBox" id="suggestions" style="display:none;"><ul class="suggestionList" id="autoSuggestionsList"></ul></div>
                     <form action="/HomePage/QueryMenu" target="_blank">
-                        <input type="text" class="text" name="sreach_text" x-webkit-speech="" autocomplete="off" id="inputString" placeholder="输入菜谱、食材、作者">
+                        <input type="text" class="text" name="sreach_text" x-webkit-speech="" autocomplete="off" id="" placeholder="输入菜谱、食材、作者">
                         <input type="submit" class="submit" value="搜 索">
                     </form>
                 </div>
                 <div class="loginitem_h">
-                    <a href="Login.html">登录</a>
-                    <a href="register.html">注册</a>
+                    <a href="#">欢迎您的到来 @Session["UserName"]</a>
+                   
                 </div>
             </div>
         </div>
         <div class="nav">
             <ul id="main_nav">
                 <li class="current">
-                    <a href="#" class="link pngFix"><strong>首页</strong></a>
+                    <a href="~/HomePage/Index" class="link pngFix"><strong>首页</strong></a>
                 </li>
                 <li class="hasmore">
                     <a href="#" class="link pngFix"><strong>菜谱大全</strong></a>
@@ -189,11 +190,9 @@
                     </div>
                 </li>
                 <li>
-                    <a href="#" class="link pngFix"><strong>美食菜单</strong></a>
+                    <a href="#" class="link pngFix"><strong>食材清单</strong></a>
                 </li>
-                <li>
-                    <a href="#" class="link pngFix"><strong>菜谱视频</strong></a>
-                </li>
+                
             </ul>
         </div>
 
@@ -204,7 +203,7 @@
             <div class="main clearfix">
                 <ul class="pathstlye1">
                     <li>
-                        <a id="tongji_shouye" href="#">首页</a>
+                        <a id="tongji_shouye" href="~/HomePage/Index">首页</a>
                     </li>
                     <li> > </li>
                     <li>

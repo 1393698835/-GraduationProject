@@ -7,11 +7,12 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+    <title>搜索您所需要的菜谱</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8; charset=UTF-8">
     <link href="~/Content/QueryMenu.css" rel="stylesheet" />
     <script src="~/Scripts/QueryMenu.js"></script>
-   
+
 </head>
 <body>
     <div class="search_header">
@@ -21,18 +22,18 @@
             </a>
             <ul class="headernav">
                 <li>
-                    <a href="Home.html">首页</a>
+                    <a href="~/HomePage/Index">首页</a>
                 </li>
                 <li>
                     <a href="#">菜谱大全</a>
                 </li>
                 <li>
-                    <a href="#">饮食健康</a>
+                    <a href="#" class="link pngFix"><strong>食材清单</strong></a>
                 </li>
             </ul>
             <div class="search_toplogin">
-                <a href="Login.html" class="a1">登录</a>
-                <a href="Register.html" class="a1">注册</a>
+                <a href="#" class="a1">欢迎您的到来 @Session["UserName"]</a>
+              
             </div>
         </div>
     </div>
@@ -64,7 +65,7 @@
     </div>
     <div class="search2015_path ">
         当前位置：
-        <a href=" ">首页</a> >
+        <a href="~/HomePage/Index">首页</a> >
         <span>搜索：@ViewBag.text </span>
     </div>
     <div class="search_content clearfix ">

@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <title>上传您的美食菜谱 </title>
     <meta name="keywords" content="上传您的美食菜谱美食,菜谱,家常菜谱,美食菜谱,豆果美食菜谱,最新菜谱,美食分享,菜谱分享,减肥食谱,特色小吃,西餐美食,最全的菜谱网站,美食文化,豆果美食,douguo.com">
-    <meta name="description" content="豆果美食为华人美食菜谱社区，提供各种美食、菜谱、食谱的做法，丰富的菜谱大全可以让您轻松地学会怎么做美食，展现自己的高超厨艺，与千万会员一同分享美味的人生！">
+    <meta name="description" content="美食同盟会为华人美食菜谱社区，提供各种美食、菜谱、食谱的做法，丰富的菜谱大全可以让您轻松地学会怎么做美食，展现自己的高超厨艺，与千万会员一同分享美味的人生！">
     <link rel="icon" href="~/Content/Imges/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="~/Content/main.css"  />
     <link rel="stylesheet" href="~/Content/upfood.css">
@@ -30,11 +30,11 @@
 <body>
     <div id="header" class="" style="background:#c90000 center repeat-y;">
         <div class="header clearfix">
-            <a class="logo left" href="/"><img src="~/Content/Imges/logo.png" alt=""></a>
+            <a class="logo left" href="~/HomePage/Index"><img src="~/Content/Imges/logo.png" alt=""></a>
             <ul class="nav">
-                <li><a href="#">首页</a></li>
+                <li><a href="~/HomePage/Index">首页</a></li>
                 <li class="relative " onmouseover="javascript:$('.ctip').show();" onmouseout="javascript:$('.ctip').hide();">
-                    <a href="/jingxuan">菜谱 <span class="naww"></span></a>
+                    <a href="/jingxuan">菜谱大全 <span class="naww"></span></a>
                     <div class="ctip">
                         <span class="arwwj"> </span>
                         <div class="cblok clearfix">
@@ -102,8 +102,8 @@
                         
                     </div>
                 </li>
-                <li><a href="/dish/hot">笔记</a></li>
-                <li><a href="/mall">商城</a></li>
+                <li><a href="/dish/hot">食材清单</a></li>
+               
             </ul>
             <form class="search br4 left" method="POST" id="searchForm" action="/caipu/" accept-charset="utf-8" onsubmit="document.charset='utf-8';return Search();">
                 <input type="text" id="global_search_inpt" class="sput" name="keywords" value="搜索菜谱、菜单、食材、用户"
