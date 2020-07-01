@@ -268,3 +268,13 @@ C:\Users\86182\Desktop\FoodAlliance\FoodAlliance\obj\Debug\FoodAlliance.csprojAs
 C:\Users\86182\Desktop\FoodAlliance\FoodAlliance\obj\Debug\FoodAlliance.csproj.CopyComplete
 C:\Users\86182\Desktop\FoodAlliance\FoodAlliance\obj\Debug\FoodAlliance.dll
 C:\Users\86182\Desktop\FoodAlliance\FoodAlliance\obj\Debug\FoodAlliance.pdb
+F:\天下吃货网\FoodAlliance\FoodAlliance\bin\PagedList.dll
+F:\天下吃货网\FoodAlliance\FoodAlliance\bin\PagedList.xml
+F:\天下吃货网\FoodAlliance\FoodAlliance\bin\zh-Hans\EntityFramework.SqlServer.resources.dll
+F:\天下吃货网\FoodAlliance\FoodAlliance\bin\Gobln.Pager.dll
+F:\天下吃货网\FoodAlliance\FoodAlliance\bin\HomeBi.Libraries.PagedList.dll
+F:\天下吃货网\FoodAlliance\FoodAlliance\bin\PagedList.Mvc.dll
+F:\天下吃货网\FoodAlliance\FoodAlliance\bin\Gobln.Pager.xml
+F:\天下吃货网\FoodAlliance\FoodAlliance\bin\HomeBi.Libraries.PagedList.xml
+F:\天下吃货网\FoodAlliance\FoodAlliance\bin\PagedList.Mvc.xml
+F:\天下吃货网\FoodAlliance\FoodAlliance\obj\Debug\FoodAlliance.csprojAssemblyReference.cache
