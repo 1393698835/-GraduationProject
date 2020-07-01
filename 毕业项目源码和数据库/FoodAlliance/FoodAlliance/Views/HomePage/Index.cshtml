@@ -4,6 +4,9 @@
 }
 @using FoodAlliance.Models
 @model List<Recipe>
+@{ 
+    List<Typess> typesses = ViewBag.list2;
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,22 +35,22 @@
             </script>
         </div>
     </div>
-        <div class="header">
-            <div class="header_c">
-                <a href="#" class="logo pngFix"><img src="~/Content/Imges/logo.png"></a>
-                <div class="main_search_top_w">
-                    <div class="suggestionsBox" id="suggestions" style="display:none;"><ul class="suggestionList" id="autoSuggestionsList"></ul></div>
-                    <form action="/HomePage/QueryMenu" target="_blank">
-                        <input type="text" class="text" name="sreach_text" x-webkit-speech="" autocomplete="off" id="inputString" placeholder="输入菜谱、食材、作者">
-                        <input type="submit" class="submit" value="搜 索">
-                    </form>
-                </div>
-                <div class="loginitem_h">
-                    <a href="~/ReleaseMenu/Index">发布菜谱</a>
-                    <a href="#">欢迎您的到来 @Session["UserName"]</a>
-                </div>
+    <div class="header">
+        <div class="header_c">
+            <a href="#" class="logo pngFix"><img src="~/Content/Imges/logo.png"></a>
+            <div class="main_search_top_w">
+                <div class="suggestionsBox" id="suggestions" style="display:none;"><ul class="suggestionList" id="autoSuggestionsList"></ul></div>
+                <form action="/HomePage/QueryMenu" target="_blank">
+                    <input type="text" class="text" name="sreach_text" x-webkit-speech="" autocomplete="off" id="inputString" placeholder="输入菜谱、食材、作者">
+                    <input type="submit" class="submit" value="搜 索">
+                </form>
+            </div>
+            <div class="loginitem_h">
+                <a href="~/ReleaseMenu/Index">发布菜谱</a>
+                <a href="#">欢迎您的到来 @Session["UserName"]</a>
             </div>
         </div>
+    </div>
 
     <div class="nav">
         <ul id="main_nav">
@@ -55,108 +58,23 @@
                 <a href="~/HomePage/Index" class="link pngFix"><strong>首页</strong></a>
             </li>
             <li class="hasmore">
-                <a href="#" class="link pngFix"><strong>菜谱大全</strong></a>
+                <a href="~/RecipeDaqo/Index" class="link pngFix"><strong>菜谱大全</strong></a>
                 <div class="dw clearfix">
                     <div class="dww clearfix dww_cpdq">
-                        <div class="dwitem clearfix pngFix">
-                            <dl class="clearfix">
-                                <dt><a href="#">家常菜谱</a></dt>
-                                <dd>
-                                    <a href="#">家常菜</a>
-                                </dd>
-                                <dd>
-                                    <a href="#">凉菜</a>
-                                </dd>
-                                <dd>
-                                    <a href="#">素食</a>
-                                </dd>
-                                <dd>
-                                    <a href="#">晚餐</a>
-                                </dd>
-                                <dd>
-                                    <a href="#">私家菜</a>
-                                </dd>
-                                <dd>
-                                    <a href="#">热菜</a>
-                                </dd>
-                                <dd>
-                                    <a href="#">早餐</a>
-                                </dd>
-                                <dd>
-                                    <a href="#">午餐</a>
-                                </dd>
-
-                            </dl>
-                        </div>
                         <div class="dwitem dwitem_half clearfix">
                             <dl class="clearfix">
                                 <dt><a href="#">中华菜系</a></dt>
-                                <dd>
-                                    <a href="#">川菜</a>
-                                </dd>
-                                <dd>
-                                    <a href="#">粤菜</a>
-                                </dd>
-                                <dd>
-                                    <a href="#">东北菜</a>
-                                </dd>
-                                <dd>
-                                    <a href="#">湘菜</a>
-                                </dd>
-                                <dd>
-                                    <a href="#">鲁菜</a>
-                                </dd>
+                                @foreach (var item in typesses)
+                                {
+                                    <dd>
+                                        <a href="#">
+                                            @item.TypessName
+                                        </a>
+                                    </dd>
+                                }
                             </dl>
                         </div>
-                        <div class="dwitem dwitem_half clearfix">
-                            <dl class="clearfix">
-                                <dt><a href="#">各地小吃</a></dt>
-                                <dd>
-                                    <a href="#">四川小吃</a>
-                                </dd>
-                                <dd>
-                                    <a href="#">广东小吃</a>
-                                </dd>
-                                <dd>
-                                    <a href="#">北京小吃</a>
-                                </dd>
-                                <dd>
-                                    <a href="#">陕西小吃</a>
-                                </dd>
-                            </dl>
-                        </div><br />
-                        <div class="dwitem dwitem_half clearfix">
-                            <dl class="clearfix">
-                                <dt><a href="#">外国菜谱</a></dt>
-                                <dd>
-                                    <a href="#">韩国料理</a>
-                                </dd>
-                                <dd>
-                                    <a href="#">日本料理</a>
-                                </dd>
-                                <dd>
-                                    <a href="#">法国菜</a>
-                                </dd>
-                                <dd>
-                                    <a href="#">意大利餐</a>
-                                </dd>
-                            </dl>
-                        </div>
-                        <div class="dwitem dwitem_half clearfix">
-                            <dl class="clearfix">
-                                <dt><a href="#">烘焙</a></dt>
-                                <dd>
-                                    <a href="#">蛋糕面包</a>
-                                </dd>
-                                <dd>
-                                    <a href="#">饼干配方</a>
-                                </dd>
-                                <dd>
-                                    <a href="#">甜品点心</a>
-                                </dd>
-                            </dl>
-                        </div><br />
-
+                        <br />
                         <div class="dwitem dwitem_half clearfix">
                             <dl class="clearfix">
                                 <dt><a href="#">食材百科</a></dt>
@@ -187,29 +105,29 @@
                     <div class="zzw_item zzw_item_3" po="3" c="4">
                         <h3 class="bbtitles bbtitles_zzw"></h3>
                         @* 轮播图 *@
-                    <ul class="clearfix">
-                        <li>
-                            <a target="_blank" href="/Detail/Index/?id=24" title="丝瓜炖豆腐" class="img"><img alt="丝瓜炖豆腐" src="~/Content/Imges/丝瓜炖豆腐.jpg" /></a>
-                            <div class="c pngFix">
-                                  <h2><a target="_blank" href="#" title="丝瓜炖豆腐">丝瓜炖豆腐</a></h2>
-                                  <strong>美味飘香，满足味蕾</strong>
-                            </div>
-                        </li>
-                        <li>
-                            <a target="_blank" href="/Detail/Index/?id=25" title="脆爽多汁椒盐虾球" class="img"><img alt="脆爽多汁椒盐虾球" src="~/Content/Imges/脆爽多汁椒盐虾球.jpg" /></a>
-                            <div class="c pngFix">
-                                <h2><a target="_blank" href="#" title="脆爽多汁椒盐虾球">脆爽多汁椒盐虾球</a></h2>
-                                <strong>鲜香可口，美味下饭</strong>
-                            </div>
-                        </li>
-                        <li>
-                            <a target="_blank" href="/Detail/Index/?id=26" title="炝拌土豆丝" class="img"><img alt="炝拌土豆丝" src="~/Content/Imges/炝拌土豆丝.jpeg" /></a>
-                            <div class="c pngFix">
-                                <h2><a target="_blank" href="#" title="炝拌土豆丝">炝拌土豆丝</a></h2>
-                                <strong>香味浓郁，让人食欲大增</strong>
-                            </div>
-                        </li>
-                    </ul>
+                        <ul class="clearfix">
+                            <li>
+                                <a target="_blank" href="/Detail/Index/?id=24" title="丝瓜炖豆腐" class="img"><img alt="丝瓜炖豆腐" src="~/Content/Imges/丝瓜炖豆腐.jpg" /></a>
+                                <div class="c pngFix">
+                                    <h2><a target="_blank" href="#" title="丝瓜炖豆腐">丝瓜炖豆腐</a></h2>
+                                    <strong>美味飘香，满足味蕾</strong>
+                                </div>
+                            </li>
+                            <li>
+                                <a target="_blank" href="/Detail/Index/?id=25" title="脆爽多汁椒盐虾球" class="img"><img alt="脆爽多汁椒盐虾球" src="~/Content/Imges/脆爽多汁椒盐虾球.jpg" /></a>
+                                <div class="c pngFix">
+                                    <h2><a target="_blank" href="#" title="脆爽多汁椒盐虾球">脆爽多汁椒盐虾球</a></h2>
+                                    <strong>鲜香可口，美味下饭</strong>
+                                </div>
+                            </li>
+                            <li>
+                                <a target="_blank" href="/Detail/Index/?id=26" title="炝拌土豆丝" class="img"><img alt="炝拌土豆丝" src="~/Content/Imges/炝拌土豆丝.jpeg" /></a>
+                                <div class="c pngFix">
+                                    <h2><a target="_blank" href="#" title="炝拌土豆丝">炝拌土豆丝</a></h2>
+                                    <strong>香味浓郁，让人食欲大增</strong>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                     <div class="zzw_item zzw_item_2" po="2" c="3">
                         <h3 class="bbtitles bbtitles_zzw"></h3>

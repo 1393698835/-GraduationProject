@@ -15,6 +15,7 @@ namespace FoodAlliance.Controllers
         public ActionResult Index()
         {
             List<Recipe> list = db.Recipe.ToList();
+            ViewBag.list2 = db.Typess.ToList();
             return View(list);
         }
         //搜索模糊查询

@@ -14,6 +14,7 @@ namespace FoodAlliance.Controllers
         public ActionResult Index(int id)
         {
             List<Recipe> list = db.Recipe.Where(p => p.RecipeID == id).ToList();
+            ViewBag.list2 = db.Typess.ToList();
             return View(list);
         }
         [HttpPost]

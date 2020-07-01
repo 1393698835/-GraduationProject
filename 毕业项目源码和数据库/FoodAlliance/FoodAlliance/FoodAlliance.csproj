@@ -133,6 +133,7 @@
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\HouTaiController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\RecipeDaqoController.cs" />
     <Compile Include="Controllers\ReleaseMenuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -252,6 +253,7 @@
     <Content Include="Content\main.css" />
     <Content Include="Content\MenuDetails.css" />
     <Content Include="Content\QueryMenu.css" />
+    <Content Include="Content\RecipeDaqo.css" />
     <Content Include="Content\ReleaseMenu.css" />
     <Content Include="Content\upfood.css" />
     <Content Include="favicon.ico" />
@@ -302,6 +304,7 @@
     <Content Include="Scripts\min.houtai.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\QueryMenu.js" />
+    <Content Include="Scripts\RecipeDaqo.js" />
     <Content Include="Scripts\ReleaseMenu.js" />
     <Content Include="Scripts\search.js" />
     <Content Include="Scripts\Sortable.min.js" />
@@ -329,6 +332,7 @@
     <Content Include="Views\HouTai\HouTaiAuditcg.cshtml" />
     <Content Include="Views\Detail\Index.cshtml" />
     <Content Include="Views\HomePage\QueryMenu.cshtml" />
+    <Content Include="Views\RecipeDaqo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

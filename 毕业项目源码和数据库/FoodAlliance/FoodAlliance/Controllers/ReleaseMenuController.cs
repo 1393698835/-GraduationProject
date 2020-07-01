@@ -16,6 +16,13 @@ namespace FoodAlliance.Controllers
         //添加食谱
         public ActionResult Index()
         {
+            List<SelectListItem> Typelist = db.Typess.Select(p => new SelectListItem()
+            {
+                Text = p.TypessName,
+                Value = p.TypessID.ToString()
+            }).ToList();
+            ViewBag.Typelist = Typelist;
+            ViewBag.list2 = db.Typess.ToList();
             return View();
         }
         [HttpPost]
@@ -30,6 +37,7 @@ namespace FoodAlliance.Controllers
                     RecipePicture = Path.GetFileName(file.FileName),
                     RecipeDifficulty = rec.RecipeDifficulty,
                     RecipeTime = rec.RecipeTime,
+                    TypessID= rec.TypessID,
                     RecipeStory = rec.RecipeStory,
                     Ingredient = rec.Ingredient,
                     RecipeDosage = rec.RecipeDosage,

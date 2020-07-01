@@ -3,7 +3,11 @@
     Layout = null;
 }
 
-
+@using FoodAlliance.Models
+@model List<Recipe>
+@{
+    List<Typess> typesses = ViewBag.list2;
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +17,7 @@
     <meta name="keywords" content="上传您的美食菜谱美食,菜谱,家常菜谱,美食菜谱,豆果美食菜谱,最新菜谱,美食分享,菜谱分享,减肥食谱,特色小吃,西餐美食,最全的菜谱网站,美食文化,豆果美食,douguo.com">
     <meta name="description" content="美食同盟会为华人美食菜谱社区，提供各种美食、菜谱、食谱的做法，丰富的菜谱大全可以让您轻松地学会怎么做美食，展现自己的高超厨艺，与千万会员一同分享美味的人生！">
     <link rel="icon" href="~/Content/Imges/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="~/Content/main.css"  />
+    <link rel="stylesheet" href="~/Content/main.css" />
     <link rel="stylesheet" href="~/Content/upfood.css">
     <script src="~/Scripts/Jquery.js"></script>
     <script data-ad-client="ca-pub-6608973961595981" async src="~/Scripts/adsbygoogle.js"></script>
@@ -34,76 +38,26 @@
             <ul class="nav">
                 <li><a href="~/HomePage/Index">首页</a></li>
                 <li class="relative " onmouseover="javascript:$('.ctip').show();" onmouseout="javascript:$('.ctip').hide();">
-                    <a href="/jingxuan">菜谱大全 <span class="naww"></span></a>
+                    <a href="#">菜谱大全 <span class="naww"></span></a>
                     <div class="ctip">
                         <span class="arwwj"> </span>
                         <div class="cblok clearfix">
                             <div class="citem clearfix">
-                                <span>常见菜式</span>
-                                <div class="imublo clearfix">
-                                    <a href="/caipu/家常菜" target="_blank">家常菜</a>
-                                    <a href="/caipu/热菜" target="_blank">热菜</a>
-                                    <a href="/caipu/凉菜" target="_blank">凉菜</a>
-                                    <a href="/caipu/主食" target="_blank">主食</a>
-                                    <a href="/caipu/汤" target="_blank">汤</a>
-                                    <a href="/caipu/早餐" target="_blank">早餐</a>
-                                    <a href="/caipu/午餐" target="_blank">午餐</a>
-                                    <a href="/caipu/海鲜" target="_blank">海鲜</a>
-                                    <a href="/caipu/孕妇" target="_blank">孕妇</a>
-                                    <a href="/caipu/甜品" target="_blank">甜品</a>
-                                    <a href="/caipu/粥" target="_blank">粥</a>
-                                    <a href="/caipu/宝宝食谱" target="_blank">宝宝食谱</a>
-                                    <a href="/caipu/糕点" target="_blank">糕点</a>
-                                    <a href="/caipu/微波炉" target="_blank">微波炉</a>
-                                </div>
-                            </div>
-                            <div class="citem clearfix">
                                 <span>中国菜系</span>
                                 <div class="imublo clearfix">
-                                    <a href="/caipu/川菜" target="_blank">川菜</a>
-                                    <a href="/caipu/粤菜" target="_blank">粤菜</a>
-                                    <a href="/caipu/东北菜" target="_blank">东北菜</a>
-                                    <a href="/caipu/湘菜" target="_blank">湘菜</a>
-                                    <a href="/caipu/鲁菜" target="_blank">鲁菜</a>
-                                    <a href="/caipu/浙菜" target="_blank">浙菜</a>
-                                    <a href="/caipu/湖北菜" target="_blank">湖北菜</a>
-                                    <a href="/caipu/清真菜" target="_blank">清真菜</a>
-                                </div>
-                            </div>
-                            <div class="citem clearfix">
-                                <span>外国食谱</span>
-                                <div class="imublo clearfix">
-                                    <a href="/caipu/韩国" target="_blank">韩国</a>
-                                    <a href="/caipu/日本料理" target="_blank">日本料理</a>
-                                    <a href="/caipu/法国" target="_blank">法国</a>
-                                    <a href="/caipu/意大利餐" target="_blank">意大利餐</a>
-                                </div>
-                            </div>
-                            <div class="citem clearfix">
-                                <span>各地小吃</span>
-                                <div class="imublo clearfix">
-                                    <a href="/caipu/四川小吃" target="_blank">四川小吃</a>
-                                    <a href="/caipu/广东小吃" target="_blank">广东小吃</a>
-                                    <a href="/caipu/北京小吃" target="_blank">北京小吃</a>
-                                    <a href="/caipu/陕西小吃" target="_blank">陕西小吃</a>
-                                </div>
-                            </div>
-                            <div class="citem clearfix">
-                                <span>烘焙大全</span>
-                                <div class="imublo clearfix">
-                                    <a href="/caipu/蛋糕" target="_blank">蛋糕</a>
-                                    <a href="/caipu/面包" target="_blank">面包</a>
-                                    <a href="/caipu/饼干" target="_blank">饼干</a>
-                                    <a href="/caipu/披萨" target="_blank">披萨</a>
-                                    <a href="/caipu/甜品" target="_blank">甜品</a>
+                                    @foreach (var item in typesses)
+                                    {
+                                        <a href="#">
+                                            @item.TypessName
+                                        </a>
+                                    }
                                 </div>
                             </div>
                         </div>
-                        
                     </div>
                 </li>
                 <li><a href="/dish/hot">食材清单</a></li>
-               
+
             </ul>
             <form class="search br4 left" method="POST" id="searchForm" action="/caipu/" accept-charset="utf-8" onsubmit="document.charset='utf-8';return Search();">
                 <input type="text" id="global_search_inpt" class="sput" name="keywords" value="搜索菜谱、菜单、食材、用户"
@@ -164,34 +118,35 @@
                 font-weight: bold;
                 font-size: 15px;
             }
-            .step textarea {
-    margin-left:110px;
-    display: inline-block;
-    position: absolute;
-    padding: 12px 10px;
-    right: 44px;
-    width: 436px;
-    height: 200px;
-    resize: none;
-    border-radius: 4px;
-    border: 1px solid #E5E3DF;
-    font-size: 15px;
-    color: #333;
-}
+
+        .step textarea {
+            margin-left: 110px;
+            display: inline-block;
+            position: absolute;
+            padding: 12px 10px;
+            right: 44px;
+            width: 436px;
+            height: 200px;
+            resize: none;
+            border-radius: 4px;
+            border: 1px solid #E5E3DF;
+            font-size: 15px;
+            color: #333;
+        }
     </style>
     <div id="content" class="clearfix">
         <div id="left">
             <div class="draft-tip mt20"><span>已保存到云端</span></div>
-           <form action="" class="mt20" id="upfood" method="post" enctype="multipart/form-data">
-               <div class="cover">
-                   <input type="file" name="file" id="file" onchange="funChange()" accept="image/gif,image/jpeg,image/jpg,image/png,image/webp" />
-                  
-                    <a href="javascript:void(0)" id="pic" onclick="GetPic()" style="background-color:#FFB31A;color:white;padding:1em 2em">上传图片</a>
-                   
-                   <br />
-                   <img src="~/Content/Imges/add.png" id="ShowImg" />
+            <form action="" class="mt20" id="upfood" method="post" enctype="multipart/form-data">
+                <div class="cover">
+                    <input type="file" name="file" id="file" onchange="funChange()" accept="image/gif,image/jpeg,image/jpg,image/png,image/webp" />
 
-               </div>
+                    <a href="javascript:void(0)" id="pic" onclick="GetPic()" style="background-color:#FFB31A;color:white;padding:1em 2em">上传图片</a>
+
+                    <br />
+                    <img src="~/Content/Imges/add.png" id="ShowImg" />
+
+                </div>
                 <div class="name">
                     <input class="upname " id="RecipeName" name="RecipeName" type="text" maxlength="30"
                            value="菜谱名称"
@@ -228,7 +183,10 @@
                             1小时以上
                         </option>
                     </select>
+
+                    @Html.DropDownList("TypessID", ViewBag.Typelist as List<SelectListItem>, "菜谱类型", new { @class = "form-control text-box single-line" })
                 </div>
+
                 <div class="rory">
                     <textarea class="strtext " name="RecipeStory"
                               onfocus="if(this.value=='这道菜背后的故事～(选填)') {this.value=''; $(this).addClass('fcbm'); }"
@@ -267,14 +225,14 @@
 
                 <input name="token" type="hidden" value="PQPz49YjVeJ-uOdyqIwxyOn6aodL8dBI0ePyhHXX:s7-P2GFZL4eN1bqioi3oyh7uS_M=:eyJjYWxsYmFja1VybCI6Imh0dHA6XC9cL2FwaS5kb3VndW8ubmV0XC91cGxvYWRcL3Fpbml1Y2FsbGJhY2siLCJjYWxsYmFja0JvZHkiOiJ7XCJrZXlcIjpcIiQoa2V5KVwiLFwiaGFzaFwiOlwiJChldGFnKVwiLFwiZnNpemVcIjokKGZzaXplKSxcImJ1Y2tldFwiOlwiJChidWNrZXQpXCIsXCJ1aWRcIjoyNTQ3Njk2NyxcInR5cGVcIjoxfSIsImNhbGxiYWNrQm9keVR5cGUiOiJhcHBsaWNhdGlvblwvanNvbiIsInNjb3BlIjoiZG91Z3VvLWxpdmUiLCJkZWFkbGluZSI6MTU5MjY0NDM5M30=">
 
-                
+
                 <input type="hidden" name="cvideo_id" id="cvideo_id" value="">
-                <input type="hidden" name="src_url" id="src_url" value="">              
+                <input type="hidden" name="src_url" id="src_url" value="">
                 <div class="complete">
                     <input type="submit" value=" 保存 " class="btn btn-default" />
                 </div>
             </form>
-           
+
             <div id="netMotai" style="position: fixed;top: 0;left: 0;width:100vw;height: 100vh;display:none;z-index:10;">
                 <div style="height: 100vh;background: black;opacity: 0.5;z-index: 999;"></div>
                 <div style="position: fixed;width:420px;height:191px;margin-left:-210px;margin-top:-145px;top: 50%;left: 50%;background: #fff;border-radius: 8px;z-index: 1000;text-align: center;font-size: 0;">
@@ -314,7 +272,7 @@
                 var file = cacseFiles[i];
                 formData.append("file", file);
             }
-            
+
         $.ajax({
             url: "@Url.Content("/ReleaseMenu/SavePic")",
             type: 'POST',

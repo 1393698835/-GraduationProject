@@ -4,7 +4,9 @@
 }
 @using FoodAlliance.Models
 @model List<Recipe>
-
+@{
+    List<Typess> typesses = ViewBag.list2;
+}
 <!DOCTYPE html>
 <html>
 
@@ -59,7 +61,7 @@
                 </div>
                 <div class="loginitem_h">
                     <a href="#">欢迎您的到来 @Session["UserName"]</a>
-                   
+
                 </div>
             </div>
         </div>
@@ -72,105 +74,20 @@
                     <a href="#" class="link pngFix"><strong>菜谱大全</strong></a>
                     <div class="dw clearfix">
                         <div class="dww clearfix dww_cpdq">
-                            <div class="dwitem clearfix pngFix">
-                                <dl class="clearfix">
-                                    <dt><a href="#">家常菜谱</a></dt>
-                                    <dd>
-                                        <a href="#">家常菜</a>
-                                    </dd>
-                                    <dd>
-                                        <a href="#">凉菜</a>
-                                    </dd>
-                                    <dd>
-                                        <a href="#">素食</a>
-                                    </dd>
-                                    <dd>
-                                        <a href="#">晚餐</a>
-                                    </dd>
-                                    <dd>
-                                        <a href="#">私家菜</a>
-                                    </dd>
-                                    <dd>
-                                        <a href="#">热菜</a>
-                                    </dd>
-                                    <dd>
-                                        <a href="#">早餐</a>
-                                    </dd>
-                                    <dd>
-                                        <a href="#">午餐</a>
-                                    </dd>
-
-                                </dl>
-                            </div>
                             <div class="dwitem dwitem_half clearfix">
                                 <dl class="clearfix">
                                     <dt><a href="#">中华菜系</a></dt>
-                                    <dd>
-                                        <a href="#">川菜</a>
-                                    </dd>
-                                    <dd>
-                                        <a href="#">粤菜</a>
-                                    </dd>
-                                    <dd>
-                                        <a href="#">东北菜</a>
-                                    </dd>
-                                    <dd>
-                                        <a href="#">湘菜</a>
-                                    </dd>
-                                    <dd>
-                                        <a href="#">鲁菜</a>
-                                    </dd>
+                                    @foreach (var item1 in typesses)
+                                    {
+                                        <dd>
+                                            <a href="#">
+                                                @item1.TypessName
+                                            </a>
+                                        </dd>
+                                    }
                                 </dl>
                             </div>
-                            <div class="dwitem dwitem_half clearfix">
-                                <dl class="clearfix">
-                                    <dt><a href="#">各地小吃</a></dt>
-                                    <dd>
-                                        <a href="#">四川小吃</a>
-                                    </dd>
-                                    <dd>
-                                        <a href="#">广东小吃</a>
-                                    </dd>
-                                    <dd>
-                                        <a href="#">北京小吃</a>
-                                    </dd>
-                                    <dd>
-                                        <a href="#">陕西小吃</a>
-                                    </dd>
-                                </dl>
-                            </div><br />
-                            <div class="dwitem dwitem_half clearfix">
-                                <dl class="clearfix">
-                                    <dt><a href="#">外国菜谱</a></dt>
-                                    <dd>
-                                        <a href="#">韩国料理</a>
-                                    </dd>
-                                    <dd>
-                                        <a href="#">日本料理</a>
-                                    </dd>
-                                    <dd>
-                                        <a href="#">法国菜</a>
-                                    </dd>
-                                    <dd>
-                                        <a href="#">意大利餐</a>
-                                    </dd>
-                                </dl>
-                            </div>
-                            <div class="dwitem dwitem_half clearfix">
-                                <dl class="clearfix">
-                                    <dt><a href="#">烘焙</a></dt>
-                                    <dd>
-                                        <a href="#">蛋糕面包</a>
-                                    </dd>
-                                    <dd>
-                                        <a href="#">饼干配方</a>
-                                    </dd>
-                                    <dd>
-                                        <a href="#">甜品点心</a>
-                                    </dd>
-                                </dl>
-                            </div><br />
-
+                            <br />
                             <div class="dwitem dwitem_half clearfix">
                                 <dl class="clearfix">
                                     <dt><a href="#">食材百科</a></dt>
@@ -192,7 +109,7 @@
                 <li>
                     <a href="#" class="link pngFix"><strong>食材清单</strong></a>
                 </li>
-                
+
             </ul>
         </div>
 
@@ -569,30 +486,30 @@
 </html>
 
 @section scripts{
-      <script type="text/javascript" >
+    <script type="text/javascript">
 
-          $(function kk() {
-               $("#news_title").val();
-              $("#from_search").val();
-              $("#from_search").val();
-              $("#cp_com_textarea").val();
+        $(function kk() {
+            $("#news_title").val();
+            $("#from_search").val();
+            $("#from_search").val();
+            $("#cp_com_textarea").val();
 
-          })
-
-
-
-         
-
-
-          //$.ajax({
-          //    url: "/Dteail/Comment",
-          //    type: Text,
-          //    Date: {}
+        })
 
 
 
-          //})
-      </script>
-      
-    
-    }
+
+
+
+                  //$.ajax({
+                  //    url: "/Dteail/Comment",
+                  //    type: Text,
+                  //    Date: {}
+
+
+
+                  //})
+    </script>
+
+
+}

@@ -1,0 +1,350 @@
+﻿
+@{
+    Layout = null;
+}
+@using FoodAlliance.Models
+@model List<Recipe>
+@{
+    List<Typess> typesses = ViewBag.list2;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script>
+        var _hmt = _hmt || [];
+    </script>
+    <link href="~/Content/RecipeDaqo.css" rel="stylesheet" />
+    <script src="~/Scripts/RecipeDaqo.js"></script>
+    <script>
+        var _czc = _czc || [];
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?01dd6a7c493607e115255b7e72de5f40";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+
+<body style="">
+    <div class="adinheader">
+        <div class="adinheader_w">
+            <script>
+                (function () {
+                    var s = "_" + Math.random().toString(36).slice(2);
+                    document.write('<div id="' + s + '"></div>');
+                    (window.slotbydup = window.slotbydup || []).push({
+                        id: '206520',
+                        container: s,
+                        size: '990,40',
+                        display: 'inlay-fix'
+                    });
+                })();
+            </script>
+        </div>
+    </div>
+    <div class="header">
+        <div class="header_c">
+            <a href="#" class="logo pngFix"><img src="~/Content/Imges/logo.png" /></a>
+            <div class="main_search_top_w">
+                <div class="suggestionsBox" id="suggestions" style="display:none;"><ul class="suggestionList" id="autoSuggestionsList"></ul></div>
+                <form class="search" action="">
+                    <input type="text" class="text" name="q" defaultval="请输入菜谱/食材/菜单/作者" x-webkit-speech="" value="请输入菜谱/食材/菜单/作者" autocomplete="off" onfocus="if(this.value=='请输入菜谱/食材/菜单/作者'){this.value='';}$(this).css('color','#333');" onblur="if(this.value==''){this.value='请输入菜谱/食材/菜单/作者';$(this).css('color','#999');}" id="inputString" />
+                    <input type="submit" class="submit" value="搜 索" />
+                </form>
+            </div>
+            <div class="loginitem_h">
+                <a href="#">欢迎您的到来 @Session["UserName"]</a>
+            </div>
+        </div>
+        <div class="nav">
+            <ul id="main_nav">
+                <li class="current">
+                    <a href="#" class="link pngFix"><strong>首页</strong></a>
+                </li>
+                <li class="hasmore">
+                    <a href="#" class="link pngFix"><strong>菜谱大全</strong></a>
+                    <div class="dw clearfix">
+                        <div class="dww clearfix dww_cpdq">
+
+                            <div class="dwitem dwitem_half clearfix">
+                                <dl class="clearfix">
+                                    <dt><a href="#">中华菜系</a></dt>
+                                    @foreach (var item in typesses)
+                                    {
+                                        <dd>
+                                            <a href="#">
+                                                @item.TypessName
+                                            </a>
+                                        </dd>
+                                    }
+                                </dl>
+                            </div>
+                            <br />
+                            <div class="bgitem"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="link pngFix"><strong>食材清单</strong></a>
+                </li>
+            </ul>
+        </div>
+        <div class="main_search main_search_slideUp pngFix" slideUp="1" style="_display:none;" id="main_search">
+            <div class="main_search_w">
+                <div class="searchform_div">
+                    <form action="https://so.meishi.cc/" target="_blank"><input type="text" class="text" name="q" x-webkit-speech="" autocomplete="off" id="inputString" placeholder="家常菜谱大全" /><input type="submit" class="submit" value="搜 索" /></form>
+                </div>
+                <span id="searchslideup_btn" class="pngFix" style="background-position:0px -48px;">自动收缩</span>
+            </div>
+        </div>
+        <div class="bottom_back_top_top bottom_back_top_top_slideUp" id="bottom_back_top_top">
+            <a href="#" title="返回家常菜谱大全的顶部" class="backtotop pngFix">回到顶部</a>
+        </div>
+        <div class="main_w clearfix">
+            <div class="main">
+                <div class="listnav clearfix" id="listnav">
+                    <ul class="listnav_ul" id="listnav_ul">
+                        <li disable="1">
+                            <a class="link">我的美食属性</a>
+                        </li>
+                        <li>
+                            <a href="#" class="link">中华菜系</a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="link">食材百科</a>
+                        </li>
+                    </ul>
+                    <div class="other_c listnav_con clearfix">
+                        <dl class="listnav_dl_style1 w990 clearfix">
+                            <dt>中华菜系</dt>
+                            @foreach (var item in typesses)
+                            {
+                                <dd>
+                                    <a href="#">
+                                        @item.TypessName
+                                    </a>
+                                </dd>
+                            }
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="bbtitles">印象中的那些妈妈的味道</div>
+                <div class="liststyle1_w clearfix">
+
+                    <div class="listtyle1_w" id="listtyle1_w">
+                        <div class="listtyle1_list clearfix" id="listtyle1_list">
+                            <div class="listtyle1">
+                                <a target="_blank" href="#" title="卤鸭脖" class="big">
+                                    <img class="img" alt="卤鸭脖" src="https://st-cn.meishij.net/r/181/190/5047681/a5047681_154502622090228.jpg" />
+                                    <div class="i_w">
+                                        <div class="i" style="margin-top: 0px;">
+                                            <div class="c1"><strong>卤鸭脖</strong><span>0 评论  3540 人气</span><em>八哥开饭啦</em></div>
+                                            <div class="c2">
+                                                <ul>
+                                                    <li class="li1">4步 / 大概5分钟</li>
+                                                    <li class="li2">炒 / 家常味</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="listtyle1">
+                                <a target="_blank" href="#" title="酥炸鲜肉藕盒" class="big">
+                                    <img class="img" alt="酥炸鲜肉藕盒" src="https://st-cn.meishij.net/r/159/228/869659/a869659_159196327648474.jpg" />
+                                    <div class="i_w">
+                                        <div class="i" style="margin-top: 0px;">
+                                            <div class="c1"><strong>酥炸鲜肉藕盒</strong><span>0 评论  1 人气</span><em>籣草児</em></div>
+                                            <div class="c2">
+                                                <ul>
+                                                    <li class="li1">11步 / 大概90分钟</li>
+                                                    <li class="li2">炸 / 家常味</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="listtyle1">
+                                <a target="_blank" href="#" title="蜂蜜炸鸡" class="big">
+                                    <img class="img" alt="蜂蜜炸鸡" src="https://st-cn.meishij.net/r/157/47/3324407/a3324407_159196153900733.jpg" />
+                                    <div class="i_w">
+                                        <div class="i" style="margin-top: 0px;">
+                                            <div class="c1"><strong>蜂蜜炸鸡</strong><span>0 评论  1 人气</span><em>髅小彬</em></div>
+                                            <div class="c2">
+                                                <ul>
+                                                    <li class="li1">9步 / 大概数小时</li>
+                                                    <li class="li2">炸 / 咸鲜味</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="listtyle1">
+                                <a target="_blank" href="#" title="芙蓉豆腐" class="big">
+                                    <img class="img" alt="芙蓉豆腐" src="https://st-cn.meishij.net/r/171/146/13724171/a13724171_159193600698472.jpg" />
+                                    <div class="i_w">
+                                        <div class="i" style="margin-top: 0px;">
+                                            <div class="c1"><strong>芙蓉豆腐</strong><span>0 评论  1 人气</span><em>营养师锦虹</em></div>
+                                            <div class="c2">
+                                                <ul>
+                                                    <li class="li1">7步 / 大概15分钟</li>
+                                                    <li class="li2">蒸 / 家常味</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="listtyle1">
+                                <a target="_blank" href="#" title="双拼焗烤排骨" class="big">
+                                    <img class="img" alt="双拼焗烤排骨" src="https://st-cn.meishij.net/r/54/76/10456554/a10456554_159189275877904.jpg" />
+                                    <div class="i_w">
+                                        <div class="i" style="margin-top: 0px;">
+                                            <div class="c1"><strong>双拼焗烤排骨</strong><span>0 评论  1 人气</span><em>一半餐客</em></div>
+                                            <div class="c2">
+                                                <ul>
+                                                    <li class="li1">19步 / 大概90分钟</li>
+                                                    <li class="li2">烤 / 咸鲜味</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="listtyle1">
+                                <a target="_blank" href=".main_footer" title="荤香豇豆烀咸菜" class="big">
+                                    <img class="img" alt="荤香豇豆烀咸菜" src="https://st-cn.meishij.net/r/169/94/8586169/a8586169_159162053275643.jpg" />
+                                    <div class="i_w">
+                                        <div class="i" style="margin-top: 0px;">
+                                            <div class="c1"><strong>荤香豇豆烀咸菜</strong><span>0 评论  1 人气</span><em>纪元杰米3511912325</em></div>
+                                            <div class="c2">
+                                                <ul>
+                                                    <li class="li1">13步 / 大概30分钟</li>
+                                                    <li class="li2">炖 / 家常味</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="listtyle1_page">
+                            <div class="listtyle1_page_w">
+                                <a href="#" class="current">1</a>
+                                <a href="#" class="">2</a>
+                                <a href="#" class="">3</a>
+                                <a href="#" class="">4</a>
+                                <a href="#" class="">5</a><span>...</span>
+                                <a href="#" class="next">下一页</a><span class="gopage"><input type="hidden" value="13" name="lm" />共56页，到第 <input type="text" class="text" value="2" name="page" /> 页 <input type="submit" class="submit" value="确定" /></span>
+                            </div>
+                        </div>
+                        <script type="text/javascript" src="//ma1.meishij.net/jewnfkmaf.js"></script>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                _czc.push(['_trackEvent', 'pc', 'pc_list']);
+                _czc.push(['_trackEvent', 'pc', 'pc_list_class_13']);
+                var is_list_adding = 0;
+
+                function list_add_shicai() {
+                    var q = $('#yl_q').val();
+                    if (q != '' && q != '请输入您想查找的食材') {
+                        if (is_list_adding == 0) {
+                            is_list_adding = 1;
+                            $.get('/ajax/list_add_yl.php?c=' + encodeURIComponent(q), null,
+                                function (data) {
+                                    is_list_adding = 0;
+                                    data = parseInt(data);
+                                    if (data > 0) {
+                                        location.href = '/list.php?sortby=update&words=%E5%AE%B6%E5%B8%B8%E8%8F%9C&lm=270&yl=' + data;
+                                    } else {
+                                        alert('未能识别的食材，请尝试其他关键字');
+                                        $('#yl_q').val('');
+                                    }
+                                });
+                        }
+                    } else {
+                        alert('请输入您想查找的食材');
+                    }
+                }
+                $(function () {
+                    var js = document.createElement("script");
+                    js.language = "javascript";
+                    js.src = "http://click.meishij.net/pl/lclick.php?i=13&addclick=1&_" + (new Date()).getTime();
+                    document.body.appendChild(js);
+                    $("#yl_q").keypress(function (event) {
+                        if (event.keyCode == 13) {
+                            list_add_shicai()
+                        }
+                    });
+                });
+            </script>
+        </div>
+        <div style="margin:0 auto;padding-top:20px;width:990px;">
+            <div style="display:inline-block;vertical-align:top;">
+                <script type="text/javascript" src="//ma1.meishij.net/fasjbsigw.js"></script>
+            </div>
+            <div style="display:inline-block;vertical-align:top;">
+                <script type="text/javascript" src="//ma1.meishij.net/idvmevlje.js"></script>
+            </div>
+        </div>
+        <div class="main_footer pngFix">
+            <div class="main_footer pngFix">
+                <div class="footer_con2">
+                    <dl class="friend_link clearfix">
+                        <dt>友情链接</dt>
+                        <dd><a target="_blank" href="#" title="美食">美食</a></dd>
+                        <dd><a target="_blank" href="#" title="体质测试">体质测试</a></dd>
+                        <dd><a target="_blank" href="http://sj.meishi.cc/app.php?to=guanjia" title="伊特">伊特</a></dd>
+                        <dd><a target="_blank" href="http://www.9ku.com/ " title="9酷音乐网">9酷音乐网</a></dd>
+                        <dd><a target="_blank" href="http://www.yue365.com" title="365音乐网">365音乐网</a></dd>
+                        <dd><a target="_blank" href="http://www.mapbar.com/" title="图吧">图吧</a></dd>
+                        <dd><a target="_blank" href="http://baa.bitauto.com/" title="汽车论坛">汽车论坛</a></dd>
+                        <dd><a target="_blank" href="http://food.39.net" title="39健康饮食">39健康饮食</a></dd>
+                        <dd><a target="_blank" href="http://www.qqtn.com/ " title="QQ下载 ">QQ下载</a></dd>
+                        <dd><a target="_blank" href="http://www.meilele.com/" title="家具网">家具网</a></dd>
+                        <dd><a target="_blank" href="http://chihe.sohu.com" title="搜狐美食">搜狐美食</a></dd>
+                        <dd><a target="_blank" href="http://www.meishichina.com" title="美食天下">美食天下</a></dd>
+                        <dd><a target="_blank" href="http://www.zhms.cn" title="中华美食网">中华美食网</a></dd>
+                        <dd><a target="_blank" href="http://hefei.8684.cn/" title="合肥公交网">合肥公交网</a></dd>
+                        <dd><a target="_blank" href="http://www.canyin88.com/" title="红餐微杂志">红餐微杂志</a></dd>
+                        <dd><a target="_blank" href="http://bj.fang.com" title="北京搜房网">北京搜房网</a></dd>
+                        <dd><a target="_blank" href="https://www.meishij.net/siteinfo/links.php" title="更多友情链接">更多友情链接</a></dd>
+                    </dl>
+                </div>
+                <div class="footer_con3">
+                    <div class="jianjv"></div>
+                    <ul class="clearfix">
+                        <li><a target="_blank" href="#" title="公司简介">公司简介</a></li>
+                        <li><a target="_blank" href="#" title="关于我们">关于我们</a></li>
+                        <li><a target="_blank" href="#" title="产品下载">产品下载</a></li>
+                        <li><a target="_blank" href="#" title="加入我们">加入我们</a></li>
+                        <li><a target="_blank" href="#" title="联系我们">联系我们</a></li>
+                        <li><a target="_blank" href="#" title="商务合作">商务合作</a></li>
+                        <li><a target="_blank" href="#" title="用户协议">用户协议</a></li>
+                        <li><a target="_blank" href="#" title="用户协议">隐私政策</a></li>
+                        <li><a target="_blank" href="#" title="网站地图">网站地图</a></li>
+                        <li><a target="_blank" href="#" title="友情链接">友情链接</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display:none;">
+        <script type="text/javascript">
+            var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+            document.write(unescape("%3Cspan id='cnzz_stat_icon_1259001544'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1259001544' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+    </div>
+</body>
+
+</html>

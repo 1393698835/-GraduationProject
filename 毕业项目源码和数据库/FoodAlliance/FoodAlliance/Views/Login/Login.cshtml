@@ -35,20 +35,7 @@
         <div class="login_nav">
             <div class="login_navw">
                 <a href="#" class="logo"></a>
-				<ul>
-					<li>
-						<a href="#">首页</a>
-					</li>
-					<li>
-						<a href="#">菜谱大全</a>
-					</li>
-					<li>
-						<a href="#">美食菜单</a>
-					</li>
-					<li>
-						<a href="#">食材菜单</a>
-					</li>
-				</ul>
+				
             </div>
 
         </div>
@@ -118,24 +105,27 @@
 
                         <div class="nl_loginbox_w" style="float:left;">
 
-                            <form class="register_form_pn" action="/Login/Register" method="post" id="reg_form">
-                                <div class="nl_loginitem">
-                                    <input type="text" name="UsersPhone" class="text forcheck pn_forcheck" passCheck="0" id="reg_phone" placeholder="请输入电话号码">
-                                </div>
-                                <div class="login_tips tip" style="display:none;"> </div>
-                                <div class="nl_loginitem">
-                                    <input type="hidden" name="login_type" value="2">
-                                    <input type="password" class="password" name="UsersPassword" placeholder="请输入密码">
-                                </div>
-                                <div class="login_tips false" style="display:none;"> </div>
-                                <div class="nl_loginitem" style="height:20px;line-height:20px;">
-                                    <label class="label2"><input type="checkbox" class="checkbox" id="xianyi">  我已阅读并且同意美食杰<a href="#" target="_blank">《用户协议》</a>和<a href="#" target="_blank">《隐私政策》</a></label>
-                                </div>
-                                <div class="login_tips tip" style="display:none;"> </div>
-                                <div class="nl_loginitem" style="text-align:center;">
-                                    <input type="submit" class="submit register_submit" id="reg_but" value="注 册">
-                                </div>
-                            </form>
+							<form class="register_form_pn" action="/Login/Register" method="post" id="reg_form">
+								<div class="nl_loginitem">
+									<input type="text" name="UsersPhone" class="text forcheck pn_forcheck" passCheck="0" id="reg_phone" placeholder="请输入电话号码">
+								</div>
+								<div class="login_tips tip" style="display:none;"> </div>
+								<div class="nl_loginitem">
+									<input type="hidden" name="login_type" value="2">
+									<input type="password" class="password" name="UsersPassword" placeholder="请输入密码">
+								</div>
+								<div class="nl_loginitem">
+									<input type="text" name="UsersName" class="text"  placeholder="请输入用户名">
+								</div>
+								<div class="login_tips false" style="display:none;"> </div>
+								<div class="nl_loginitem" style="height:20px;line-height:20px;">
+									<label class="label2"><input type="checkbox" class="checkbox" id="xianyi">  我已阅读并且同意美食杰<a href="#" target="_blank">《用户协议》</a>和<a href="#" target="_blank">《隐私政策》</a></label>
+								</div>
+								<div class="login_tips tip" style="display:none;"> </div>
+								<div class="nl_loginitem" style="text-align:center;">
+									<input type="submit" class="submit register_submit" id="reg_but" value="注 册">
+								</div>
+							</form>
                         </div>
                     </div>
                 </div>
