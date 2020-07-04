@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FoodAlliance.Models;
+using PagedList;
+using System.IO;
 namespace FoodAlliance.Controllers
 {
     public class HouTaiController : Controller
@@ -75,5 +77,49 @@ namespace FoodAlliance.Controllers
             db.SaveChanges();
             return RedirectToAction("HouTaiAudit");
         }
+        //后台新闻管理
+        public ActionResult NewsManagement()
+        {
+            ViewBag.time = DateTime.Now;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult NewsManagement(Journalism jou, HttpPostedFileBase file)
+        {
+            string fileName = null;
+            //图片上传
+            if (file != null)
+            {
+                if (file.ContentLength==0)
+                {
+                    return View();
+                }
+                else
+                {
+                    fileName = Path.GetFileName(file.FileName);
+                    file.SaveAs(Server.MapPath("~/Content/Imges/" + file.FileName));
+                }
+            }
+            //新闻上传
+            if (ModelState.IsValid)
+            {
+                Journalism journalism = new Journalism()
+                {
+                    JournalismType = jou.JournalismType,
+                    JournalismTitle = jou.JournalismTitle,
+                    Issuer = jou.Issuer,
+                    ReleaseTime = jou.ReleaseTime,
+                    Content = jou.Content,
+                    Picture = fileName
+
+                };
+                db.Journalism.Add(journalism);
+                db.SaveChanges();
+                return Content("<script>alert('发布成功！');history.go(-1);</script>");
+
+            }
+            return Content("<script>alert('发布不成功！');history.go(-1);</script>");
+        }
+
     }
 }

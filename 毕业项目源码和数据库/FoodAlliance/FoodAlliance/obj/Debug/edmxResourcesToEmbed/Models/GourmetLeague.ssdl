@@ -17,8 +17,9 @@
     <Property Name="CommentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="RecipeID" Type="int" />
     <Property Name="CommentUser" Type="nvarchar" MaxLength="50" />
-    <Property Name="CommentContent" Type="nvarchar" MaxLength="50" />
+    <Property Name="CommentContent" Type="nvarchar" MaxLength="800" />
     <Property Name="CommentonTime" Type="datetime" />
+    <Property Name="JournalismID" Type="int" />
   </EntityType>
   <EntityType Name="Food">
     <Key>
@@ -30,6 +31,18 @@
     <Property Name="FoodPicture" Type="nvarchar" MaxLength="50" />
     <Property Name="FoodRecommend" Type="nvarchar" MaxLength="50" />
     <Property Name="FoodPractce" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Journalism">
+    <Key>
+      <PropertyRef Name="JournalismID" />
+    </Key>
+    <Property Name="JournalismID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JournalismType" Type="nvarchar" MaxLength="50" />
+    <Property Name="JournalismTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="Issuer" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReleaseTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="Content" Type="nvarchar" MaxLength="1500" />
+    <Property Name="Picture" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Recipe">
     <Key>
@@ -50,6 +63,16 @@
     <Property Name="UsersID" Type="int" />
     <Property Name="Audit" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
   <EntityType Name="Typess">
     <Key>
       <PropertyRef Name="TypessID" />
@@ -69,6 +92,18 @@
     <Property Name="UsersPassword" Type="nvarchar" MaxLength="50" />
     <Property Name="UsersAvatar" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <Association Name="FK__Comment__Journal__5CD6CB2B">
+    <End Role="Journalism" Type="Self.Journalism" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Journalism">
+        <PropertyRef Name="JournalismID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="JournalismID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Food__TypessID__15502E78">
     <End Role="Typess" Type="Self.Typess" Multiplicity="0..1" />
     <End Role="Food" Type="Self.Food" Multiplicity="*" />
@@ -109,9 +144,15 @@
     <EntitySet Name="Admini" EntityType="Self.Admini" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Journalism" EntityType="Self.Journalism" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Recipe" EntityType="Self.Recipe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Typess" EntityType="Self.Typess" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Comment__Journal__5CD6CB2B" Association="Self.FK__Comment__Journal__5CD6CB2B">
+      <End Role="Journalism" EntitySet="Journalism" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
     <AssociationSet Name="FK__Food__TypessID__15502E78" Association="Self.FK__Food__TypessID__15502E78">
       <End Role="Typess" EntitySet="Typess" />
       <End Role="Food" EntitySet="Food" />

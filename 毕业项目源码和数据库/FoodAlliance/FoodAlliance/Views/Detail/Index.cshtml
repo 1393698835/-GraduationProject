@@ -80,7 +80,7 @@
                                     @foreach (var item1 in typesses)
                                     {
                                         <dd>
-                                            <a href="#">
+                                            <a href="~/RecipeDaqo/FenLei/?id=@item.TypessID">
                                                 @item1.TypessName
                                             </a>
                                         </dd>
@@ -106,10 +106,6 @@
                         </div>
                     </div>
                 </li>
-                <li>
-                    <a href="#" class="link pngFix"><strong>食材清单</strong></a>
-                </li>
-
             </ul>
         </div>
 
@@ -124,11 +120,11 @@
                     </li>
                     <li> > </li>
                     <li>
-                        <a id="tongji_caipudaquan" href="#">菜谱大全</a>
+                        <a id="tongji_caipudaquan" href="~/RecipeDaqo/Index">菜谱大全</a>
                     </li>
                     <li> > </li>
                     <li>
-                        <a id='tongji_toolbar_10043' class='curzt' href='#'>#粤菜#</a>
+                        <a id='tongji_toolbar_10043' class='curzt' href='#'>@item.RecipeName</a>
                     </li>
                 </ul>
 
@@ -271,8 +267,6 @@
                             </script>
                         </div>
                         <style>
-
-
                             .iphonestyle_new .imgsetw {
                                 width: 300px;
                                 height: 569px;
@@ -323,20 +317,48 @@
                                     height: 537px;
                                     width: 248px;
                                 }
+
+                            .side_qrcode {
+                                background: url(https://s1.st.meishij.net/p2/20190522/20190522172502_923.png) center no-repeat;
+                                width: 120px;
+                                height: 193px;
+                                position: fixed;
+                                left: 50%;
+                                margin-left: 515px;
+                                bottom: 100px;
+                            }
                         </style>
                         <div class="iphonestyle_new" id="iphonestyle_new">
+
                             <div class="imgsetw">
+
                                 <div class="imgw imgw1">
                                     <div class="imgs">
-
                                         <img src="~/Content/Imges/手机1.jpg" class="img" />
                                         <img src="~/Content/Imges/手机2.jpg" class="img" />
                                         <img src="~/Content/Imges/手机3.jpg" class="img" />
                                     </div>
                                 </div>
                                 <div class="mask"></div>
+
                             </div>
+
                         </div>
+                        <script>
+                            $(function () {
+                                var sti_iphonestyle_new = setInterval(function () {
+                                    var _ele = $("#iphonestyle_new .imgw");
+                                    if (_ele.hasClass("imgw1")) {
+                                        _ele.removeClass("imgw1").addClass("imgw2");
+                                    } else if (_ele.hasClass("imgw2")) {
+                                        _ele.removeClass("imgw2").addClass("imgw3");
+                                    } else if (_ele.hasClass("imgw3")) {
+                                        _ele.removeClass("imgw3").addClass("imgw1");
+                                    }
+                                }, 3000);
+
+                            });
+                        </script>
                     </div>
                     <!--div class="bbtitles" id="con_xscp2">看过鲫鱼汤的人还喜欢看...</div-->
                     <div id="dt_MRecVAV"></div>
@@ -495,20 +517,6 @@
             $("#cp_com_textarea").val();
 
         })
-
-
-
-
-
-
-                  //$.ajax({
-                  //    url: "/Dteail/Comment",
-                  //    type: Text,
-                  //    Date: {}
-
-
-
-                  //})
     </script>
 
 

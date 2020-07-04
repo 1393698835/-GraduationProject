@@ -174,7 +174,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GourmetLeague.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Journalism.cs">
+      <DependentUpon>GourmetLeague.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Recipe.cs">
+      <DependentUpon>GourmetLeague.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>GourmetLeague.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Typess.cs">
@@ -225,6 +231,7 @@
     <Content Include="Content\Imges\河南菜馍.jpg" />
     <Content Include="Content\Imges\清蒸花盖蟹.jpg" />
     <Content Include="Content\Imges\炝拌土豆丝.jpeg" />
+    <Content Include="Content\Imges\炝拌土豆丝.jpg" />
     <Content Include="Content\Imges\牛油果香蕉思慕雪.jpg" />
     <Content Include="Content\Imges\玉米片紫薯球.jpg" />
     <Content Include="Content\Imges\玫瑰花馒头.jpg" />
@@ -260,6 +267,7 @@
     <Content Include="Content\Imges\香肠飞饼卷.jpg" />
     <Content Include="Content\Imges\驴打滚.jpg" />
     <Content Include="Content\Imges\鲫鱼汤.jpg" />
+    <Content Include="Content\lanrenzhijia.css" />
     <Content Include="Content\layui.css" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\main.css" />
@@ -346,6 +354,13 @@
     <Content Include="Views\Detail\Index.cshtml" />
     <Content Include="Views\HomePage\QueryMenu.cshtml" />
     <Content Include="Views\RecipeDaqo\Index.cshtml" />
+    <Content Include="Views\RecipeDaqo\FenLei.cshtml" />
+    <Content Include="Views\Shared\XinXIzx.cshtml" />
+    <Content Include="Views\HomePage\PersonalCenter.cshtml" />
+    <Content Include="Views\HomePage\MenuQuery.cshtml" />
+    <Content Include="Views\HomePage\NoMenuQuery.cshtml" />
+    <Content Include="Views\HouTai\NewsManagement.cshtml" />
+    <Content Include="Views\HomePage\SeeNews.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

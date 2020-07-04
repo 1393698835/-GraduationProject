@@ -17,9 +17,11 @@
     <Property Name="CommentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="RecipeID" Type="Int32" />
     <Property Name="CommentUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CommentContent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CommentContent" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
     <Property Name="CommentonTime" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Recipe" Relationship="Self.FK__Comment__RecipeI__1BFD2C07" FromRole="Comment" ToRole="Recipe" />
+    <Property Name="JournalismID" Type="Int32" />
+    <NavigationProperty Name="Journalism" Relationship="GourmetLeagueModel.FK__Comment__Journal__5CD6CB2B" FromRole="Comment" ToRole="Journalism" />
   </EntityType>
   <EntityType Name="Food">
     <Key>
@@ -166,5 +168,46 @@
       <End Role="Typess" EntitySet="Typess" />
       <End Role="Typess1" EntitySet="Typess" />
     </AssociationSet>
+    <EntitySet Name="Journalism" EntityType="GourmetLeagueModel.Journalism" />
+    <EntitySet Name="sysdiagrams" EntityType="GourmetLeagueModel.sysdiagrams" />
+    <AssociationSet Name="FK__Comment__Journal__5CD6CB2B" Association="GourmetLeagueModel.FK__Comment__Journal__5CD6CB2B">
+      <End Role="Journalism" EntitySet="Journalism" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Journalism">
+    <Key>
+      <PropertyRef Name="JournalismID" />
+    </Key>
+    <Property Name="JournalismID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JournalismType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="JournalismTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Issuer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReleaseTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+    <Property Name="Picture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Comment" Relationship="GourmetLeagueModel.FK__Comment__Journal__5CD6CB2B" FromRole="Journalism" ToRole="Comment" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__Comment__Journal__5CD6CB2B">
+    <End Type="GourmetLeagueModel.Journalism" Role="Journalism" Multiplicity="0..1" />
+    <End Type="GourmetLeagueModel.Comment" Role="Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Journalism">
+        <PropertyRef Name="JournalismID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="JournalismID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

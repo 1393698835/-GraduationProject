@@ -31,5 +31,7 @@ namespace FoodAlliance.Models
         public virtual DbSet<Recipe> Recipe { get; set; }
         public virtual DbSet<Typess> Typess { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Journalism> Journalism { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

@@ -15,7 +15,7 @@
     <script>
         var _hmt = _hmt || [];
     </script>
-
+    <title>食谱大全</title>
     <link href="~/Content/RecipeDaqo.css" rel="stylesheet" />
     <script src="~/Scripts/RecipeDaqo.js"></script>
     <script>
@@ -90,7 +90,7 @@
                                     @foreach (var item in typesses)
                                     {
                                         <dd>
-                                            <a href="#">
+                                            <a href="/RecipeDaqo/FenLei?id=@item.TypessID">
                                                 @item.TypessName
                                             </a>
                                         </dd>
@@ -101,9 +101,6 @@
                             <div class="bgitem"></div>
                         </div>
                     </div>
-                </li>
-                <li>
-                    <a href="#" class="link pngFix"><strong>食材清单</strong></a>
                 </li>
             </ul>
         </div>
@@ -138,7 +135,7 @@
                             @foreach (var item in typesses)
                             {
                                 <dd>
-                                    <a href="#">
+                                    <a href="/RecipeDaqo/FenLei?id=@item.TypessID">
                                         @item.TypessName
                                     </a>
                                 </dd>

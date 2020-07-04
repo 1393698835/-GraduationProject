@@ -1,0 +1,142 @@
+﻿
+@{
+    Layout = null;
+}
+@using FoodAlliance.Models;
+@model List<Journalism>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>美食同盟会后台管理系统</title>
+    <link rel="stylesheet" href="~/Content/layui.css">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo">美食同盟会后台管理系统</div>
+            <!-- 头部区域（可配合layui已有的水平导航） -->
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item"><a href="/HouTai/HouTaiHome">用户列表</a></li>
+                <li class="layui-nav-item"><a href="/HouTai/HouTaiAudit">未审核列表</a></li>
+                <li class="layui-nav-item"><a href="/HouTai/HouTaiAuditcg">已审核列表</a></li>
+                <li class="layui-nav-item"><a href="/HouTai/NewsManagement">新闻管理</a></li>
+            </ul>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="~/Content/Imges/login_home_background.jpg" class="layui-nav-img">
+                        胡瑶
+                    </a>
+                </li>
+                <li class="layui-nav-item"><a href="">注销</a></li>
+            </ul>
+        </div>
+
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item">
+                        <a href="/HouTai/HouTaiHome">用户管理</a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="/HouTai/HouTaiAudit">未审核列表</a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="/HouTai/HouTaiAuditcg">已审核列表</a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="/HouTai/NewsManagement">新闻管理</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div style="padding: 15px; margin-top:60px;">
+                <div class="layui-field-box">
+                    <h2>添加新闻</h2>
+                    <form action="/HouTai/NewsManagement" enctype="multipart/form-data" method="post" style="margin-top:100px;margin-left:90px">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-md-2" for="JournalismTitle">新闻标题</label>
+                                <div class="col-md-10">
+                                    <input class="form-control text-box single-line" data-val="true" data-val-required="新闻标题是必填项" id="JournalismTitle" name="JournalismTitle" type="text" value="" />
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="StuName" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2" for="JournalismTitle">图片上传</label>
+                                <div class="col-md-10">
+                                    <text>选择上传文件：</text><input name="file" type="file" id="file"/>
+                                    <br />
+                                    <br />
+                                    <input type="submit" name="submit1" value="上传"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2" for="Issuer">发布人</label>
+                                <div class="col-md-10">
+                                    <input class="form-control text-box single-line" data-val="true" data-val-required="发布人是必填项" id="Issuer" name="Issuer" type="text" value="" />
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="StuLoginName" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2" for="ReleaseTime">发布时间</label>
+                                <div class="col-md-10">
+                                    <input class="form-control text-box single-line" data-val="true" data-val-required="发布时间是必填项" id="ReleaseTime1" name="ReleaseTime1" type="text" value="@ViewBag.time" disabled="disabled" />
+                                    <input class="form-control text-box single-line" data-val="true" data-val-required="发布时间是必填项" id="ReleaseTime" name="ReleaseTime" type="hidden" value="@ViewBag.time" />
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="StuLoginPwd" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2" for="JournalismType">新闻类型</label>
+                                <div class="col-md-10">
+                                    <select id="JournalismType" name="JournalismType" class="seleco">
+                                        <option value="">新闻类型</option>
+                                        <option value="食品安全">
+                                            食品安全
+                                        </option>
+                                        <option value="文化典故">
+                                            文化典故)
+                                        </option>
+                                        <option value="健康指南">
+                                            健康指南)
+                                        </option>
+                                        <option value="新鲜资讯">
+                                            新鲜资讯
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2" for="Content">新闻内容</label>
+                                <div class="col-md-10">
+                                    <div class="form-group">
+                                        <textarea class="form-control" id="Content" name="Content" rows="7"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value=" 保存 " class="btn btn-default" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-footer">
+            <!-- 底部固定区域 -->
+            © 美食同盟会与你同在
+        </div>
+    </div>
+</body>

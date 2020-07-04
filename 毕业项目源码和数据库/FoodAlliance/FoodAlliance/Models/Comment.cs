@@ -19,7 +19,9 @@ namespace FoodAlliance.Models
         public string CommentUser { get; set; }
         public string CommentContent { get; set; }
         public Nullable<System.DateTime> CommentonTime { get; set; }
+        public Nullable<int> JournalismID { get; set; }
     
         public virtual Recipe Recipe { get; set; }
+        public virtual Journalism Journalism { get; set; }
     }
 }

@@ -38,7 +38,7 @@
             <ul class="nav">
                 <li><a href="~/HomePage/Index">首页</a></li>
                 <li class="relative " onmouseover="javascript:$('.ctip').show();" onmouseout="javascript:$('.ctip').hide();">
-                    <a href="#">菜谱大全 <span class="naww"></span></a>
+                    <a href="~/RecipeDaqo/Index">菜谱大全 <span class="naww"></span></a>
                     <div class="ctip">
                         <span class="arwwj"> </span>
                         <div class="cblok clearfix">
@@ -47,7 +47,7 @@
                                 <div class="imublo clearfix">
                                     @foreach (var item in typesses)
                                     {
-                                        <a href="#">
+                                        <a href="~/RecipeDaqo/FenLei/?id=@item.TypessID">
                                             @item.TypessName
                                         </a>
                                     }
@@ -56,11 +56,9 @@
                         </div>
                     </div>
                 </li>
-                <li><a href="/dish/hot">食材清单</a></li>
-
             </ul>
-            <form class="search br4 left" method="POST" id="searchForm" action="/caipu/" accept-charset="utf-8" onsubmit="document.charset='utf-8';return Search();">
-                <input type="text" id="global_search_inpt" class="sput" name="keywords" value="搜索菜谱、菜单、食材、用户"
+            <form class="search br4 left" method="POST" id="searchForm" action="~/HomePage/QueryMenu" target="_blank" accept-charset="utf-8">
+                <input type="text" id="inputString" class="sput" name="sreach_text"  value="搜索菜谱、菜单、食材、用户"
                        lang="zh-CN" autocomplete="off" onfocus="if(this.value=='搜索菜谱、菜单、食材、用户') {this.value=''; $(this).addClass('fcbm'); }" onblur="if(!this.value) {this.value='';$(this).removeClass('fcbm');} setTimeout(function (){$('#mysu2').html('')},500)" onkeyup="selectItem(event)" onclick="selectItem(event)">
                 <input type="submit" value=" " class="lib">
                 <div class="sugg2" id="mysu2" style="display:none;"></div>
@@ -229,7 +227,7 @@
                 <input type="hidden" name="cvideo_id" id="cvideo_id" value="">
                 <input type="hidden" name="src_url" id="src_url" value="">
                 <div class="complete">
-                    <input type="submit" value=" 保存 " class="btn btn-default" />
+                    <input type="submit" value=" 保存 " class="btn btn-default"  style="height:50px;width:80px;font-size:20px;background-color:red;color:white;"/>
                 </div>
             </form>
 

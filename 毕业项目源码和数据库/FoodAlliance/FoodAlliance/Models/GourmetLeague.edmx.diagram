@@ -16,6 +16,9 @@
         <AssociationConnector Association="GourmetLeagueModel.FK__Recipe__TypessID__182C9B23" ManuallyRouted="false" />
         <AssociationConnector Association="GourmetLeagueModel.FK__Recipe__UsersID__1920BF5C" ManuallyRouted="false" />
         <AssociationConnector Association="GourmetLeagueModel.FK__Typess__PID__1273C1CD" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="GourmetLeagueModel.Journalism" Width="1.5" PointX="0.75" PointY="8" />
+        <EntityTypeShape EntityType="GourmetLeagueModel.sysdiagrams" Width="1.5" PointX="6.75" PointY="0.75" />
+        <AssociationConnector Association="GourmetLeagueModel.FK__Comment__Journal__5CD6CB2B" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
