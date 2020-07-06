@@ -69,6 +69,7 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="GourmetLeagueModel.Users">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Audit" ColumnName="Audit" />
           <ScalarProperty Name="UsersID" ColumnName="UsersID" />
           <ScalarProperty Name="UsersPhone" ColumnName="UsersPhone" />
           <ScalarProperty Name="UsersName" ColumnName="UsersName" />

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using PagedList;
 namespace FoodAlliance.Controllers
 {
     public class HomePageController : Controller
@@ -73,6 +73,16 @@ namespace FoodAlliance.Controllers
             List<Journalism> list = db.Journalism.Where(p => p.JournalismID == id).ToList();
             ViewBag.list2 = db.Typess.ToList();
             return View(list);
+        }
+        //新闻资讯
+        public ActionResult NewsInformation(int? page)
+        {
+            List<Journalism> list = db.Journalism.ToList();
+            ViewBag.list2 = db.Typess.ToList();
+            var pageSize = 8;
+            var pageNumber = page ?? 1;
+            IPagedList<Journalism> pagedList = list.ToPagedList(pageNumber, pageSize);
+            return View(pagedList);;
         }
     }
 }

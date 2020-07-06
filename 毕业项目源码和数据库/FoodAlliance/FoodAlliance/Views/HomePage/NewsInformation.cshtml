@@ -2,7 +2,7 @@
     Layout = null;
 }
 @using FoodAlliance.Models
-@model PagedList.IPagedList<Recipe>
+@model PagedList.IPagedList<Journalism>
 @using PagedList.Mvc;
 @{
     List<Typess> typesses = ViewBag.list2;
@@ -15,7 +15,7 @@
     <script>
         var _hmt = _hmt || [];
     </script>
-    <title>分类菜谱</title>
+    <title>新闻资讯</title>
     <link href="~/Content/RecipeDaqo.css" rel="stylesheet" />
     <script src="~/Scripts/RecipeDaqo.js"></script>
     <script>
@@ -91,7 +91,7 @@
                                     @foreach (var item in typesses)
                                     {
                                         <dd>
-                                            <a href="/RecipeDaqo/FenLei/?id=@item.TypessID">
+                                            <a href="/RecipeDaqo/FenLei?id=@item.TypessID">
                                                 @item.TypessName
                                             </a>
                                         </dd>
@@ -124,40 +124,7 @@
         </div>
         <div class="main_w clearfix">
             <div class="main">
-                <div class="listnav clearfix" id="listnav">
-                    <ul class="listnav_ul" id="listnav_ul">
-                        <li disable="1">
-                            <a class="link">我的美食属性</a>
-                        </li>
-                        <li>
-                            <a href="#" class="link">中华菜系</a>
-                        </li>
-                    </ul>
-                    <div class="other_c listnav_con clearfix">
-                        <dl class="listnav_dl_style1 w990 clearfix">
-                            <dt>中华菜系</dt>
-                            @foreach (var item in typesses)
-                            {
-                                <dd>
-                                    <a href="/RecipeDaqo/FenLei?id=@item.TypessID">
-                                        @item.TypessName
-                                    </a>
-                                </dd>
-                            }
-                        </dl>
-                    </div>
-                </div>
-                @foreach (var item in Model)
-                {
-                    int a = 0;
-                    if (a == 0)
-                    {
-                        <div class="bbtitles">@item.Typess.TypessName</div>
-                        break;
-                    }
-
-                }
-
+                <div class="bbtitles">合理的饮食，是身体健康的第一要素</div>
                 <div class="liststyle1_w clearfix">
                     <div class="listtyle1_w" id="listtyle1_w">
                         <div class="listtyle1_list clearfix" id="listtyle1_list">
@@ -169,26 +136,19 @@
                             {
 
                                 <div class="listtyle1">
-                                    <a target="_blank" href="/Detail/Index/?id=@item.RecipeID" title="@item.RecipeName" class="big">
-                                        <img class="img" alt="@item.RecipeName" src="~/Content/Imges/@item.RecipePicture" />
+                                    <a target="_blank" href="/HomePage/SeeNews/?id=@item.JournalismID" title="@item.JournalismTitle" class="big">
+                                        <img class="img" alt="@item.JournalismTitle" src="~/Content/Imges/@item.Picture" />
                                         <div class="i_w">
                                             <div class="i" style="margin-top: 0px;">
                                                 <div class="c1">
-                                                    <strong>@item.RecipeName</strong>
-                                                    <span>您的餐桌由我们来丰富</span>
+                                                    <strong>@item.JournalismTitle</strong>
+                                                    <span>今日推荐</span>
                                                 </div>
                                                 <div class="c2">
                                                     <ul>
-                                                        <li class="li1">您的餐桌由我们来丰富</li>、
+                                                        <li class="li1">今日推荐</li>、
 
-                                                        @foreach (var item1 in us)
-                                                        {
-                                                            if (item.UsersID == item1.UsersID)
-                                                            {
-                                                                <li class="li2">发布人：@item1.UsersName</li>
-                                                            }
-
-                                                        }
+                                                        <li class="li2">发布人：美食同盟会</li>
 
                                                     </ul>
                                                 </div>
@@ -211,7 +171,7 @@
                             </div>
                             <div aria-label="Page navigation example">
                                 <ul class="pagination" style="display:inline-block;color:red;margin-left: 380px;margin-top: 50px;">
-                                    <li class="page-item">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions() { LinkToFirstPageFormat = "首页", LinkToNextPageFormat = "下一页", LinkToPreviousPageFormat = "上一页", LinkToLastPageFormat = "末页", DisplayItemSliceAndTotal = false, MaximumPageNumbersToDisplay = 5 })</li>
+                                    <li class="page-item">@Html.PagedListPager(Model, page => Url.Action("NewsInformation", new { page }), new PagedListRenderOptions() { LinkToFirstPageFormat = "首页", LinkToNextPageFormat = "下一页", LinkToPreviousPageFormat = "上一页", LinkToLastPageFormat = "末页", DisplayItemSliceAndTotal = false, MaximumPageNumbersToDisplay = 5 })</li>
                                 </ul>
                             </div>
 

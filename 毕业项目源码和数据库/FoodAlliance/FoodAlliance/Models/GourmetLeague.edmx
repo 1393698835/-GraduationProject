@@ -96,6 +96,7 @@
           <Property Name="UsersName" Type="nvarchar" MaxLength="50" />
           <Property Name="UsersPassword" Type="nvarchar" MaxLength="50" />
           <Property Name="UsersAvatar" Type="nvarchar" MaxLength="50" />
+          <Property Name="Audit" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK__Comment__Journal__5CD6CB2B">
           <End Role="Journalism" Type="Self.Journalism" Multiplicity="0..1" />
@@ -255,6 +256,7 @@
           <Property Name="UsersPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UsersAvatar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Recipe" Relationship="Self.FK__Recipe__UsersID__1920BF5C" FromRole="Users" ToRole="Recipe" />
+          <Property Name="Audit" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK__Comment__RecipeI__1BFD2C07">
           <End Role="Recipe" Type="Self.Recipe" Multiplicity="0..1" />
@@ -459,6 +461,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="GourmetLeagueModel.Users">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Audit" ColumnName="Audit" />
                 <ScalarProperty Name="UsersID" ColumnName="UsersID" />
                 <ScalarProperty Name="UsersPhone" ColumnName="UsersPhone" />
                 <ScalarProperty Name="UsersName" ColumnName="UsersName" />

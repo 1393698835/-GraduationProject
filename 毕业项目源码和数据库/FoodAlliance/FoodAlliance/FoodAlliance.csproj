@@ -147,6 +147,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RecipeDaqoController.cs" />
     <Compile Include="Controllers\ReleaseMenuController.cs" />
+    <Compile Include="File\FilerAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -361,6 +362,7 @@
     <Content Include="Views\HomePage\NoMenuQuery.cshtml" />
     <Content Include="Views\HouTai\NewsManagement.cshtml" />
     <Content Include="Views\HomePage\SeeNews.cshtml" />
+    <Content Include="Views\HomePage\NewsInformation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

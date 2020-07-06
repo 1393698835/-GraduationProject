@@ -38,36 +38,111 @@ namespace FoodAlliance.Controllers
         }
         //后台首页
         //后台用户查询
-        public ActionResult HouTaiHome()
+        public ActionResult HouTaiHome(int UsersID = 0, string UsersName = "", int pageIndex = 1, int pageCount = 5)
         {
-            List<Users> list = db.Users.ToList();
+            //获得根据条件所查的总行数
+            int tatalCount = db.Users.OrderBy(p => p.UsersID)
+                .Where(p => (UsersID == 0 || p.UsersID == UsersID) && (UsersName == "" || p.UsersName.Contains(UsersName)))
+                .Count();
+
+            //获得总页数Ceiling()向上取整 2.1 3  2.9 3  round四舍五入 2.1 2  2.6  3
+            double tataoPage = Math.Ceiling(tatalCount / (double)pageCount);
+
+            //获得用户表，先按照主键正序排列，条件过滤，转成集合
+            //slip()跳过指定数量的元素，返回剩下的集合
+            //Take()从剩下集合数中，从第一条开始获取指定数量的集合
+            List<Users> list = db.Users.OrderBy(p => p.UsersID)
+                .Where(p => (UsersID == 0 || p.UsersID == UsersID) && (UsersName == "" || p.UsersName.Contains(UsersName)))
+                .Skip((pageIndex - 1) * pageCount).Take(pageCount)
+                .ToList();
+            //列表加载的同时，将条件存储并在对应控件显示
+            ViewBag.UsersID = UsersID;
+            ViewBag.UsersName = UsersName;
+            //当前页
+            ViewBag.pageIndex = pageIndex;
+            //每页行数
+            ViewBag.pageCount = pageCount;
+            //总行数
+            ViewBag.tatalCount = tatalCount;
+            //总页数
+            ViewBag.tataoPage = tataoPage;
             return View(list);
         }
         
         public ActionResult Delete(int userID)
         {
-            Users user = db.Users.Find(userID);
-            db.Users.Remove(user);
+           var user= db.Users.Find(userID);
+            user.Audit = 1;
             db.SaveChanges();
-            return RedirectToAction("HouTaiHome");
+            return RedirectToAction("HouTaiHome", "HouTai");
         }
         //后台未审核列表
-        public ActionResult HouTaiAudit()
+        public ActionResult HouTaiAudit(int? pageCount, int RecipeID = 0, string RecipeName = "", int pageIndex = 1 )
         {
-            List<Recipe> list = db.Recipe.ToList();
+            //获得根据条件所查的总行数
+            int tatalCount = db.Recipe.OrderBy(p => p.RecipeID)
+                .Where(p => (RecipeID == 0 || p.RecipeID == RecipeID && p.Audit == 0) && (RecipeName == "" || p.RecipeName.Contains(RecipeName)))
+                .Count();
+
+            //获得总页数Ceiling()向上取整 2.1 3  2.9 3  round四舍五入 2.1 2  2.6  3
+            double tataoPage = Math.Ceiling(tatalCount / (double)(pageCount??5));
+
+            //获得用户表，先按照主键正序排列，条件过滤，转成集合
+            //slip()跳过指定数量的元素，返回剩下的集合
+            //Take()从剩下集合数中，从第一条开始获取指定数量的集合
+            List<Recipe> list = db.Recipe.OrderBy(p => p.RecipeID)
+                .Where(p => (p.Audit == 0&&(RecipeID == 0 || p.RecipeID == RecipeID)) && (RecipeName == "" || p.RecipeName.Contains(RecipeName)))
+                .Skip((pageIndex - 1) * (pageCount??5)).Take(pageCount??5)
+                .ToList();
+            //列表加载的同时，将条件存储并在对应控件显示
+            ViewBag.RecipeID = RecipeID;
+            ViewBag.RecipeName = RecipeName;
+            //当前页
+            ViewBag.pageIndex = pageIndex;
+            //每页行数
+            ViewBag.pageCount = (pageCount??5);
+            //总行数
+            ViewBag.tatalCount = tatalCount;
+            //总页数
+            ViewBag.tataoPage = tataoPage;
             return View(list);
         }
-        public ActionResult HouTaiAuditzd(int audit)
+        public ActionResult HouTaiAuditzd(int audit, string RecipeName,int pageIndex,int pageCount)
         {
             Recipe list = db.Recipe.Find(audit);
             list.Audit = 1;
             db.SaveChanges();
-            return RedirectToAction("HouTaiAudit");
+            return RedirectToAction("HouTaiAudit",new { pageCount=pageCount,pageIndex=pageIndex,RecipeName= RecipeName });
         }
         //后台审核列表
-        public ActionResult HouTaiAuditcg()
+        public ActionResult HouTaiAuditcg(int RecipeID = 0, string RecipeName = "", int pageIndex = 1, int pageCount = 5)
         {
-            List<Recipe> list = db.Recipe.ToList();
+            //获得根据条件所查的总行数
+            int tatalCount = db.Recipe.OrderBy(p => p.RecipeID)
+                .Where(p => (RecipeID == 0 || p.RecipeID == RecipeID&&p.Audit==1) && (RecipeName == "" || p.RecipeName.Contains(RecipeName)))
+                .Count();
+
+            //获得总页数Ceiling()向上取整 2.1 3  2.9 3  round四舍五入 2.1 2  2.6  3
+            double tataoPage = Math.Ceiling(tatalCount / (double)pageCount);
+
+            //获得用户表，先按照主键正序排列，条件过滤，转成集合
+            //slip()跳过指定数量的元素，返回剩下的集合
+            //Take()从剩下集合数中，从第一条开始获取指定数量的集合
+            List<Recipe> list = db.Recipe.OrderBy(p => p.RecipeID)
+                .Where(p => (RecipeID == 0 || p.RecipeID == RecipeID&&p.Audit==1) && (RecipeName == "" || p.RecipeName.Contains(RecipeName)))
+                .Skip((pageIndex - 1) * pageCount).Take(pageCount)
+                .ToList();
+            //列表加载的同时，将条件存储并在对应控件显示
+            ViewBag.RecipeID = RecipeID;
+            ViewBag.RecipeName = RecipeName;
+            //当前页
+            ViewBag.pageIndex = pageIndex;
+            //每页行数
+            ViewBag.pageCount = pageCount;
+            //总行数
+            ViewBag.tatalCount = tatalCount;
+            //总页数
+            ViewBag.tataoPage = tataoPage;
             return View(list);
         }
         public ActionResult HouTaiAuditzdcg(int audit)

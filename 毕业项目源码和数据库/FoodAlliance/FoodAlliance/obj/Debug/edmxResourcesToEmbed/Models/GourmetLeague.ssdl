@@ -91,6 +91,7 @@
     <Property Name="UsersName" Type="nvarchar" MaxLength="50" />
     <Property Name="UsersPassword" Type="nvarchar" MaxLength="50" />
     <Property Name="UsersAvatar" Type="nvarchar" MaxLength="50" />
+    <Property Name="Audit" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK__Comment__Journal__5CD6CB2B">
     <End Role="Journalism" Type="Self.Journalism" Multiplicity="0..1" />

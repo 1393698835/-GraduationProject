@@ -25,6 +25,7 @@ namespace FoodAlliance.Models
         public string UsersName { get; set; }
         public string UsersPassword { get; set; }
         public string UsersAvatar { get; set; }
+        public int Audit { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Recipe> Recipe { get; set; }

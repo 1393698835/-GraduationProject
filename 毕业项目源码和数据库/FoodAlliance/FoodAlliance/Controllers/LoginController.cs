@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using FoodAlliance.File;
 using FoodAlliance.Models;
 
 namespace FoodAlliance.Controllers
@@ -22,18 +23,27 @@ namespace FoodAlliance.Controllers
         [HttpPost]
         public ActionResult Login(Users user)
         {
-            Users users = db.Users.SingleOrDefault(p => p.UsersPhone == user.UsersPhone && p.UsersPassword == user.UsersPassword);
-            if (users != null)
-            {                           
-                Session["ID"] = users.UsersID;
-                Session["UserName"] = users.UsersName;
-                Session["Users"] = users;
-                return RedirectToAction("Index", "HomePage");
-            }
-            else
-            {
-                return Content("<script>alert('账号或密码输入错误，请重新输入！');history.go(-1);</script>");
-            }
+                Users users = db.Users.SingleOrDefault(p => p.UsersPhone == user.UsersPhone && p.UsersPassword == user.UsersPassword);
+                if (users != null)
+                {
+                    Session["ID"] = users.UsersID;
+                    Session["UserName"] = users.UsersName;
+                    Session["Users"] = users;
+                if (users.Audit==0)
+                {
+                    return RedirectToAction("Index", "HomePage");
+                }
+                else
+                {
+                    return Content("<script>alert('账号已冻结！');history.go(-1);</script>");
+                }
+                   
+                }
+                else
+                {
+                    return Content("<script>alert('账号或密码输入错误，请重新输入！');history.go(-1);</script>");
+                }
+            
         }
         public ActionResult Register()
         {

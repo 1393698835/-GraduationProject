@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using FoodAlliance.File;
 using FoodAlliance.Models;
 
 namespace FoodAlliance.Controllers
@@ -17,6 +18,7 @@ namespace FoodAlliance.Controllers
             ViewBag.list2 = db.Typess.ToList();
             return View(list);
         }
+        [Filer]
         [HttpPost]
         public ActionResult Comment(Comment comment)
         {

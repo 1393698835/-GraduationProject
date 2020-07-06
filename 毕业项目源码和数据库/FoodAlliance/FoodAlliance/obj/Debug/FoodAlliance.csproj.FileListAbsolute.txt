@@ -277,4 +277,3 @@ F:\天下吃货网\FoodAlliance\FoodAlliance\bin\zh-Hans\System.Web.WebPages.Raz
 F:\天下吃货网\FoodAlliance\FoodAlliance\obj\Debug\FoodAlliance.csproj.CopyComplete
 F:\天下吃货网\FoodAlliance\FoodAlliance\obj\Debug\FoodAlliance.dll
 F:\天下吃货网\FoodAlliance\FoodAlliance\obj\Debug\FoodAlliance.pdb
-F:\天下吃货网\FoodAlliance\FoodAlliance\obj\Debug\FoodAlliance.csprojAssemblyReference.cache

@@ -5,10 +5,11 @@ using System.Web;
 using System.Web.Mvc;
 using FoodAlliance.Models;
 using System.IO;
-
+using FoodAlliance.File;
 
 namespace FoodAlliance.Controllers
 {
+    [Filer]
     public class ReleaseMenuController : Controller
     {
         GourmetLeagueEntities db = new GourmetLeagueEntities();

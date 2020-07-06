@@ -80,6 +80,7 @@
     <Property Name="UsersPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="UsersAvatar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Recipe" Relationship="Self.FK__Recipe__UsersID__1920BF5C" FromRole="Users" ToRole="Recipe" />
+    <Property Name="Audit" Type="Int32" Nullable="false" />
   </EntityType>
   <Association Name="FK__Comment__RecipeI__1BFD2C07">
     <End Role="Recipe" Type="Self.Recipe" Multiplicity="0..1" />

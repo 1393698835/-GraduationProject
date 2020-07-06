@@ -88,7 +88,7 @@
                             </th>
                             <th>操作</th>
                         </tr>
-                        @foreach (var item in Model.Where(a => a.Audit == 1))
+                        @foreach (var item in Model)
                         {
                             <tr>
                                 <td>@item.Users.UsersName</td>
@@ -109,6 +109,53 @@
 
                         }
                     </table>
+                    <div class="row">
+                        <div class="col-lg-8 form-inline">
+                            <label>总共 @ViewBag.tatalCount 行</label>&nbsp;
+                            <label>选择显示的行数</label>
+                            <select name="pageCount" id="pageCount" onchange="window.location = this.value;">
+                                @{
+                                    int[] count = new[] { 5, 10, 20, 30, 40, 50 };
+                                }
+                                @foreach (var item in count)
+                                {
+                                    if (item.Equals(ViewBag.pageCount))
+                                    {
+                                        <option selected value="/HouTai/HouTaiAuditcg?RecipeID=@ViewBag.RecipeID&RecipeName=@ViewBag.RecipeName&pageIndex=1&pageCount=@item">@item</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="/HouTai/HouTaiAuditcg?RecipeID=@ViewBag.RecipeID&RecipeName=@ViewBag.RecipeName&pageIndex=1&pageCount=@item">@item</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div class="col-lg-4">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <li class="page-item"><a class="page-link" href="/HouTai/HouTaiAuditcg?RecipeID=@ViewBag.RecipeID&RecipeName=@ViewBag.RecipeName&pageIndex=1&pageCount=@ViewBag.pageCount">首页</a></li>
+                                    @if (ViewBag.pageIndex > 1)
+                                    {
+                                        <li class="page-item"><a class="page-link" href="/HouTai/HouTaiAuditcg?RecipeID=@ViewBag.RecipeID&RecipeName=@ViewBag.RecipeName&pageIndex=@(ViewBag.pageIndex-1)&pageCount=@ViewBag.pageCount">上一页</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="page-item disabled"><a class="page-link" href="#">上一页</a></li>
+                                    }
+                                    <li class="page-item"><a class="page-link" href="#">@ViewBag.pageIndex</a></li>
+                                    @if (ViewBag.pageIndex < @ViewBag.tataoPage)
+                                    {
+                                        <li class="page-item"><a class="page-link" href="/HouTai/HouTaiAuditcg?RecipeID=@ViewBag.RecipeID&RecipeName=@ViewBag.RecipeName&pageIndex=@(ViewBag.pageIndex+1)&pageCount=@ViewBag.pageCount">下一页</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="page-item disabled"><a class="page-link" href="#">下一页</a></li>
+                                    }
+                                    <li class="page-item"><a class="page-link" href="/HouTai/HouTaiAuditcg?RecipeID=@ViewBag.RecipeID&RecipeName=@ViewBag.RecipeName&pageIndex=@(ViewBag.tataoPage)&pageCount=@ViewBag.pageCount">末页</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
