@@ -1,0 +1,711 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1528F2EA-F8A8-4763-B2E7-13C5F2BC5358}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FoodAlliance</RootNamespace>
+    <AssemblyName>FoodAlliance</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44392</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Gobln.Pager, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Gobln.Pager.1.1.1\lib\net45\Gobln.Pager.dll</HintPath>
+    </Reference>
+    <Reference Include="HomeBi.Libraries.PagedList, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HomeBi.Libraries.PagedList.1.0.0\lib\netstandard2.0\HomeBi.Libraries.PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DetailController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HomePageController.cs" />
+    <Compile Include="Controllers\HouTaiController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\RecipeDaqoController.cs" />
+    <Compile Include="Controllers\ReleaseMenuController.cs" />
+    <Compile Include="File\FilerAttribute.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Admini.cs">
+      <DependentUpon>GourmetLeague.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Comment.cs">
+      <DependentUpon>GourmetLeague.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Food.cs">
+      <DependentUpon>GourmetLeague.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GourmetLeague.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GourmetLeague.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GourmetLeague.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GourmetLeague.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GourmetLeague.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GourmetLeague.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Journalism.cs">
+      <DependentUpon>GourmetLeague.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Recipe.cs">
+      <DependentUpon>GourmetLeague.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>GourmetLeague.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Typess.cs">
+      <DependentUpon>GourmetLeague.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Users.cs">
+      <DependentUpon>GourmetLeague.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Home2.css" />
+    <Content Include="Content\HouTaiLogin.css" />
+    <Content Include="Content\Imges\add.png" />
+    <Content Include="Content\Imges\favicon.ico" />
+    <Content Include="Content\Imges\loading.gif" />
+    <Content Include="Content\Imges\login_home_background.jpg" />
+    <Content Include="Content\Imges\logo.png" />
+    <Content Include="Content\Imges\下一个图标.png" />
+    <Content Include="Content\Imges\下拉箭头.png" />
+    <Content Include="Content\Imges\丝瓜.jpg" />
+    <Content Include="Content\Imges\丝瓜炖豆腐.jpg" />
+    <Content Include="Content\Imges\二维码.png" />
+    <Content Include="Content\Imges\公安标志.png" />
+    <Content Include="Content\Imges\南瓜.jpg" />
+    <Content Include="Content\Imges\后台用户头像.jpg" />
+    <Content Include="Content\Imges\哈密瓜.jpg" />
+    <Content Include="Content\Imges\土豆.jpg" />
+    <Content Include="Content\Imges\大蒜.jpg" />
+    <Content Include="Content\Imges\小猪曲奇.jpg" />
+    <Content Include="Content\Imges\尖辣椒.jpg" />
+    <Content Include="Content\Imges\干瘪四季豆.jpg" />
+    <Content Include="Content\Imges\底部背景.png" />
+    <Content Include="Content\Imges\手机.png" />
+    <Content Include="Content\Imges\手机1.jpg" />
+    <Content Include="Content\Imges\手机2.jpg" />
+    <Content Include="Content\Imges\手机3.jpg" />
+    <Content Include="Content\Imges\放大镜.png" />
+    <Content Include="Content\Imges\新鲜四季豆.jpg" />
+    <Content Include="Content\Imges\杨梅.jpg" />
+    <Content Include="Content\Imges\柿子椒.jpg" />
+    <Content Include="Content\Imges\桃.jpg" />
+    <Content Include="Content\Imges\樱桃.jpg" />
+    <Content Include="Content\Imges\河南菜馍.jpg" />
+    <Content Include="Content\Imges\清蒸花盖蟹.jpg" />
+    <Content Include="Content\Imges\炝拌土豆丝.jpeg" />
+    <Content Include="Content\Imges\炝拌土豆丝.jpg" />
+    <Content Include="Content\Imges\牛油果香蕉思慕雪.jpg" />
+    <Content Include="Content\Imges\玉米片紫薯球.jpg" />
+    <Content Include="Content\Imges\玫瑰花馒头.jpg" />
+    <Content Include="Content\Imges\甜瓜.jpg" />
+    <Content Include="Content\Imges\生姜.jpg" />
+    <Content Include="Content\Imges\用户头像.png" />
+    <Content Include="Content\Imges\登录页面背景.jpg" />
+    <Content Include="Content\Imges\百香果芒果雪糕.jpg" />
+    <Content Include="Content\Imges\皇冠.png" />
+    <Content Include="Content\Imges\糖醋鱼.jpg" />
+    <Content Include="Content\Imges\网络文化经营单位.png" />
+    <Content Include="Content\Imges\肉末.jpg" />
+    <Content Include="Content\Imges\肠仔包.jpg" />
+    <Content Include="Content\Imges\脆爽多汁椒盐虾球.jpg" />
+    <Content Include="Content\Imges\脆皮炸鲜奶.jpg" />
+    <Content Include="Content\Imges\自动浮现.png" />
+    <Content Include="Content\Imges\芒果.jpg" />
+    <Content Include="Content\Imges\芡实南瓜粥.jpg" />
+    <Content Include="Content\Imges\花开富贵香肠菇.jpg" />
+    <Content Include="Content\Imges\茄子.jpg" />
+    <Content Include="Content\Imges\荔枝.jpg" />
+    <Content Include="Content\Imges\莴笋.jpg" />
+    <Content Include="Content\Imges\葱.jpg" />
+    <Content Include="Content\Imges\葱油拌面.jpg" />
+    <Content Include="Content\Imges\虎皮尖椒.jpg" />
+    <Content Include="Content\Imges\蜜汁鸡翅.jpg" />
+    <Content Include="Content\Imges\西瓜.jpg" />
+    <Content Include="Content\Imges\西红柿.jpg" />
+    <Content Include="Content\Imges\豆腐鱼头汤.jpg" />
+    <Content Include="Content\Imges\豇豆.jpg" />
+    <Content Include="Content\Imges\酱烧虾.jpg" />
+    <Content Include="Content\Imges\饭勺子.jpg" />
+    <Content Include="Content\Imges\香肠飞饼卷.jpg" />
+    <Content Include="Content\Imges\驴打滚.jpg" />
+    <Content Include="Content\Imges\鲫鱼汤.jpg" />
+    <Content Include="Content\lanrenzhijia.css" />
+    <Content Include="Content\layui.css" />
+    <Content Include="Content\Login.css" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\MenuDetails.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\QueryMenu.css" />
+    <Content Include="Content\RecipeDaqo.css" />
+    <Content Include="Content\ReleaseMenu.css" />
+    <Content Include="Content\upfood.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\GourmetLeague.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GourmetLeague.edmx</DependentUpon>
+      <LastGenOutput>GourmetLeague.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\GourmetLeague.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GourmetLeague.edmx</DependentUpon>
+      <LastGenOutput>GourmetLeague.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\adsbygoogle.js" />
+    <Content Include="Scripts\ajaxfileupload.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\GourmetLeague.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GourmetLeague.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\GourmetLeague.edmx.diagram">
+      <DependentUpon>GourmetLeague.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\gt.js" />
+    <Content Include="Scripts\Home.js" />
+    <Content Include="Scripts\Index.houtai.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.form.min.js" />
+    <Content Include="Scripts\Jquery.js" />
+    <Content Include="Scripts\jquery.metadata.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Layui.houtai.js" />
+    <Content Include="Scripts\Login.js" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\MenuDetails.js" />
+    <Content Include="Scripts\min.houtai.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\QueryMenu.js" />
+    <Content Include="Scripts\RecipeDaqo.js" />
+    <Content Include="Scripts\ReleaseMenu.js" />
+    <Content Include="Scripts\search.js" />
+    <Content Include="Scripts\Sortable.min.js" />
+    <Content Include="Scripts\tip.js" />
+    <Content Include="Scripts\ueditor.all.js" />
+    <Content Include="Scripts\ueditor.config.js" />
+    <Content Include="Utf8-asp\asp\action_config.asp" />
+    <Content Include="Utf8-asp\asp\action_crawler.asp" />
+    <Content Include="Utf8-asp\asp\action_list.asp" />
+    <Content Include="Utf8-asp\asp\action_upload.asp" />
+    <Content Include="Utf8-asp\asp\ASPJson.class.asp" />
+    <Content Include="Utf8-asp\asp\config_loader.asp" />
+    <Content Include="Utf8-asp\asp\controller.asp" />
+    <Content Include="Utf8-asp\asp\MultiformProcessor.class.asp" />
+    <Content Include="Utf8-asp\asp\PathFormatter.class.asp" />
+    <Content Include="Utf8-asp\asp\Uploader.Class.asp" />
+    <Content Include="Utf8-asp\dialogs\anchor\anchor.html" />
+    <Content Include="Utf8-asp\dialogs\attachment\attachment.css" />
+    <Content Include="Utf8-asp\dialogs\attachment\attachment.html" />
+    <Content Include="Utf8-asp\dialogs\attachment\attachment.js" />
+    <Content Include="Utf8-asp\dialogs\attachment\fileTypeImages\icon_chm.gif" />
+    <Content Include="Utf8-asp\dialogs\attachment\fileTypeImages\icon_default.png" />
+    <Content Include="Utf8-asp\dialogs\attachment\fileTypeImages\icon_doc.gif" />
+    <Content Include="Utf8-asp\dialogs\attachment\fileTypeImages\icon_exe.gif" />
+    <Content Include="Utf8-asp\dialogs\attachment\fileTypeImages\icon_jpg.gif" />
+    <Content Include="Utf8-asp\dialogs\attachment\fileTypeImages\icon_mp3.gif" />
+    <Content Include="Utf8-asp\dialogs\attachment\fileTypeImages\icon_mv.gif" />
+    <Content Include="Utf8-asp\dialogs\attachment\fileTypeImages\icon_pdf.gif" />
+    <Content Include="Utf8-asp\dialogs\attachment\fileTypeImages\icon_ppt.gif" />
+    <Content Include="Utf8-asp\dialogs\attachment\fileTypeImages\icon_psd.gif" />
+    <Content Include="Utf8-asp\dialogs\attachment\fileTypeImages\icon_rar.gif" />
+    <Content Include="Utf8-asp\dialogs\attachment\fileTypeImages\icon_txt.gif" />
+    <Content Include="Utf8-asp\dialogs\attachment\fileTypeImages\icon_xls.gif" />
+    <Content Include="Utf8-asp\dialogs\attachment\images\alignicon.gif" />
+    <Content Include="Utf8-asp\dialogs\attachment\images\alignicon.png" />
+    <Content Include="Utf8-asp\dialogs\attachment\images\bg.png" />
+    <Content Include="Utf8-asp\dialogs\attachment\images\file-icons.gif" />
+    <Content Include="Utf8-asp\dialogs\attachment\images\file-icons.png" />
+    <Content Include="Utf8-asp\dialogs\attachment\images\icons.gif" />
+    <Content Include="Utf8-asp\dialogs\attachment\images\icons.png" />
+    <Content Include="Utf8-asp\dialogs\attachment\images\image.png" />
+    <Content Include="Utf8-asp\dialogs\attachment\images\progress.png" />
+    <Content Include="Utf8-asp\dialogs\attachment\images\success.gif" />
+    <Content Include="Utf8-asp\dialogs\attachment\images\success.png" />
+    <Content Include="Utf8-asp\dialogs\background\background.css" />
+    <Content Include="Utf8-asp\dialogs\background\background.html" />
+    <Content Include="Utf8-asp\dialogs\background\background.js" />
+    <Content Include="Utf8-asp\dialogs\background\images\bg.png" />
+    <Content Include="Utf8-asp\dialogs\background\images\success.png" />
+    <Content Include="Utf8-asp\dialogs\charts\chart.config.js" />
+    <Content Include="Utf8-asp\dialogs\charts\charts.css" />
+    <Content Include="Utf8-asp\dialogs\charts\charts.html" />
+    <Content Include="Utf8-asp\dialogs\charts\charts.js" />
+    <Content Include="Utf8-asp\dialogs\charts\images\charts0.png" />
+    <Content Include="Utf8-asp\dialogs\charts\images\charts1.png" />
+    <Content Include="Utf8-asp\dialogs\charts\images\charts2.png" />
+    <Content Include="Utf8-asp\dialogs\charts\images\charts3.png" />
+    <Content Include="Utf8-asp\dialogs\charts\images\charts4.png" />
+    <Content Include="Utf8-asp\dialogs\charts\images\charts5.png" />
+    <Content Include="Utf8-asp\dialogs\emotion\emotion.css" />
+    <Content Include="Utf8-asp\dialogs\emotion\emotion.html" />
+    <Content Include="Utf8-asp\dialogs\emotion\emotion.js" />
+    <Content Include="Utf8-asp\dialogs\emotion\images\0.gif" />
+    <Content Include="Utf8-asp\dialogs\emotion\images\bface.gif" />
+    <Content Include="Utf8-asp\dialogs\emotion\images\cface.gif" />
+    <Content Include="Utf8-asp\dialogs\emotion\images\fface.gif" />
+    <Content Include="Utf8-asp\dialogs\emotion\images\jxface2.gif" />
+    <Content Include="Utf8-asp\dialogs\emotion\images\neweditor-tab-bg.png" />
+    <Content Include="Utf8-asp\dialogs\emotion\images\tface.gif" />
+    <Content Include="Utf8-asp\dialogs\emotion\images\wface.gif" />
+    <Content Include="Utf8-asp\dialogs\emotion\images\yface.gif" />
+    <Content Include="Utf8-asp\dialogs\gmap\gmap.html" />
+    <Content Include="Utf8-asp\dialogs\help\help.css" />
+    <Content Include="Utf8-asp\dialogs\help\help.html" />
+    <Content Include="Utf8-asp\dialogs\help\help.js" />
+    <Content Include="Utf8-asp\dialogs\image\image.css" />
+    <Content Include="Utf8-asp\dialogs\image\image.html" />
+    <Content Include="Utf8-asp\dialogs\image\image.js" />
+    <Content Include="Utf8-asp\dialogs\image\images\alignicon.jpg" />
+    <Content Include="Utf8-asp\dialogs\image\images\bg.png" />
+    <Content Include="Utf8-asp\dialogs\image\images\icons.gif" />
+    <Content Include="Utf8-asp\dialogs\image\images\icons.png" />
+    <Content Include="Utf8-asp\dialogs\image\images\image.png" />
+    <Content Include="Utf8-asp\dialogs\image\images\progress.png" />
+    <Content Include="Utf8-asp\dialogs\image\images\success.gif" />
+    <Content Include="Utf8-asp\dialogs\image\images\success.png" />
+    <Content Include="Utf8-asp\dialogs\insertframe\insertframe.html" />
+    <Content Include="Utf8-asp\dialogs\internal.js" />
+    <Content Include="Utf8-asp\dialogs\link\link.html" />
+    <Content Include="Utf8-asp\dialogs\map\map.html" />
+    <Content Include="Utf8-asp\dialogs\map\show.html" />
+    <Content Include="Utf8-asp\dialogs\music\music.css" />
+    <Content Include="Utf8-asp\dialogs\music\music.html" />
+    <Content Include="Utf8-asp\dialogs\music\music.js" />
+    <Content Include="Utf8-asp\dialogs\preview\preview.html" />
+    <Content Include="Utf8-asp\dialogs\scrawl\images\addimg.png" />
+    <Content Include="Utf8-asp\dialogs\scrawl\images\brush.png" />
+    <Content Include="Utf8-asp\dialogs\scrawl\images\delimg.png" />
+    <Content Include="Utf8-asp\dialogs\scrawl\images\delimgH.png" />
+    <Content Include="Utf8-asp\dialogs\scrawl\images\empty.png" />
+    <Content Include="Utf8-asp\dialogs\scrawl\images\emptyH.png" />
+    <Content Include="Utf8-asp\dialogs\scrawl\images\eraser.png" />
+    <Content Include="Utf8-asp\dialogs\scrawl\images\redo.png" />
+    <Content Include="Utf8-asp\dialogs\scrawl\images\redoH.png" />
+    <Content Include="Utf8-asp\dialogs\scrawl\images\scale.png" />
+    <Content Include="Utf8-asp\dialogs\scrawl\images\scaleH.png" />
+    <Content Include="Utf8-asp\dialogs\scrawl\images\size.png" />
+    <Content Include="Utf8-asp\dialogs\scrawl\images\undo.png" />
+    <Content Include="Utf8-asp\dialogs\scrawl\images\undoH.png" />
+    <Content Include="Utf8-asp\dialogs\scrawl\scrawl.css" />
+    <Content Include="Utf8-asp\dialogs\scrawl\scrawl.html" />
+    <Content Include="Utf8-asp\dialogs\scrawl\scrawl.js" />
+    <Content Include="Utf8-asp\dialogs\searchreplace\searchreplace.html" />
+    <Content Include="Utf8-asp\dialogs\searchreplace\searchreplace.js" />
+    <Content Include="Utf8-asp\dialogs\snapscreen\snapscreen.html" />
+    <Content Include="Utf8-asp\dialogs\spechars\spechars.html" />
+    <Content Include="Utf8-asp\dialogs\spechars\spechars.js" />
+    <Content Include="Utf8-asp\dialogs\table\dragicon.png" />
+    <Content Include="Utf8-asp\dialogs\table\edittable.css" />
+    <Content Include="Utf8-asp\dialogs\table\edittable.html" />
+    <Content Include="Utf8-asp\dialogs\table\edittable.js" />
+    <Content Include="Utf8-asp\dialogs\table\edittd.html" />
+    <Content Include="Utf8-asp\dialogs\table\edittip.html" />
+    <Content Include="Utf8-asp\dialogs\template\config.js" />
+    <Content Include="Utf8-asp\dialogs\template\images\bg.gif" />
+    <Content Include="Utf8-asp\dialogs\template\images\pre0.png" />
+    <Content Include="Utf8-asp\dialogs\template\images\pre1.png" />
+    <Content Include="Utf8-asp\dialogs\template\images\pre2.png" />
+    <Content Include="Utf8-asp\dialogs\template\images\pre3.png" />
+    <Content Include="Utf8-asp\dialogs\template\images\pre4.png" />
+    <Content Include="Utf8-asp\dialogs\template\template.css" />
+    <Content Include="Utf8-asp\dialogs\template\template.html" />
+    <Content Include="Utf8-asp\dialogs\template\template.js" />
+    <Content Include="Utf8-asp\dialogs\video\images\bg.png" />
+    <Content Include="Utf8-asp\dialogs\video\images\center_focus.jpg" />
+    <Content Include="Utf8-asp\dialogs\video\images\file-icons.gif" />
+    <Content Include="Utf8-asp\dialogs\video\images\file-icons.png" />
+    <Content Include="Utf8-asp\dialogs\video\images\icons.gif" />
+    <Content Include="Utf8-asp\dialogs\video\images\icons.png" />
+    <Content Include="Utf8-asp\dialogs\video\images\image.png" />
+    <Content Include="Utf8-asp\dialogs\video\images\left_focus.jpg" />
+    <Content Include="Utf8-asp\dialogs\video\images\none_focus.jpg" />
+    <Content Include="Utf8-asp\dialogs\video\images\progress.png" />
+    <Content Include="Utf8-asp\dialogs\video\images\right_focus.jpg" />
+    <Content Include="Utf8-asp\dialogs\video\images\success.gif" />
+    <Content Include="Utf8-asp\dialogs\video\images\success.png" />
+    <Content Include="Utf8-asp\dialogs\video\video.css" />
+    <Content Include="Utf8-asp\dialogs\video\video.html" />
+    <Content Include="Utf8-asp\dialogs\video\video.js" />
+    <Content Include="Utf8-asp\dialogs\webapp\webapp.html" />
+    <Content Include="Utf8-asp\dialogs\wordimage\fClipboard_ueditor.swf" />
+    <Content Include="Utf8-asp\dialogs\wordimage\imageUploader.swf" />
+    <Content Include="Utf8-asp\dialogs\wordimage\tangram.js" />
+    <Content Include="Utf8-asp\dialogs\wordimage\wordimage.html" />
+    <Content Include="Utf8-asp\dialogs\wordimage\wordimage.js" />
+    <Content Include="Utf8-asp\index.html" />
+    <Content Include="Utf8-asp\lang\en\en.js" />
+    <Content Include="Utf8-asp\lang\en\images\addimage.png" />
+    <Content Include="Utf8-asp\lang\en\images\alldeletebtnhoverskin.png" />
+    <Content Include="Utf8-asp\lang\en\images\alldeletebtnupskin.png" />
+    <Content Include="Utf8-asp\lang\en\images\background.png" />
+    <Content Include="Utf8-asp\lang\en\images\button.png" />
+    <Content Include="Utf8-asp\lang\en\images\copy.png" />
+    <Content Include="Utf8-asp\lang\en\images\deletedisable.png" />
+    <Content Include="Utf8-asp\lang\en\images\deleteenable.png" />
+    <Content Include="Utf8-asp\lang\en\images\listbackground.png" />
+    <Content Include="Utf8-asp\lang\en\images\localimage.png" />
+    <Content Include="Utf8-asp\lang\en\images\music.png" />
+    <Content Include="Utf8-asp\lang\en\images\rotateleftdisable.png" />
+    <Content Include="Utf8-asp\lang\en\images\rotateleftenable.png" />
+    <Content Include="Utf8-asp\lang\en\images\rotaterightdisable.png" />
+    <Content Include="Utf8-asp\lang\en\images\rotaterightenable.png" />
+    <Content Include="Utf8-asp\lang\en\images\upload.png" />
+    <Content Include="Utf8-asp\lang\zh-cn\images\copy.png" />
+    <Content Include="Utf8-asp\lang\zh-cn\images\localimage.png" />
+    <Content Include="Utf8-asp\lang\zh-cn\images\music.png" />
+    <Content Include="Utf8-asp\lang\zh-cn\images\upload.png" />
+    <Content Include="Utf8-asp\lang\zh-cn\zh-cn.js" />
+    <Content Include="Utf8-asp\themes\default\css\ueditor.css" />
+    <Content Include="Utf8-asp\themes\default\css\ueditor.min.css" />
+    <Content Include="Utf8-asp\themes\default\dialogbase.css" />
+    <Content Include="Utf8-asp\themes\default\images\anchor.gif" />
+    <Content Include="Utf8-asp\themes\default\images\arrow.png" />
+    <Content Include="Utf8-asp\themes\default\images\arrow_down.png" />
+    <Content Include="Utf8-asp\themes\default\images\arrow_up.png" />
+    <Content Include="Utf8-asp\themes\default\images\button-bg.gif" />
+    <Content Include="Utf8-asp\themes\default\images\cancelbutton.gif" />
+    <Content Include="Utf8-asp\themes\default\images\charts.png" />
+    <Content Include="Utf8-asp\themes\default\images\cursor_h.gif" />
+    <Content Include="Utf8-asp\themes\default\images\cursor_h.png" />
+    <Content Include="Utf8-asp\themes\default\images\cursor_v.gif" />
+    <Content Include="Utf8-asp\themes\default\images\cursor_v.png" />
+    <Content Include="Utf8-asp\themes\default\images\dialog-title-bg.png" />
+    <Content Include="Utf8-asp\themes\default\images\filescan.png" />
+    <Content Include="Utf8-asp\themes\default\images\highlighted.gif" />
+    <Content Include="Utf8-asp\themes\default\images\icons-all.gif" />
+    <Content Include="Utf8-asp\themes\default\images\icons.gif" />
+    <Content Include="Utf8-asp\themes\default\images\icons.png" />
+    <Content Include="Utf8-asp\themes\default\images\loaderror.png" />
+    <Content Include="Utf8-asp\themes\default\images\loading.gif" />
+    <Content Include="Utf8-asp\themes\default\images\lock.gif" />
+    <Content Include="Utf8-asp\themes\default\images\neweditor-tab-bg.png" />
+    <Content Include="Utf8-asp\themes\default\images\pagebreak.gif" />
+    <Content Include="Utf8-asp\themes\default\images\scale.png" />
+    <Content Include="Utf8-asp\themes\default\images\sortable.png" />
+    <Content Include="Utf8-asp\themes\default\images\spacer.gif" />
+    <Content Include="Utf8-asp\themes\default\images\sparator_v.png" />
+    <Content Include="Utf8-asp\themes\default\images\table-cell-align.png" />
+    <Content Include="Utf8-asp\themes\default\images\tangram-colorpicker.png" />
+    <Content Include="Utf8-asp\themes\default\images\toolbar_bg.png" />
+    <Content Include="Utf8-asp\themes\default\images\unhighlighted.gif" />
+    <Content Include="Utf8-asp\themes\default\images\upload.png" />
+    <Content Include="Utf8-asp\themes\default\images\videologo.gif" />
+    <Content Include="Utf8-asp\themes\default\images\word.gif" />
+    <Content Include="Utf8-asp\themes\default\images\wordpaste.png" />
+    <Content Include="Utf8-asp\themes\iframe.css" />
+    <Content Include="Utf8-asp\third-party\codemirror\codemirror.css" />
+    <Content Include="Utf8-asp\third-party\codemirror\codemirror.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\adapters\mootools-adapter.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\adapters\mootools-adapter.src.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\adapters\prototype-adapter.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\adapters\prototype-adapter.src.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\adapters\standalone-framework.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\adapters\standalone-framework.src.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\highcharts-more.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\highcharts-more.src.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\highcharts.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\highcharts.src.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\modules\annotations.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\modules\annotations.src.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\modules\canvas-tools.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\modules\canvas-tools.src.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\modules\data.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\modules\data.src.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\modules\drilldown.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\modules\drilldown.src.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\modules\exporting.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\modules\exporting.src.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\modules\funnel.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\modules\funnel.src.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\modules\heatmap.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\modules\heatmap.src.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\modules\map.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\modules\map.src.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\modules\no-data-to-display.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\modules\no-data-to-display.src.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\themes\dark-blue.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\themes\dark-green.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\themes\gray.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\themes\grid.js" />
+    <Content Include="Utf8-asp\third-party\highcharts\themes\skies.js" />
+    <Content Include="Utf8-asp\third-party\jquery-1.10.2.js" />
+    <Content Include="Utf8-asp\third-party\jquery-1.10.2.min.js" />
+    <Content Include="Utf8-asp\third-party\snapscreen\UEditorSnapscreen.exe" />
+    <Content Include="Utf8-asp\third-party\SyntaxHighlighter\shCore.js" />
+    <Content Include="Utf8-asp\third-party\SyntaxHighlighter\shCoreDefault.css" />
+    <Content Include="Utf8-asp\third-party\video-js\font\vjs.svg" />
+    <Content Include="Utf8-asp\third-party\video-js\video-js.css" />
+    <Content Include="Utf8-asp\third-party\video-js\video-js.min.css" />
+    <Content Include="Utf8-asp\third-party\video-js\video-js.swf" />
+    <Content Include="Utf8-asp\third-party\video-js\video.dev.js" />
+    <Content Include="Utf8-asp\third-party\video-js\video.js" />
+    <Content Include="Utf8-asp\third-party\webuploader\Uploader.swf" />
+    <Content Include="Utf8-asp\third-party\webuploader\webuploader.css" />
+    <Content Include="Utf8-asp\third-party\webuploader\webuploader.custom.js" />
+    <Content Include="Utf8-asp\third-party\webuploader\webuploader.custom.min.js" />
+    <Content Include="Utf8-asp\third-party\webuploader\webuploader.flashonly.js" />
+    <Content Include="Utf8-asp\third-party\webuploader\webuploader.flashonly.min.js" />
+    <Content Include="Utf8-asp\third-party\webuploader\webuploader.html5only.js" />
+    <Content Include="Utf8-asp\third-party\webuploader\webuploader.html5only.min.js" />
+    <Content Include="Utf8-asp\third-party\webuploader\webuploader.js" />
+    <Content Include="Utf8-asp\third-party\webuploader\webuploader.min.js" />
+    <Content Include="Utf8-asp\third-party\webuploader\webuploader.withoutimage.js" />
+    <Content Include="Utf8-asp\third-party\webuploader\webuploader.withoutimage.min.js" />
+    <Content Include="Utf8-asp\third-party\xss.min.js" />
+    <Content Include="Utf8-asp\third-party\zeroclipboard\ZeroClipboard.js" />
+    <Content Include="Utf8-asp\third-party\zeroclipboard\ZeroClipboard.min.js" />
+    <Content Include="Utf8-asp\third-party\zeroclipboard\ZeroClipboard.swf" />
+    <Content Include="Utf8-asp\ueditor.all.js" />
+    <Content Include="Utf8-asp\ueditor.all.min.js" />
+    <Content Include="Utf8-asp\ueditor.config.js" />
+    <Content Include="Utf8-asp\ueditor.parse.js" />
+    <Content Include="Utf8-asp\ueditor.parse.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\HomePage\Index.cshtml" />
+    <Content Include="Views\ReleaseMenu\Index.cshtml" />
+    <Content Include="Views\HouTai\Login.cshtml" />
+    <Content Include="Views\HouTai\HouTaiHome.cshtml" />
+    <Content Include="Views\HouTai\HouTaiAudit.cshtml" />
+    <Content Include="Views\HouTai\HouTaiAuditcg.cshtml" />
+    <Content Include="Views\Detail\Index.cshtml" />
+    <Content Include="Views\HomePage\QueryMenu.cshtml" />
+    <Content Include="Views\RecipeDaqo\Index.cshtml" />
+    <Content Include="Views\RecipeDaqo\FenLei.cshtml" />
+    <Content Include="Views\Shared\XinXIzx.cshtml" />
+    <Content Include="Views\HomePage\PersonalCenter.cshtml" />
+    <Content Include="Views\HomePage\MenuQuery.cshtml" />
+    <Content Include="Views\HomePage\NoMenuQuery.cshtml" />
+    <Content Include="Views\HouTai\NewsManagement.cshtml" />
+    <Content Include="Views\HomePage\SeeNews.cshtml" />
+    <Content Include="Views\HomePage\NewsInformation.cshtml" />
+    <Content Include="Utf8-asp\asp\config.json" />
+    <Content Include="Utf8-asp\asp\README.md" />
+    <Content Include="Utf8-asp\third-party\jquery-1.10.2.min.map" />
+    <Content Include="Utf8-asp\third-party\video-js\font\vjs.eot" />
+    <Content Include="Utf8-asp\third-party\video-js\font\vjs.ttf" />
+    <Content Include="Utf8-asp\third-party\video-js\font\vjs.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50623</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44392/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

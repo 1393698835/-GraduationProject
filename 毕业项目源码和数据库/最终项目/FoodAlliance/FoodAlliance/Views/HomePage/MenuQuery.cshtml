@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "MenuQuery";
+    Layout = "~/Views/Shared/XinXIzx.cshtml";
+}
+@using FoodAlliance.Models;
+@model List<Recipe>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+<body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div style="padding: 15px; margin-top:60px;">
+                <div class="layui-field-box">
+                    <table class="table table-hover table-striped">
+                        <tr>
+                            <th>
+                                食谱名
+                            </th>
+                            <th>
+                                成品图
+                            </th>
+                            <th>
+                                烹饪难度
+                            </th>
+                            <th>
+                                烹饪时间
+                            </th>
+                            <th>
+                                食谱故事
+                            </th>
+                            <th>
+                                食材清单
+                            </th>
+                            <th>
+                                步骤详解
+                            </th>
+                            <th>操作</th>
+                        </tr>
+                        
+                        @foreach (var item in Model.Where(a => a.Audit == 1))
+                        {
+                            <tr>
+                                <td>@item.RecipeName</td>
+                                <td>
+                                    <img src="~/Content/Imges/@item.RecipePicture" style="height:30px; width:40px;" />
+
+                                </td>
+                                <td>@item.RecipeDifficulty</td>
+                                <td>@item.RecipeTime</td>
+                                <td>@item.RecipeStory</td>
+                                <td>@item.Ingredient</td>
+                                <td>@item.Particular</td>
+                                <td>
+                                    <a href="/HomePage/Delete/@item.RecipeID" class="btn btn-danger">删除</a>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+

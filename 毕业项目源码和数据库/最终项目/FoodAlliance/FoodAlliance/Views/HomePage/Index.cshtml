@@ -1,0 +1,612 @@
+﻿
+@{
+    Layout = null;
+}
+@using FoodAlliance.Models
+@model List<Recipe>
+@{ 
+    List<Typess> typesses = ViewBag.list2;
+    List<Journalism> types = ViewBag.list3;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>美食同盟会您的味蕾知己</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="~/Content/Home2.css" rel="stylesheet" />
+    <script src="~/Scripts/Home.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=100">
+    <meta http-equiv="Expires" content="Fri, 12 Jun 2020 13:26:13 GMT">
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?01dd6a7c493607e115255b7e72de5f40";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+
+<body>
+    <div class="adinheader">
+        <div class="adinheader_w">
+            <script type="text/javascript">
+                BAIDU_CLB_fillSlot("206520");
+            </script>
+        </div>
+    </div>
+    <div class="header">
+        <div class="header_c">
+            <a href="#" class="logo pngFix"><img src="~/Content/Imges/logo.png"></a>
+            <div class="main_search_top_w">
+                <div class="suggestionsBox" id="suggestions" style="display:none;"><ul class="suggestionList" id="autoSuggestionsList"></ul></div>
+                <form action="/HomePage/QueryMenu" target="_blank">
+                    <input type="text" class="text" name="sreach_text" x-webkit-speech="" autocomplete="off"  placeholder="输入菜谱、食材、作者">
+                    <input type="submit" class="submit" value="搜 索">
+                </form>
+            </div>
+            <div class="loginitem_h">
+                <a href="~/ReleaseMenu/Index">发布菜谱</a>
+                <a href="~/HomePage/PersonalCenter">欢迎您的到来 @Session["UserName"]</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav">
+        <ul id="main_nav">
+            <li class="hasmore">
+                <a href="~/HomePage/Index" class="link pngFix"><strong>首页</strong></a>
+            </li>
+            <li class="hasmore">
+                <a href="~/RecipeDaqo/Index" class="link pngFix"><strong>菜谱大全</strong></a>
+                <div class="dw clearfix">
+                    <div class="dww clearfix dww_cpdq">
+                        <div class="dwitem dwitem_half clearfix">
+                            <dl class="clearfix">
+                                <dt><a href="#">中华菜系</a></dt>
+                                @foreach (var item in typesses)
+                                {
+                                    <dd>
+                                        <a href="~/RecipeDaqo/FenLei?id=@item.TypessID">
+                                            @item.TypessName
+                                        </a>
+                                    </dd>
+                                }
+                            </dl>
+                        </div>
+                        <br />
+                        <div class="bgitem"></div>
+                    </div>
+                </div>
+            </li>
+            <li class="hasmore">
+                <a href="~/HomePage/NewsInformation" class="link pngFix"><strong>新闻资讯</strong></a>
+            </li>
+        </ul>
+    </div>
+    <div class="main_w clearfix">
+        <div class="main clearfix">
+            <div class="index_zzw" id="index_zzw">
+                <div class="index_zzw_main" id="index_zzw_main">
+                    <div class="zzw_item zzw_item_3" po="3" c="4">
+                        <h3 class="bbtitles bbtitles_zzw"></h3>
+                        @* 轮播图 *@
+                        <ul class="clearfix">
+                            <li>
+                                <a target="_blank" href="/Detail/Index/?id=24" title="丝瓜炖豆腐" class="img"><img alt="丝瓜炖豆腐" src="~/Content/Imges/丝瓜炖豆腐.jpg" /></a>
+                                <div class="c pngFix">
+                                    <h2><a target="_blank" href="#" title="丝瓜炖豆腐">丝瓜炖豆腐</a></h2>
+                                    <strong>美味飘香，满足味蕾</strong>
+                                </div>
+                            </li>
+                            <li>
+                                <a target="_blank" href="/Detail/Index/?id=25" title="脆爽多汁椒盐虾球" class="img"><img alt="脆爽多汁椒盐虾球" src="~/Content/Imges/脆爽多汁椒盐虾球.jpg" /></a>
+                                <div class="c pngFix">
+                                    <h2><a target="_blank" href="#" title="脆爽多汁椒盐虾球">脆爽多汁椒盐虾球</a></h2>
+                                    <strong>鲜香可口，美味下饭</strong>
+                                </div>
+                            </li>
+                            <li>
+                                <a target="_blank" href="/Detail/Index/?id=26" title="炝拌土豆丝" class="img"><img alt="炝拌土豆丝" src="~/Content/Imges/炝拌土豆丝.jpg" /></a>
+                                <div class="c pngFix">
+                                    <h2><a target="_blank" href="#" title="炝拌土豆丝">炝拌土豆丝</a></h2>
+                                    <strong>香味浓郁，让人食欲大增</strong>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="zzw_item zzw_item_2" po="2" c="3">
+                        <h3 class="bbtitles bbtitles_zzw"></h3>
+                        <ul class="clearfix">
+                            <li>
+                                <a target="_blank" href="/Detail/Index/?id=54" title="脆皮炸鲜奶" class="img"><img alt="脆皮炸鲜奶" src="~/Content/Imges/脆皮炸鲜奶.jpg" /></a>
+                                <div class="c pngFix">
+                                    <h2><a target="_blank" href="#" title="脆皮炸鲜奶">脆皮炸鲜奶</a></h2>
+                                    <strong>无比美味，吃一口就爱上</strong>
+                                </div>
+                            </li>
+                            <li>
+                                <a target="_blank" href="/Detail/Index/?id=28" title="玉米片紫薯球" class="img"><img alt="玉米片紫薯球" src="~/Content/Imges/玉米片紫薯球.jpg" /></a>
+                                <div class="c pngFix">
+                                    <h2><a target="_blank" href="#" title="玉米片紫薯球">玉米片紫薯球</a></h2>
+                                    <strong>香气四溢，吃出幸福感</strong>
+                                </div>
+                            </li>
+                            <li>
+                                <a target="_blank" href="/Detail/Index/?id=29" title="百香果芒果雪糕" class="img"><img alt="百香果芒果雪糕" src="~/Content/Imges/百香果芒果雪糕.jpg" /></a>
+                                <div class="c pngFix">
+                                    <h2><a target="_blank" href="#" title="百香果芒果雪糕">百香果芒果雪糕</a></h2>
+                                    <strong>美味下午茶，让人欲罢不能</strong>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="zzw_item zzw_item_4" po="4" c="5">
+                        <h3 class="bbtitles bbtitles_zzw"></h3>
+                        <ul class="clearfix">
+                            <li>
+                                <a target="_blank" href="/Detail/Index/?id=30" title="虎皮尖椒" class="img"><img alt="虎皮尖椒" src="~/Content/Imges/虎皮尖椒.jpg" /></a>
+                                <div class="c pngFix">
+                                    <h2><a target="_blank" href="#" title="虎皮尖椒">虎皮尖椒</a></h2>
+                                    <strong>均衡营养，滋补养生</strong>
+                                </div>
+                            </li>
+                            <li>
+                                <a target="_blank" href="/Detail/Index/?id=31" title="葱油拌面" class="img"><img alt="葱油拌面" src="~/Content/Imges/葱油拌面.jpg" /></a>
+                                <div class="c pngFix">
+                                    <h2><a target="_blank" href="#" title="葱油拌面">葱油拌面</a></h2>
+                                    <strong>美味过瘾，好吃停不下嘴</strong>
+                                </div>
+                            </li>
+                            <li>
+                                <a target="_blank" href="/Detail/Index/?id=32" title="豆腐鱼头汤" class="img"><img alt="豆腐鱼头汤" src="~/Content/Imges/豆腐鱼头汤.jpg" /></a>
+                                <div class="c pngFix">
+                                    <h2><a target="_blank" href="#" title="豆腐鱼头汤">豆腐鱼头汤</a></h2>
+                                    <strong>激发味蕾，好吃到舔手指</strong>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="zzw_item zzw_item_1" po="1" c="2">
+                        <h3 class="bbtitles bbtitles_zzw"></h3>
+                        <ul class="clearfix">
+                            <li>
+                                <a target="_blank" href="/Detail/Index/?id=33" title="酱烧虾" class="img"><img alt="酱烧虾" src="~/Content/Imges/酱烧虾.jpg" /></a>
+                                <div class="c pngFix">
+                                    <h2><a target="_blank" href="#" title="酱烧虾">酱烧虾</a></h2>
+                                    <strong>经典家常，上桌就光盘</strong>
+                                </div>
+                            </li>
+                            <li>
+                                <a target="_blank" href="/Detail/Index/?id=34" title="清蒸花盖蟹" class="img"><img alt="清蒸花盖蟹" src="~/Content/Imges/清蒸花盖蟹.jpg" /></a>
+                                <div class="c pngFix">
+                                    <h2><a target="_blank" href="#" title="清蒸花盖蟹">清蒸花盖蟹</a></h2>
+                                    <strong>色香味俱佳，惊艳味蕾</strong>
+                                </div>
+                            </li>
+                            <li>
+                                <a target="_blank" href="/Detail/Index/?id=35" title="糖醋鱼" class="img"><img alt="糖醋鱼" src="~/Content/Imges/糖醋鱼.jpg" /></a>
+                                <div class="c pngFix">
+                                    <h2><a target="_blank" href="#" title="糖醋鱼">糖醋鱼</a></h2>
+                                    <strong>鲜美入味，好吃到爆</strong>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="zzw_item zzw_item_5" po="5" c="1">
+                        <h3 class="bbtitles bbtitles_zzw"></h3>
+                        <ul class="clearfix">
+                            <li>
+                                <a target="_blank" href="/Detail/Index/?id=36" title="肠仔包" class="img"><img alt="肠仔包" src="~/Content/Imges/肠仔包.jpg" /></a>
+                                <div class="c pngFix">
+                                    <h2><a target="_blank" href="#" title="肠仔包">肠仔包</a></h2>
+                                    <strong>营养与口味并存，全家都爱</strong>
+                                </div>
+                            </li>
+                            <li>
+                                <a target="_blank" href="/Detail/Index/?id=37" title="河南菜馍" class="img"><img alt="河南菜馍" src="~/Content/Imges/河南菜馍.jpg" /></a>
+                                <div class="c pngFix">
+                                    <h2><a target="_blank" href="#" title="河南菜馍">河南菜馍</a></h2>
+                                    <strong>美味营养，吃完元气满满</strong>
+                                </div>
+                            </li>
+                            <li>
+                                <a target="_blank" href="/Detail/Index/?id=55" title="芡实南瓜粥" class="img"><img alt="芡实南瓜粥" src="~/Content/Imges/芡实南瓜粥.jpg" /></a>
+                                <div class="c pngFix">
+                                    <h2><a target="_blank" href="#" title="芡实南瓜粥">芡实南瓜粥</a></h2>
+                                    <strong>简单快手，分分钟搞定</strong>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="maskleft" id="maskleft"></div>
+                <div class="maskright" id="maskright"></div>
+                <div class="prev_btn prev_btn_1 pngFix" id="zzw_prev_btn"></div>
+                <div class="next_btn next_btn_1 pngFix" id="zzw_next_btn"></div>
+                <div class="index_3meal_tab" id="index_timelinebox">
+                    <div class="index_3meal_tab_w">
+                        <span class="timex timex_0" id="i_time4">
+                            <span>早餐时间</span>
+                        </span>
+                        <span class="timex timex_1" id="i_time10">
+                            <span>午餐时间</span>
+                        </span>
+                        <span class="timex timex_2" id="i_time14">
+                            <span>下午茶时间</span>
+                        </span>
+                        <span class="timex timex_3 timex_current" id="i_time16">
+                            <span>晚餐时间</span>
+                        </span>
+                        <span class="timex timex_4" id="i_time21">
+                            <span>夜宵时间</span>
+                        </span>
+                    </div>
+                    <div class="timeline_left"></div>
+                    <div class="timeline_right"></div>
+                    <span class="time time4" id="i_time4">4:00</span><span class="time time10" id="i_time10">10:00</span><span class="time time14" id="i_time14">14:00</span><span class="time time16" id="i_time16">16:00</span><span class="time time21" id="i_time21">21:00</span><span class="time time4_" id="i_time4_">4:00</span>
+                </div>
+            </div>
+            <div class="index_pxw_ww">
+                <div id="index_cp_leftarrow"></div>
+                <div id="index_cp_leftarrow_mask"></div>
+                <div id="index_cp_rightarrow"></div>
+                <div id="index_cp_rightarrow_mask"></div>
+                <div class="index_pxw_w" id="index_pxw_w">
+                    <div class="index_pxw clearfix" id="index_pxw">
+                        <div class="index_pxi">
+                            <h3 class="bbtitles">今日推荐菜谱</h3>
+                            <div class="listtyle2_w clearfix" id="listtyle1_w">
+                                <div class="listtyle1_list clearfix" id="listtyle1_list">
+                                    @{
+                                        int a = 1;
+                                        GourmetLeagueEntities db = new GourmetLeagueEntities();
+                                        List<Users> us = db.Users.ToList();
+                                    }
+
+
+                                    @foreach (var item in Model)
+                                    {
+
+                                        if (a == 1 || a == 5)
+                                        {
+
+                                            <div class="listtyle1 ml0">
+                                                <a target="_blank" href="/Detail/Index/?id=@item.RecipeID" title="@item.RecipeName" class="big">
+                                                    <img class="img" alt="@item.RecipeName" src="~/Content/Imges/@item.RecipePicture">
+                                                    <div class="i_w">
+                                                        <div class="i" style="margin-top: 0px;">
+                                                            <div class="c1">
+                                                                <strong>@item.RecipeName</strong><span>您的餐桌由我们来丰富</span>
+                                                                @foreach (var item1 in us)
+                                                                {
+                                                                    if (item.UsersID == item1.UsersID)
+                                                                    {
+                                                                        <em>发布人：@item1.UsersName</em>
+                                                                    }
+
+                                                                }
+
+                                                            </div>
+                                                            <div class="c2">
+                                                                <ul>
+                                                                    <li class="li1">热门食谱</li>
+                                                                    <li class="li2">美食同盟会</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <strong class="gx"><span>热门</span></strong>
+                                                </a>
+                                            </div>
+                                            a++;
+                                        }
+                                        else if (a == 8)
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            <div class="listtyle1">
+                                                <a target="_blank" href="/Detail/Index/?id=@item.RecipeID" title="@item.RecipeName" class="big">
+                                                    <img class="img" alt="@item.RecipeName" src="~/Content/Imges/@item.RecipePicture">
+                                                    <div class="i_w">
+                                                        <div class="i" style="margin-top: 0px;">
+                                                            <div class="c1">
+                                                                <strong>@item.RecipeName</strong><span>您的餐桌由我们来丰富</span>
+                                                                @foreach (var item1 in us)
+                                                                {
+                                                                    if (item.UsersID == item1.UsersID)
+                                                                    {
+                                                                        <em>发布人：@item1.UsersName</em>
+                                                                    }
+
+                                                                }
+                                                            </div>
+                                                            <div class="c2">
+                                                                <ul>
+                                                                    <li class="li1">热门食谱</li>
+                                                                    <li class="li2">美食同盟会</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <strong class="gx"><span>热门</span></strong>
+                                                </a>
+                                            </div>
+                                            a++;
+                                        }
+
+
+
+                                    }
+
+
+                                    <div class="listtyle1 ">
+                                        <div class="index_cplist_more">
+                                            <h3>热门栏目推荐</h3>
+                                            <ul>
+                                                <li>
+                                                    <a href="~/RecipeDaqo/Index">最新菜谱</a>
+                                                </li>
+                                                <li>
+                                                    <a href="~/RecipeDaqo/FenLei?id=1">川菜</a>
+                                                </li>
+                                                <li>
+                                                    <a href="~/RecipeDaqo/FenLei?id=3">粤菜</a>
+                                                </li>
+                                                <li>
+                                                    <a href="~/RecipeDaqo/FenLei?id=2">湘菜</a>
+                                                </li>
+                                                <li>
+                                                    <a href="~/RecipeDaqo/FenLei?id=4">东北菜</a>
+                                                </li>
+                                                <li>
+                                                    <a href="~/RecipeDaqo/FenLei?id=5">鲁菜</a>
+                                                </li>
+                                                <li>
+                                                    <a href="~/RecipeDaqo/FenLei?id=6">浙菜</a>
+                                                </li>
+                                                <li>
+                                                    <a href="~/RecipeDaqo/FenLei?id=7">苏菜</a>
+                                                </li>
+                                                <li>
+                                                    <a href="~/RecipeDaqo/FenLei?id=10">沪菜</a>
+                                                </li>
+                                                <li>
+                                                    <a href="~/RecipeDaqo/FenLei?id=11">京菜</a>
+                                                </li>
+                                                <li>
+                                                    <a href="~/RecipeDaqo/FenLei?id=14">豫菜</a>
+                                                </li>
+                                                <li>
+                                                    <a href="~/RecipeDaqo/FenLei?id=15">西北菜</a>
+                                                </li>
+                                                <li>
+                                                    <a href="~/RecipeDaqo/FenLei?id=17">江西菜</a>
+                                                </li>
+                                                <li>
+                                                    <a href="~/RecipeDaqo/Index" class="hot">进入菜谱大全 >></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="paixu">
+                        <a target="_blank" href="~/RecipeDaqo/Index">更多菜谱 &gt;</a>
+                    </span>
+                </div>
+            </div>
+            <h3 class="bbtitles">健康新闻</h3>
+            <div class="index_health clearfix">
+                <div class="left">
+                    <div class="div1 mb20">
+                        <h2><a target="_blank" href="#">食品安全</a><em class="arrow"></em></h2>
+                        <ul class="index_healthitem">
+                            @{int c= 1;} 
+                            @foreach (var item in types)
+                            {
+                                if (item.JournalismType == "食品安全")
+                                {
+                                    if (c <= 3)
+                                    {
+                                        <li>
+                                            <a target="_blank" href="~/HomePage/SeeNews?id=@item.JournalismID" class="img"><img src="~/Content/Imges/@item.Picture" /></a>
+                                            <h3><a target="_blank" href="~/HomePage/SeeNews?id=@item.JournalismID">@item.JournalismTitle</a></h3>
+                                        </li>
+                                        c++;
+                                    }
+                                    else
+                                    {
+                                        break;
+                                    }
+                                }
+
+                            }
+                        </ul>
+                    </div>
+                    <div class="div1 mb20 mr0">
+                        <h2><a target="_blank" href="#">文化典故</a><em class="arrow"></em></h2>
+                        <ul class="index_healthitem">
+                            @{int d = 1;}
+                            @foreach (var item in types)
+                            {
+                                if (item.JournalismType == "文化典故")
+                                {
+                                    if (d <= 3)
+                                    {
+                                        <li>
+                                            <a target="_blank" href="~/HomePage/SeeNews?id=@item.JournalismID" class="img"><img src="~/Content/Imges/@item.Picture" /></a>
+                                            <h3><a target="_blank" href="~/HomePage/SeeNews?id=@item.JournalismID">@item.JournalismTitle</a></h3>
+                                        </li>
+                                        d++;
+                                    }
+                                    else
+                                    {
+                                        break;
+                                    }
+                                }
+
+                            }
+                        </ul>
+                    </div>
+                    <div class="div1 mb0">
+                        <h2><a target="_blank" href="#">健康指南</a><em class="arrow"></em></h2>
+                        <ul class="index_healthitem">
+                            @{int e = 1;}
+                            @foreach (var item in types)
+                            {
+                                if (item.JournalismType == "健康指南")
+                                {
+                                    if (e <= 3)
+                                    {
+                                        <li>
+                                            <a target="_blank" href="~/HomePage/SeeNews?id=@item.JournalismID" class="img"><img src="~/Content/Imges/@item.Picture" /></a>
+                                            <h3><a target="_blank" href="~/HomePage/SeeNews?id=@item.JournalismID">@item.JournalismTitle</a></h3>
+                                        </li>
+                                        e++;
+                                    }
+                                    else
+                                    {
+                                        break;
+                                    }
+                                }
+
+                            }
+                        </ul>
+                    </div>
+                    <div class="div1 mr0 mb0">
+                        <h2><a target="_blank" href="#">新鲜资讯</a><em class="arrow"></em></h2>
+                        <ul class="index_healthitem">
+                            @{int f = 1;}
+                            @foreach (var item in types)
+                            {
+                                if (item.JournalismType == "新鲜资讯")
+                                {
+                                    if (f <= 3)
+                                    {
+                                        <li>
+                                            <a target="_blank" href="~/HomePage/SeeNews?id=@item.JournalismID" class="img"><img src="~/Content/Imges/@item.Picture" /></a>
+                                            <h3><a target="_blank" href="~/HomePage/SeeNews?id=@item.JournalismID">@item.JournalismTitle</a></h3>
+                                        </li>
+                                       f++;
+                                    }
+                                    else
+                                    {
+                                        break;
+                                    }
+                                }
+
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer_con2">
+        <dl class="friend_link clearfix">
+            <dt>友情链接</dt>
+            <dd>
+                <a target="_blank" href="http://www.meishij.net" title="美食">美食</a>
+            </dd>
+            <dd>
+                <a target="_blank" href="http://tizhi.meishi.cc" title="体质测试">体质测试</a>
+            </dd>
+            <dd>
+                <a target="_blank" href="http://sj.meishi.cc/app.php?to=guanjia" title="伊特">伊特</a>
+            </dd>
+            <dd>
+                <a target="_blank" href="http://www.9ku.com/ " title="9酷音乐网">9酷音乐网</a>
+            </dd>
+            <dd>
+                <a target="_blank" href="http://www.yue365.com" title="365音乐网">365音乐网</a>
+            </dd>
+            <dd>
+                <a target="_blank" href="http://www.mapbar.com/" title="图吧">图吧</a>
+            </dd>
+            <dd>
+                <a target="_blank" href="http://baa.bitauto.com/" title="汽车论坛">汽车论坛</a>
+            </dd>
+            <dd>
+                <a target="_blank" href="http://food.39.net" title="39健康饮食">39健康饮食</a>
+            </dd>
+            <dd>
+                <a target="_blank" href="http://www.qqtn.com/ " title="QQ下载 ">QQ下载</a>
+            </dd>
+            <dd>
+                <a target="_blank" href="http://www.meilele.com/" title="家具网">家具网</a>
+            </dd>
+            <dd>
+                <a target="_blank" href="http://chihe.sohu.com" title="搜狐美食">搜狐美食</a>
+            </dd>
+            <dd>
+                <a target="_blank" href="http://www.meishichina.com" title="美食天下">美食天下</a>
+            </dd>
+            <dd>
+                <a target="_blank" href="http://www.zhms.cn" title="中华美食网">中华美食网</a>
+            </dd>
+            <dd>
+                <a target="_blank" href="http://hefei.8684.cn/" title="合肥公交网">合肥公交网</a>
+            </dd>
+            <dd>
+                <a target="_blank" href="http://www.canyin88.com/" title="红餐微杂志">红餐微杂志</a>
+            </dd>
+            <dd>
+                <a target="_blank" href="http://bj.fang.com" title="北京搜房网">北京搜房网</a>
+            </dd>
+            <dd>
+                <a target="_blank" href="https://www.meishij.net/siteinfo/links.php" title="更多友情链接">更多友情链接</a>
+            </dd>
+        </dl>
+    </div>
+    <div class="footer_con3">
+        <ul class="clearfix">
+            <li>
+                <a target="_blank" href="#" title="公司简介">公司简介</a>
+            </li>
+            <li>
+                <a target="_blank" href="#" title="关于我们">关于我们</a>
+            </li>
+            <li>
+                <a target="_blank" href="#" title="产品下载">产品下载</a>
+            </li>
+            <li>
+                <a target="_blank" href="#" title="加入我们">加入我们</a>
+            </li>
+            <li>
+                <a target="_blank" href="#" title="联系我们">联系我们</a>
+            </li>
+            <li>
+                <a target="_blank" href="#" title="商务合作">商务合作</a>
+            </li>
+            <li>
+                <a target="_blank" href="#" title="用户协议">用户协议</a>
+            </li>
+            <li>
+                <a target="_blank" href="#" title="用户协议">隐私政策</a>
+            </li>
+            <li>
+                <a target="_blank" href="#" title="网站地图">网站地图</a>
+            </li>
+            <li>
+                <a target="_blank" href="#" title="友情链接">友情链接</a>
+            </li>
+        </ul>
+        <p>
+    </div>
+
+    <div style="display:none;">
+        <script type="text/javascript">
+            var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+            document.write(unescape("%3Cspan id='cnzz_stat_icon_1259001544'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1259001544' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,513 @@
+﻿
+@{
+    Layout = null;
+}
+@using FoodAlliance.Models
+@model List<Recipe>
+@{
+    List<Typess> typesses = ViewBag.list2;
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>您所需菜谱的详细做法</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script>
+        var _hmt = _hmt || [];
+    </script>
+    <link href="~/Content/MenuDetails.css" rel="stylesheet" />
+    <script>
+        var _czc = _czc || [];
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?01dd6a7c493607e115255b7e72de5f40";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <script src="~/Scripts/MenuDetails.js"></script>
+</head>
+
+<body style="">
+    @foreach (var item in Model)
+    {
+        <div class="adinheader">
+            <div class="adinheader_w">
+                <script>
+                    (function () {
+                        var s = "_" + Math.random().toString(36).slice(2);
+                        document.write('<div id="' + s + '"></div>');
+                        (window.slotbydup = window.slotbydup || []).push({
+                            id: '206520',
+                            container: s,
+                            size: '990,40',
+                            display: 'inlay-fix'
+                        });
+                    })();
+                </script>
+            </div>
+        </div>
+        <div class="header">
+            <div class="header_c">
+                <a href="#" class="logo pngFix"><img src="~/Content/Imges/logo.png"></a>
+                <div class="main_search_top_w">
+                    <div class="suggestionsBox" id="suggestions" style="display:none;"><ul class="suggestionList" id="autoSuggestionsList"></ul></div>
+                    <form action="/HomePage/QueryMenu" target="_blank">
+                        <input type="text" class="text" name="sreach_text" x-webkit-speech="" autocomplete="off" id="" placeholder="输入菜谱、食材、作者">
+                        <input type="submit" class="submit" value="搜 索">
+                    </form>
+                </div>
+                <div class="loginitem_h">
+                    <a href="#">欢迎您的到来 @Session["UserName"]</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="nav">
+            <ul id="main_nav">
+                <li class="current">
+                    <a href="~/HomePage/Index" class="link pngFix"><strong>首页</strong></a>
+                </li>
+                <li class="hasmore">
+                    <a href="~/RecipeDaqo/Index" class="link pngFix"><strong>菜谱大全</strong></a>
+                    <div class="dw clearfix">
+                        <div class="dww clearfix dww_cpdq">
+                            <div class="dwitem dwitem_half clearfix">
+                                <dl class="clearfix">
+                                    <dt><a href="#">中华菜系</a></dt>
+                                    @foreach (var item1 in typesses)
+                                    {
+                                        <dd>
+                                            <a href="~/RecipeDaqo/FenLei/?id=@item.TypessID">
+                                                @item1.TypessName
+                                            </a>
+                                        </dd>
+                                    }
+                                </dl>
+                            </div>
+                            <br />
+                            
+                            <div class="bgitem"></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="hasmore">
+                    <a href="~/HomePage/NewsInformation" class="link pngFix"><strong>新闻资讯</strong></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bottom_back_top_top bottom_back_top_top_slideUp" id="bottom_back_top_top">
+            <a href="#" title="返回鲫鱼汤的顶部" class="backtotop pngFix">回到顶部</a>
+        </div>
+        <div class="main_w clearfix">
+            <div class="main clearfix">
+                <ul class="pathstlye1">
+                    <li>
+                        <a id="tongji_shouye" href="~/HomePage/Index">首页</a>
+                    </li>
+                    <li> > </li>
+                    <li>
+                        <a id="tongji_caipudaquan" href="~/RecipeDaqo/Index">菜谱大全</a>
+                    </li>
+                    <li> > </li>
+                    <li>
+                        <a id='tongji_toolbar_10043' class='curzt' href='#'>@item.RecipeName</a>
+                    </li>
+                </ul>
+
+                <div class="cp_header clearfix">
+                    <div class="cp_headerimg_w"><img alt="@item.RecipeName" src="~/Content/Imges/@item.RecipePicture" /></div>
+                    <div class="cp_main_info_w">
+                        <div class="info1">
+                            <h1 class="title"><a id="tongji_title" title="@item.RecipeName" href="#">@item.RecipeName</a></h1>
+                        </div>
+                        <div class="info2">
+                            <ul class="clearfix">
+
+                                <li class="w270">
+                                    <strong>难度</strong>
+                                    <div class="processing_w">
+                                        <span class="icon icon_nd"></span><span class="processing processing_nd0"></span>@item.RecipeDifficulty
+                                    </div>
+                                </li>
+                                <li class="w270 bb0 br0">
+                                    <strong>烹饪时间</strong>
+                                    <div class="processing_w">
+                                        <span class="icon icon_pr"></span><span class="processing processing_nd0"></span>@item.RecipeTime
+                                    </div>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                        <div class="info3" style="padding-top: 20px;">
+                            <div class="user">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a style="margin-left: 10px; font-size: 16px;">食谱故事：</a>
+                                <a style="margin-left: 10px; font-size: 16px;line-height: 25px;">
+                                    @item.RecipeStory
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cp_body clearfix">
+                    <div class="cp_body_left">
+                        <div class="materials">
+                            <strong class="cpc_h2">用料</strong>
+                            <div class="materials_box">
+                                <div class="yl zl clearfix">
+                                    <h3><a href="javascript:;" title="鲫鱼汤的主料">食材清单</a></h3>
+                                    <ul class="clearfix">
+                                        <li class=" bb0">
+                                            <div class="c">
+                                                <h4><a target="_blank" href="#">@item.Ingredient</a></h4>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="measure">
+                            <h2 class="cpc_h2">@item.RecipeName 的做法</h2>
+                            <div class="edit edit_class_0 edit_class_2" data-plugin="keyword">
+                                <p><em class='step' id='step_num1'>详细步骤：</em>@item.Particular</p>
+                            </div>
+                            <span class="authors_copy_right">
+                                <strong>@item.RecipeName 的版权归作者所有，没有作者本人的书面许可任何人不得转载或使用其中整体或任何部分内容。</strong>
+                            </span>
+                        </div>
+                        <div class="cp_comment">
+                            <h2 class="cpc_h2">@item.RecipeName 的讨论</h2>
+                            <a name="pl"></a>
+                            <div class="cp_comments_list">
+                                <div class="cp_com_form_w clearfix">
+                                    <a target="_blank" href="#" class="useravatar"><img src="~/Content/Imges/用户头像.png" /></a>
+                                    <div class="form_w">
+                                        <div class="cp_pl_tag" id="cp_com_mask">
+                                            <em>给内容一个标签：</em><span class="current" type="3">随意吐槽</span>
+                                        </div>
+                                        <form action="/Detail/Comment" method="post">
+                                            <input name="id" type="hidden" id="news_id" value="576011">
+                                            <input name="news_title" type="hidden" id="news_title" value="鲫鱼汤">
+                                            <input name="from_search" type="hidden" id="from_search" value="0">
+                                            <input type="hidden" name="RecipeID" value="@item.RecipeID" />
+                                            <textarea id="CommentContent" placeholder="想说点什么..." name="CommentContent"></textarea>
+                                            <input type="submit" id="cp_com_submit" value="提交" class="submit" />
+                                            <input type="hidden" id="cp_com_type" />
+                                        </form>
+                                    </div>
+                                </div>
+                                @foreach (var item1 in item.Comment)
+                                {
+                                    <div id="newspls">
+                                        <div class="cp_comlist_w">
+                                            <ul class="clearfix">
+                                                <li class="clearfix commentslist_li">
+                                                    <a target="_blank" href="#" class="avatar">
+                                                        <img src="~/Content/Imges/用户头像.png" />
+                                                        <h5>@item1.CommentUser</h5>
+                                                    </a>
+                                                    <div class="c">
+                                                        <p class="p1">
+                                                            <strong>[随意吐槽]</strong>
+                                                            @item1.CommentContent
+                                                        </p>
+                                                        <div class="info">
+                                                            <a href="javascript:;" class="re re_start">回复</a>
+                                                            <span class="zzzzan" id="zzzzan4126569" plid='4126569'>
+                                                                <em class="con_comlist_zanbtn"></em>
+                                                            </span>
+                                                        </div>
+
+                                                        <div class="comscoms clearfix" style="display:none;">
+                                                            <form class="re_form" action="#" id="pl_3163710">
+                                                                <input type="hidden" id="reply_id_3163710" value="3163710" />
+                                                                <textarea class="re_textarea" placeholder="我也说一句" id="text_3163710"></textarea>
+                                                                <input type="button" onclick="submit_reply('3163710')" class="re_submit" value="回复" />
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cp_body_right" style="background-color: #fff;">
+                        <div class="geat_one1" id="right_206660">
+                            <script>
+                                (function () {
+                                    var s = "_" + Math.random().toString(36).slice(2);
+                                    document.write('<div id="' + s + '"></div>');
+                                    (window.slotbydup = window.slotbydup || []).push({
+                                        id: '206660',
+                                        container: s,
+                                        size: '300,250',
+                                        display: 'inlay-fix'
+                                    });
+                                })();
+                            </script>
+                        </div>
+                        <style>
+                            .iphonestyle_new .imgsetw {
+                                width: 300px;
+                                height: 569px;
+                                position: relative;
+                            }
+
+                                .iphonestyle_new .imgsetw .mask {
+                                    width: 300px;
+                                    height: 569px;
+                                    position: absolute;
+                                    left: 0px;
+                                    top: 0px;
+                                    background: url('../../Content/Imges/手机.png') center no-repeat;
+                                    z-index: 10;
+                                }
+
+                                .iphonestyle_new .imgsetw .imgw {
+                                    width: 248px;
+                                    height: 537px;
+                                    margin: 0px 26px 0px;
+                                    overflow: hidden;
+                                    position: relative;
+                                    top: 16px;
+                                }
+
+                                    .iphonestyle_new .imgsetw .imgw .imgs {
+                                        width: 744px;
+                                        height: 537px;
+                                        transition: all ease 0.3s;
+                                        font-size: 0px;
+                                    }
+
+                                .iphonestyle_new .imgsetw .imgw1 .imgs {
+                                    margin-left: 0px;
+                                }
+
+                                .iphonestyle_new .imgsetw .imgw2 .imgs {
+                                    margin-left: -248px;
+                                }
+
+                                .iphonestyle_new .imgsetw .imgw3 .imgs {
+                                    margin-left: -496px;
+                                }
+
+                                .iphonestyle_new .imgsetw .imgw .img {
+                                    display: inline-block;
+                                    vertical-align: top;
+                                    height: 537px;
+                                    width: 248px;
+                                }
+
+                            .side_qrcode {
+                                background: url(https://s1.st.meishij.net/p2/20190522/20190522172502_923.png) center no-repeat;
+                                width: 120px;
+                                height: 193px;
+                                position: fixed;
+                                left: 50%;
+                                margin-left: 515px;
+                                bottom: 100px;
+                            }
+                        </style>
+                        <div class="iphonestyle_new" id="iphonestyle_new">
+
+                            <div class="imgsetw">
+
+                                <div class="imgw imgw1">
+                                    <div class="imgs">
+                                        <img src="~/Content/Imges/手机1.jpg" class="img" />
+                                        <img src="~/Content/Imges/手机2.jpg" class="img" />
+                                        <img src="~/Content/Imges/手机3.jpg" class="img" />
+                                    </div>
+                                </div>
+                                <div class="mask"></div>
+
+                            </div>
+
+                        </div>
+                        <script>
+                            $(function () {
+                                var sti_iphonestyle_new = setInterval(function () {
+                                    var _ele = $("#iphonestyle_new .imgw");
+                                    if (_ele.hasClass("imgw1")) {
+                                        _ele.removeClass("imgw1").addClass("imgw2");
+                                    } else if (_ele.hasClass("imgw2")) {
+                                        _ele.removeClass("imgw2").addClass("imgw3");
+                                    } else if (_ele.hasClass("imgw3")) {
+                                        _ele.removeClass("imgw3").addClass("imgw1");
+                                    }
+                                }, 3000);
+
+                            });
+                        </script>
+                    </div>
+                    <!--div class="bbtitles" id="con_xscp2">看过鲫鱼汤的人还喜欢看...</div-->
+                    <div id="dt_MRecVAV"></div>
+                </div>
+                <script type="text/javascript">
+                    (function (win, doc) {
+                        var s = doc.createElement("script"),
+                            h = doc.getElementsByTagName("head")[0];
+                        if (!win.alimamatk_show) {
+                            s.charset = "gbk";
+                            s.async = true;
+                            s.src = "http://a.alimama.cn/tkapi.js";
+                            s.kslite = "";
+                            h.insertBefore(s, h.firstChild);
+                        }
+                        var o = {
+                            pid: "mm_10008787_2640448_11521435",
+                            unid: "",
+                            rd: 2,
+                            appkey: "",
+                            plugins: [{
+                                name: "keyword"
+                            }]
+                        };
+                        win.alimamatk_onload = win.alimamatk_onload || [];
+                        win.alimamatk_onload.push(o);
+                    })(window, document);
+                </script>
+                <script type="text/javascript">
+                    _czc.push(['_trackEvent', 'pc', 'pc_news']);
+                    _czc.push(['_trackEvent', 'pc', 'pc_news_class_43']);
+                    window["_BFD"] = window["_BFD"] || {};
+                    _BFD.BFD_INFO = {
+                        "title": "鲫鱼汤",
+                        "pic": "http://images.meishij.net/p/20120927/b11359d177dba1e0a7c6d5c48fd518fe.jpg",
+                        "id": "576011",
+                        "url": "https://www.meishij.net/zuofa/qingbuliangjiyutang.html",
+                        "category": [
+                            ["粤菜", "https://www.meishij.net/china-food/caixi/yuecai/"]
+                        ],
+                        "tag": ["明目", "下奶", "美容养颜"],
+                        "author": "他们叫我",
+                        "pinglun": "10",
+                        "renqi": "19814",
+                        "step": "9步",
+                        "gongyi": "炖",
+                        "nandu": "",
+                        "renshu": "",
+                        "kouwei": "其它口味",
+                        "zbshijian": "",
+                        "prshijian": "",
+                        "page_type": "detail"
+                    };
+                    window["_BFD"] = window["_BFD"] || {};
+                    _BFD.client_id = "Cmeishijie";
+                    _BFD.script = document.createElement("script");
+                    _BFD.script.type = "text/javascript";
+                    _BFD.script.async = true;
+                    _BFD.script.charset = "utf-8";
+                    _BFD.script.src = (('https:' == document.location.protocol ? 'https://ssl-static1' : 'http://static1') + '.baifendian.com/service/meishijie/meishijie.js');
+                </script>
+                <script>
+                    window._bd_share_config = {
+                        common: {
+                            bdSnsKey: {
+                                "tsina": "3274300248"
+                            },
+                            bdDesc: '',
+                            bdUrl: 'https://www.meishij.net/zuofa/qingbuliangjiyutang.html',
+                            bdPic: 'http://images.meishij.net/p/20120927/7fcb62745e4712fd7d8b0a25f89c816d.jpg',
+                            bdMiniList: ['mshare', 'qzone', 'tsina', 'tqq', 'huaban', 'renren', 'weixin', 'kaixin001', 'douban', 'tsohu', 'bdysc', 'sohu', 't163', 'meilishuo', 'mogujie', 'tfh', 'fx', 'youdao']
+                        },
+                        share: [{
+                            "bdSize": 16
+                        }],
+                        selectShare: [{
+                            "bdselectMiniList": ['qzone', 'tsina', 'douban', 'tqq', 'renren']
+                        }]
+                    }
+                    with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
+                </script>
+                <div style="display:none;"></div>
+                <script>
+                    (function () {
+                        var s = "_" + Math.random().toString(36).slice(2);
+                        document.write('<div id="' + s + '"></div>');
+                        (window.slotbydup = window.slotbydup || []).push({
+                            id: '1026794',
+                            container: s,
+                            size: '120,270',
+                            display: 'float'
+                        });
+                    })();
+                </script>
+
+            </div>
+            <div class="main_footer pngFix">
+                <div class="footer_con2">
+                    <dl class="friend_link clearfix">
+                        <dt>友情链接</dt>
+                        <dd><a target="_blank" href="#" title="美食">美食</a></dd>
+                        <dd><a target="_blank" href="#" title="体质测试">体质测试</a></dd>
+                        <dd><a target="_blank" href="http://sj.meishi.cc/app.php?to=guanjia" title="伊特">伊特</a></dd>
+                        <dd><a target="_blank" href="http://www.9ku.com/ " title="9酷音乐网">9酷音乐网</a></dd>
+                        <dd><a target="_blank" href="http://www.yue365.com" title="365音乐网">365音乐网</a></dd>
+                        <dd><a target="_blank" href="http://www.mapbar.com/" title="图吧">图吧</a></dd>
+                        <dd><a target="_blank" href="http://baa.bitauto.com/" title="汽车论坛">汽车论坛</a></dd>
+                        <dd><a target="_blank" href="http://food.39.net" title="39健康饮食">39健康饮食</a></dd>
+                        <dd><a target="_blank" href="http://www.qqtn.com/ " title="QQ下载 ">QQ下载</a></dd>
+                        <dd><a target="_blank" href="http://www.meilele.com/" title="家具网">家具网</a></dd>
+                        <dd><a target="_blank" href="http://chihe.sohu.com" title="搜狐美食">搜狐美食</a></dd>
+                        <dd><a target="_blank" href="http://www.meishichina.com" title="美食天下">美食天下</a></dd>
+                        <dd><a target="_blank" href="http://www.zhms.cn" title="中华美食网">中华美食网</a></dd>
+                        <dd><a target="_blank" href="http://hefei.8684.cn/" title="合肥公交网">合肥公交网</a></dd>
+                        <dd><a target="_blank" href="http://www.canyin88.com/" title="红餐微杂志">红餐微杂志</a></dd>
+                        <dd><a target="_blank" href="http://bj.fang.com" title="北京搜房网">北京搜房网</a></dd>
+                        <dd><a target="_blank" href="https://www.meishij.net/siteinfo/links.php" title="更多友情链接">更多友情链接</a></dd>
+                    </dl>
+                </div>
+                <div class="footer_con3">
+                    <div class="jianjv"></div>
+                    <ul class="clearfix">
+                        <li><a target="_blank" href="#" title="公司简介">公司简介</a></li>
+                        <li><a target="_blank" href="#" title="关于我们">关于我们</a></li>
+                        <li><a target="_blank" href="#" title="产品下载">产品下载</a></li>
+                        <li><a target="_blank" href="#" title="加入我们">加入我们</a></li>
+                        <li><a target="_blank" href="#" title="联系我们">联系我们</a></li>
+                        <li><a target="_blank" href="#" title="商务合作">商务合作</a></li>
+                        <li><a target="_blank" href="#" title="用户协议">用户协议</a></li>
+                        <li><a target="_blank" href="#" title="用户协议">隐私政策</a></li>
+                        <li><a target="_blank" href="#" title="网站地图">网站地图</a></li>
+                        <li><a target="_blank" href="#" title="友情链接">友情链接</a></li>
+                    </ul>
+
+                </div>
+            </div>
+            <div style="display:none;">
+                <script type="text/javascript">
+                    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                    document.write(unescape("%3Cspan id='cnzz_stat_icon_1259001544'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1259001544' type='text/javascript'%3E%3C/script%3E"));
+                </script>
+            </div>
+        </div>
+    }
+</body>
+
+</html>
+
+@section scripts{
+    <script type="text/javascript">
+
+        $(function kk() {
+            $("#news_title").val();
+            $("#from_search").val();
+            $("#from_search").val();
+            $("#cp_com_textarea").val();
+
+        })
+    </script>
+
+
+}

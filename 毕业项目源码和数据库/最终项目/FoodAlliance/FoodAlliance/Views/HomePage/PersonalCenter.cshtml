@@ -1,0 +1,36 @@
+﻿@using FoodAlliance.Models;
+@model List<Users>
+@{ 
+    Users user = Model[0];
+}
+@{
+    ViewBag.Title = "PersonalCenter";
+    Layout = "~/Views/Shared/XinXIzx.cshtml";
+}
+    <title>个人中心</title>
+    <div class="yangshi" style="margin-left:160px;">
+        <h2 style="margin-left:120px;">编辑个人信息</h2>
+
+        <div class="bj" style="height:84px;"></div>
+        <form  action="/HomePage/Apudata" method="post">
+            <div class="form-group">
+                <label for="exampleInputEmail1">用户名</label>
+                <input type="hidden" class="form-control" id="UsersName" name="UsersID" value="@user.UsersID" aria-describedby="emailHelp" style="width:450px;">
+                <input type="text" class="form-control" id="UsersName" name="UsersName" value="@user.UsersName" aria-describedby="emailHelp" style="width:450px;">
+            </div>
+            <br />
+            <br />
+            <div class="form-group">
+                <label for="exampleInputEmail1">电话号码</label>
+                <input class="form-control" type="text" placeholder="" id="UsersPhone" name="UsersPhone" value="@user.UsersPhone" readonly style="width:450px;">
+            </div>
+            <br />
+            <br />
+            <div class="form-group">
+                <label for="exampleInputPassword1">密码</label>
+                <input type="text" class="form-control" id="UsersPassword" name="UsersPassword" value="@user.UsersPassword" style="width:450px;">
+            </div>
+            <br />
+            <button type="submit" class="btn btn-danger" style="margin-left:160px;width:150px;height:45px;margin-top:30px;">修改</button>
+        </form>
+    </div>

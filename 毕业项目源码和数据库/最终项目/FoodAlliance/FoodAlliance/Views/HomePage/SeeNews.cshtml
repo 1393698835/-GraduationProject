@@ -1,0 +1,313 @@
+﻿
+@{
+    Layout = null;
+}
+@using FoodAlliance.Models
+@model List<Journalism>
+@{
+    List<Typess> typesses = ViewBag.list2;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>同盟会新闻</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script>
+        var _hmt = _hmt || [];
+    </script>
+    <link href="~/Content/MenuDetails.css" rel="stylesheet" />
+    <script>
+        var _czc = _czc || [];
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?01dd6a7c493607e115255b7e72de5f40";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <script src="~/Scripts/MenuDetails.js"></script>
+</head>
+
+<body style="">
+    @foreach (var item in Model)
+    {
+        <div class="adinheader">
+            <div class="adinheader_w">
+                <script>
+                    (function () {
+                        var s = "_" + Math.random().toString(36).slice(2);
+                        document.write('<div id="' + s + '"></div>');
+                        (window.slotbydup = window.slotbydup || []).push({
+                            id: '206520',
+                            container: s,
+                            size: '990,40',
+                            display: 'inlay-fix'
+                        });
+                    })();
+                </script>
+            </div>
+        </div>
+        <div class="header">
+            <div class="header_c">
+                <a href="#" class="logo pngFix"><img src="~/Content/Imges/logo.png"></a>
+                <div class="main_search_top_w">
+                    <div class="suggestionsBox" id="suggestions" style="display:none;"><ul class="suggestionList" id="autoSuggestionsList"></ul></div>
+                    <form action="/HomePage/QueryMenu" target="_blank">
+                        <input type="text" class="text" name="sreach_text" x-webkit-speech="" autocomplete="off" id="" placeholder="输入菜谱、食材、作者">
+                        <input type="submit" class="submit" value="搜 索">
+                    </form>
+                </div>
+                <div class="loginitem_h">
+                    <a href="#">欢迎您的到来 @Session["UserName"]</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="nav">
+            <ul id="main_nav">
+                <li class="current">
+                    <a href="~/HomePage/Index" class="link pngFix"><strong>首页</strong></a>
+                </li>
+                <li class="hasmore">
+                    <a href="#" class="link pngFix"><strong>菜谱大全</strong></a>
+                    <div class="dw clearfix">
+                        <div class="dww clearfix dww_cpdq">
+                            <div class="dwitem dwitem_half clearfix">
+                                <dl class="clearfix">
+                                    <dt><a href="#">中华菜系</a></dt>
+                                    @foreach (var item1 in typesses)
+                                    {
+                                        <dd>
+                                            <a href="~/RecipeDaqo/FenLei/?id=@item1.TypessID">
+                                                @item1.TypessName
+                                            </a>
+                                        </dd>
+                                    }
+                                </dl>
+                            </div>
+                            <br />
+                            <div class="bgitem"></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="hasmore">
+                    <a href="~/HomePage/NewsInformation" class="link pngFix"><strong>新闻资讯</strong></a>
+                </li>
+            </ul>
+        </div>
+        <div class="main_w clearfix">
+            <div class="main clearfix">
+                <ul class="pathstlye1">
+                    <li>
+                        <a id="tongji_shouye" href="~/HomePage/Index">首页</a>
+                    </li>
+                    <li> > </li>
+                    <li>
+                        <a id="tongji_caipudaquan" href="~/RecipeDaqo/Index">菜谱大全</a>
+                    </li>
+                    <li> > </li>
+                    <li>
+                        <a id='tongji_toolbar_10043' class='curzt' href='#'>新闻标题</a>
+                    </li>
+                </ul>
+                <div class="cp_body clearfix">
+                    <div class="cp_body_left">
+                        <div class="artical_title_w">
+                            <h1 class="title"><a title="@item.JournalismTitle" href="#">@item.JournalismTitle</a></h1>
+                            <div class="user">
+                                <a href="javascript:;" class="img">
+                                    <img src="https://s1.c.meishij.net/q/images/default/t_default.png">
+                                    <span class="masker pngFix"></span>
+                                </a>
+                                <div class="info">
+                                    <h4 style="margin-top:10px;"><a>美食同盟会</a><strong style="margin-left:100px;">@item.ReleaseTime</strong></h4>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="measure">
+                            <div class="edit editwz edit_class_0 edit_class_18" data-plugin="keyword">
+                                <p style="-webkit-tap-highlight-color: transparent; margin: 0px; padding: 10px 0px; font-size: 16px; color: rgb(34, 34, 34); font-family: Arial  Sans GB SimSun,STHeiti; text-indent: 2em;">
+                                    <span style="-webkit-tap-highlight-color: transparent; text-indent: 2em; position: relative;left: 30%;top: 50%;transform: translate(-50%,-50%);"><img src="~/Content/Imges/@item.Picture" /> </span>
+                                    <hr />
+                                    <div class="neirong" style="margin-top:20px; width:610px; margin-left:30px;">@Html.Raw(item.Content);</div>
+                                    
+                                </p>
+                            </div>
+                            <span class="authors_copy_right">
+                                <strong>版权归作者所有，没有作者本人的书面许可任何人不得转载或使用其中整体或任何部分内容。</strong>
+                                <!--<a target="_blank" title="打印" href="">打印菜谱</a>-->
+                            </span>
+                            <div style="width:640px;padding:0px 15px 20px;background:#f5f5f5;overflow:hidden;">
+                                <script type="text/javascript" src="//ma1.meishij.net/idvmejlzc.js"></script>
+                                <script type="text/javascript" src="//ma1.meishij.net/gbtkchjyt.js"></script>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="cp_body_right" style="background-color: #fff;">
+                        <div class="geat_one1" id="right_206660">
+                            <script>
+                                (function () {
+                                    var s = "_" + Math.random().toString(36).slice(2);
+                                    document.write('<div id="' + s + '"></div>');
+                                    (window.slotbydup = window.slotbydup || []).push({
+                                        id: '206660',
+                                        container: s,
+                                        size: '300,250',
+                                        display: 'inlay-fix'
+                                    });
+                                })();
+                            </script>
+                        </div>
+                        <style>
+                            .iphonestyle_new .imgsetw {
+                                width: 300px;
+                                height: 569px;
+                                position: relative;
+                            }
+
+                                .iphonestyle_new .imgsetw .mask {
+                                    width: 300px;
+                                    height: 569px;
+                                    position: absolute;
+                                    left: 0px;
+                                    top: 0px;
+                                    background: url('../../Content/Imges/手机.png') center no-repeat;
+                                    z-index: 10;
+                                }
+
+                                .iphonestyle_new .imgsetw .imgw {
+                                    width: 248px;
+                                    height: 537px;
+                                    margin: 0px 26px 0px;
+                                    overflow: hidden;
+                                    position: relative;
+                                    top: 16px;
+                                }
+
+                                    .iphonestyle_new .imgsetw .imgw .imgs {
+                                        width: 744px;
+                                        height: 537px;
+                                        transition: all ease 0.3s;
+                                        font-size: 0px;
+                                    }
+
+                                .iphonestyle_new .imgsetw .imgw1 .imgs {
+                                    margin-left: 0px;
+                                }
+
+                                .iphonestyle_new .imgsetw .imgw2 .imgs {
+                                    margin-left: -248px;
+                                }
+
+                                .iphonestyle_new .imgsetw .imgw3 .imgs {
+                                    margin-left: -496px;
+                                }
+
+                                .iphonestyle_new .imgsetw .imgw .img {
+                                    display: inline-block;
+                                    vertical-align: top;
+                                    height: 537px;
+                                    width: 248px;
+                                }
+
+                            .side_qrcode {
+                                background: url(https://s1.st.meishij.net/p2/20190522/20190522172502_923.png) center no-repeat;
+                                width: 120px;
+                                height: 193px;
+                                position: fixed;
+                                left: 50%;
+                                margin-left: 515px;
+                                bottom: 100px;
+                            }
+                        </style>
+                        <div class="iphonestyle_new" id="iphonestyle_new">
+
+                            <div class="imgsetw">
+
+                                <div class="imgw imgw1">
+                                    <div class="imgs">
+                                        <img src="~/Content/Imges/手机1.jpg" class="img" />
+                                        <img src="~/Content/Imges/手机2.jpg" class="img" />
+                                        <img src="~/Content/Imges/手机3.jpg" class="img" />
+                                    </div>
+                                </div>
+                                <div class="mask"></div>
+
+                            </div>
+
+                        </div>
+
+                        <script>
+                            $(function () {
+                                var sti_iphonestyle_new = setInterval(function () {
+                                    var _ele = $("#iphonestyle_new .imgw");
+                                    if (_ele.hasClass("imgw1")) {
+                                        _ele.removeClass("imgw1").addClass("imgw2");
+                                    } else if (_ele.hasClass("imgw2")) {
+                                        _ele.removeClass("imgw2").addClass("imgw3");
+                                    } else if (_ele.hasClass("imgw3")) {
+                                        _ele.removeClass("imgw3").addClass("imgw1");
+                                    }
+                                }, 3000);
+
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*}*@
+        <div class="main_footer pngFix">
+            <div class="footer_con2">
+                <dl class="friend_link clearfix">
+                    <dt>友情链接</dt>
+                    <dd><a target="_blank" href="#" title="美食">美食</a></dd>
+                    <dd><a target="_blank" href="#" title="体质测试">体质测试</a></dd>
+                    <dd><a target="_blank" href="http://sj.meishi.cc/app.php?to=guanjia" title="伊特">伊特</a></dd>
+                    <dd><a target="_blank" href="http://www.9ku.com/ " title="9酷音乐网">9酷音乐网</a></dd>
+                    <dd><a target="_blank" href="http://www.yue365.com" title="365音乐网">365音乐网</a></dd>
+                    <dd><a target="_blank" href="http://www.mapbar.com/" title="图吧">图吧</a></dd>
+                    <dd><a target="_blank" href="http://baa.bitauto.com/" title="汽车论坛">汽车论坛</a></dd>
+                    <dd><a target="_blank" href="http://food.39.net" title="39健康饮食">39健康饮食</a></dd>
+                    <dd><a target="_blank" href="http://www.qqtn.com/ " title="QQ下载 ">QQ下载</a></dd>
+                    <dd><a target="_blank" href="http://www.meilele.com/" title="家具网">家具网</a></dd>
+                    <dd><a target="_blank" href="http://chihe.sohu.com" title="搜狐美食">搜狐美食</a></dd>
+                    <dd><a target="_blank" href="http://www.meishichina.com" title="美食天下">美食天下</a></dd>
+                    <dd><a target="_blank" href="http://www.zhms.cn" title="中华美食网">中华美食网</a></dd>
+                    <dd><a target="_blank" href="http://hefei.8684.cn/" title="合肥公交网">合肥公交网</a></dd>
+                    <dd><a target="_blank" href="http://www.canyin88.com/" title="红餐微杂志">红餐微杂志</a></dd>
+                    <dd><a target="_blank" href="http://bj.fang.com" title="北京搜房网">北京搜房网</a></dd>
+                    <dd><a target="_blank" href="https://www.meishij.net/siteinfo/links.php" title="更多友情链接">更多友情链接</a></dd>
+                </dl>
+            </div>
+            <div class="footer_con3">
+                <div class="jianjv"></div>
+                <ul class="clearfix">
+                    <li><a target="_blank" href="#" title="公司简介">公司简介</a></li>
+                    <li><a target="_blank" href="#" title="关于我们">关于我们</a></li>
+                    <li><a target="_blank" href="#" title="产品下载">产品下载</a></li>
+                    <li><a target="_blank" href="#" title="加入我们">加入我们</a></li>
+                    <li><a target="_blank" href="#" title="联系我们">联系我们</a></li>
+                    <li><a target="_blank" href="#" title="商务合作">商务合作</a></li>
+                    <li><a target="_blank" href="#" title="用户协议">用户协议</a></li>
+                    <li><a target="_blank" href="#" title="用户协议">隐私政策</a></li>
+                    <li><a target="_blank" href="#" title="网站地图">网站地图</a></li>
+                    <li><a target="_blank" href="#" title="友情链接">友情链接</a></li>
+                </ul>
+
+            </div>
+        </div>
+        <div style="display:none;">
+            <script type="text/javascript">
+                var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                document.write(unescape("%3Cspan id='cnzz_stat_icon_1259001544'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1259001544' type='text/javascript'%3E%3C/script%3E"));
+            </script>
+        </div>
+    }
+    </body>
+</html>
+

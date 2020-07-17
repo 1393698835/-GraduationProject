@@ -1,0 +1,169 @@
+﻿@{
+    Layout = null;
+}
+@using FoodAlliance.Models;
+@model List<Recipe>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>美食同盟会后台管理系统</title>
+    <link rel="stylesheet" href="~/Content/layui.css">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo">美食同盟会后台管理系统</div>
+            <!-- 头部区域（可配合layui已有的水平导航） -->
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item"><a href="/HouTai/HouTaiHome">用户列表</a></li>
+                <li class="layui-nav-item"><a href="/HouTai/HouTaiAudit">未审核列表</a></li>
+                <li class="layui-nav-item"><a href="/HouTai/HouTaiAuditcg">已审核列表</a></li>
+                <li class="layui-nav-item"><a href="/HouTai/NewsManagement">新闻管理</a></li>
+            </ul>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="~/Content/Imges/login_home_background.jpg" class="layui-nav-img">
+                        胡瑶
+                    </a>
+                </li>
+                <li class="layui-nav-item"><a href="">注销</a></li>
+            </ul>
+        </div>
+
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item">
+                        <a href="/HouTai/HouTaiHome">用户管理</a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="/HouTai/HouTaiAudit">未审核列表</a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="/HouTai/HouTaiAuditcg">已审核列表</a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="/HouTai/NewsManagement">新闻管理</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div style="padding: 15px; margin-top:60px;">
+                <div class="layui-field-box">
+                    <table class="table table-hover table-striped">
+                        <tr>
+                            <th>
+                                用户名
+                            </th>
+                            <th>
+                                食谱名
+                            </th>
+                            <th>
+                                成品图
+                            </th>
+                            <th>
+                                烹饪难度
+                            </th>
+                            <th>
+                                烹饪时间
+                            </th>
+                            <th>
+                                食谱故事
+                            </th>
+                            <th>
+                                食材清单
+                            </th>
+                            <th>
+                                步骤详解
+                            </th>
+                            <th>操作</th>
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Users.UsersName</td>
+                                <td>@item.RecipeName</td>
+                                <td>
+                                    <img src="~/Content/Imges/@item.RecipePicture" style="height:30px; width:40px;" />
+
+                                </td>
+                                <td>@item.RecipeDifficulty</td>
+                                <td>@item.RecipeTime</td>
+                                <td>@item.RecipeStory</td>
+                                <td>@item.Ingredient</td>
+                                <td>@item.Particular</td>
+                                <td>
+                                    <a href="#" class="btn btn-danger" onclick="return confirm('确定要通过审核吗？')">已审核</a>
+                                </td>
+                            </tr>
+
+                        }
+                    </table>
+                    <div class="row">
+                        <div class="col-lg-8 form-inline">
+                            <label>总共 @ViewBag.tatalCount 行</label>&nbsp;
+                            <label>选择显示的行数</label>
+                            <select name="pageCount" id="pageCount" onchange="window.location = this.value;">
+                                @{
+                                    int[] count = new[] { 5, 10, 20, 30, 40, 50 };
+                                }
+                                @foreach (var item in count)
+                                {
+                                    if (item.Equals(ViewBag.pageCount))
+                                    {
+                                        <option selected value="/HouTai/HouTaiAuditcg?RecipeID=@ViewBag.RecipeID&RecipeName=@ViewBag.RecipeName&pageIndex=1&pageCount=@item">@item</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="/HouTai/HouTaiAuditcg?RecipeID=@ViewBag.RecipeID&RecipeName=@ViewBag.RecipeName&pageIndex=1&pageCount=@item">@item</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div class="col-lg-4">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <li class="page-item"><a class="page-link" href="/HouTai/HouTaiAuditcg?RecipeID=@ViewBag.RecipeID&RecipeName=@ViewBag.RecipeName&pageIndex=1&pageCount=@ViewBag.pageCount">首页</a></li>
+                                    @if (ViewBag.pageIndex > 1)
+                                    {
+                                        <li class="page-item"><a class="page-link" href="/HouTai/HouTaiAuditcg?RecipeID=@ViewBag.RecipeID&RecipeName=@ViewBag.RecipeName&pageIndex=@(ViewBag.pageIndex-1)&pageCount=@ViewBag.pageCount">上一页</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="page-item disabled"><a class="page-link" href="#">上一页</a></li>
+                                    }
+                                    <li class="page-item"><a class="page-link" href="#">@ViewBag.pageIndex</a></li>
+                                    @if (ViewBag.pageIndex < @ViewBag.tataoPage)
+                                    {
+                                        <li class="page-item"><a class="page-link" href="/HouTai/HouTaiAuditcg?RecipeID=@ViewBag.RecipeID&RecipeName=@ViewBag.RecipeName&pageIndex=@(ViewBag.pageIndex+1)&pageCount=@ViewBag.pageCount">下一页</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="page-item disabled"><a class="page-link" href="#">下一页</a></li>
+                                    }
+                                    <li class="page-item"><a class="page-link" href="/HouTai/HouTaiAuditcg?RecipeID=@ViewBag.RecipeID&RecipeName=@ViewBag.RecipeName&pageIndex=@(ViewBag.tataoPage)&pageCount=@ViewBag.pageCount">末页</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-footer">
+            <!-- 底部固定区域 -->
+            © 美食同盟会与你同在
+        </div>
+    </div>
+</body>
+</html>
